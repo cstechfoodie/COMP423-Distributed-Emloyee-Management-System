@@ -13,5 +13,5 @@ public interface recordApi {
 	
 	public int getecordCounts();
 	
-	public void editRecord(String recordID, String fieldName, String newValue);
+	public void editRecord(String recordID, String fieldName, Object newValue);
 }

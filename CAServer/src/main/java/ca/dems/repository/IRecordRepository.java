@@ -6,6 +6,6 @@ import ca.dems.model.Record;
 
 public interface IRecordRepository {
 	public boolean createMRecord(Record record);
-	public void editRecord(UUID recordID, String fieldName, Object newValue);
+	public boolean editRecord(UUID recordID, String fieldName, Object newValue);
 	public int geRecordCounts();
 }

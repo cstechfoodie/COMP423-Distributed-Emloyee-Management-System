@@ -8,11 +8,32 @@ public class EmployeeRecord extends Record{
 	private static final long serialVersionUID = 1L;
 	private String projectID;
 	
+	private static int counter = 10000;
+	private static String recordPrefix = "ER";
+	
+	private String recordID;
+	
+
 	public EmployeeRecord(String firstName, String lastName, Integer employeeID, String mailID, String projectID) {
 		super(firstName, lastName, employeeID, mailID);
+		this.recordID = recordPrefix + counter;
+		counter++;
 		this.projectID = projectID;
 	}
 
+	/**
+	 * @return the recordID
+	 */
+	public String getRecordID() {
+		return recordID;
+	}
+	
+	/**
+	 * @param recordID the recordID to set
+	 */
+	public void setRecordID(String recordID) {
+		this.recordID = recordID;
+	}
 	/**
 	 * @return the projectID
 	 */

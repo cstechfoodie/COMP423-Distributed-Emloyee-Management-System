@@ -3,13 +3,12 @@ package ca.dems.model;
 import java.io.Serializable;
 import java.util.UUID;
 
-public class Record implements Serializable{
+public abstract class Record implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private UUID recordID;
 	
 	private String firstName;
 	private String lastName;
@@ -17,26 +16,10 @@ public class Record implements Serializable{
 	private String MailID;
 	
 	public Record(String firstName, String lastName, Integer employeeID, String mailID) {
-		recordID = UUID.randomUUID();
-		
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.employeeID = employeeID;
 		this.MailID = mailID;
-	}
-
-	/**
-	 * @return the recordID
-	 */
-	public UUID getRecordID() {
-		return recordID;
-	}
-
-	/**
-	 * @param recordID the recordID to set
-	 */
-	public void setRecordID(UUID recordID) {
-		this.recordID = recordID;
 	}
 
 	/**
@@ -94,4 +77,7 @@ public class Record implements Serializable{
 	public void setMailID(String mailID) {
 		MailID = mailID;
 	}
+	
+	public abstract String getRecordID();
+	public abstract void setRecordID(String recordID);
 }

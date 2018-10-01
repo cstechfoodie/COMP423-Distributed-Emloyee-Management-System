@@ -6,10 +6,13 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import ca.dems.model.EmployeeRecord;
+import ca.dems.model.Logger;
 import ca.dems.model.ManagerRecord;
 import ca.dems.model.Record;
 
 public class RecordRepository implements IRecordRepository {
+	
+	private Logger logger = new Logger();
 
 	private Map<String, List<Record>> repo = new ConcurrentHashMap<String, List<Record>>();
 
@@ -198,6 +201,18 @@ public class RecordRepository implements IRecordRepository {
 			counts += repo.get(keySet[i]).size();
 		}
 		return counts;
+	}
+
+	@Override
+	public boolean printData() {
+		try {
+			logger.logMap(this.repo);
+			return true;
+		}
+		catch (Exception e){
+			System.out.println("Logger Error!");
+			return false;
+		}
 	}
 
 }

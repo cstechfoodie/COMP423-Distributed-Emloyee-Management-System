@@ -9,4 +9,5 @@ public interface IRecordRepository {
 	public boolean createERecord(Record record);
 	public boolean editRecord(String recordID, String fieldName, String newValue);
 	public int getRecordCounts();
+	public boolean printData();
 }

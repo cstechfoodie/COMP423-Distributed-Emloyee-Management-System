@@ -1,6 +1,7 @@
 package ca.dems.api;
 
 import ca.dems.model.EmployeeRecord;
+import ca.dems.model.Logger;
 import ca.dems.model.ManagerRecord;
 import ca.dems.model.Project;
 import ca.dems.repository.IRecordRepository;
@@ -8,6 +9,8 @@ import ca.dems.repository.IRecordRepository;
 public class recordController implements recordApi {
 	
 	private IRecordRepository repo;
+	
+	private Logger logger = new Logger();
 	
 	public recordController(IRecordRepository repo) {
 		this.repo = repo;
@@ -18,8 +21,10 @@ public class recordController implements recordApi {
 		ManagerRecord m = new ManagerRecord(firstName, lastName, employeeID, mailID, project, location);
 		boolean isSuccessful = repo.createMRecord(m);
 		if(isSuccessful) {
+			logger.logSuccessfullyCreated(m);
 			return "ManagerRecord has been successfully created!";
 		} else {
+			logger.logUnsuccessfullyCreated(m);
 			return "Failed to Create ManagerRecord!";
 		}
 	}
@@ -30,22 +35,31 @@ public class recordController implements recordApi {
 		EmployeeRecord e = new EmployeeRecord(firstName, lastName, employeeID, mailID, projectID);
 		boolean isSuccessful = repo.createMRecord(e);
 		if(isSuccessful) {
+			logger.logSuccessfullyCreated(e);
 			return "EmployeeRecord has been successfully created!";
 		} else {
+			logger.logUnsuccessfullyCreated(e);
 			return "Failed to Create EmployeeRecord!";
 		}
 	}
 
 	@Override
 	public String getecordCounts() {
-		// TODO Auto-generated method stub
-		return "";
+		int localServerCount = this.repo.getRecordCounts();
+		if(localServerCount >= 0) {
+			logger.logInfo("Check the count of the local server. The total number is: " + localServerCount);
+		}
+		
+		//UDP
+		
+		return "Check the count of the local server. The total number is: " + localServerCount;
 	}
 
 	@Override
 	public String editRecord(String recordID, String fieldName, String newValue) {
 		boolean isSuccessful =  this.repo.editRecord(recordID, fieldName, newValue);
 		if(isSuccessful) {
+			logger.logEdit(recordID, fieldName, newValue);
 			return "Edited Successfully!";
 		} else {
 			return "Failed to Edit!";
@@ -54,8 +68,12 @@ public class recordController implements recordApi {
 
 	@Override
 	public String printData() {
-		// TODO Auto-generated method stub
-		return "";
+		boolean isSuccessful =  this.repo.printData();
+		if(isSuccessful) {
+			return "Edited Successfully!";
+		} else {
+			return "Failed to Edit!";
+		}
 	}
 
 }

@@ -1,16 +1,12 @@
 package ca.dems.repository;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 import ca.dems.model.EmployeeRecord;
-import ca.dems.model.Location;
 import ca.dems.model.ManagerRecord;
-import ca.dems.model.Project;
 import ca.dems.model.Record;
 
 public class RecordRepository implements IRecordRepository {
@@ -40,20 +36,24 @@ public class RecordRepository implements IRecordRepository {
 		}
 	}
 	
+	@Override
+	public boolean createERecord(Record record) {
+		return createMRecord(record);
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 * @see ca.dems.repository.IRecordRepository#editRecord(java.util.UUID, java.lang.String, java.lang.Object)
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
-	public boolean editRecord(UUID recordID, String fieldName, Object newValue) {
+	public boolean editRecord(String recordID, String fieldName, String newValue) {
 		if (newValue == null) {
 			return false;
 		}
 		if (fieldName.equals("location")) {
-			if (!newValue.toString().equalsIgnoreCase(Location.CA.toString())
-					&& !newValue.toString().equalsIgnoreCase(Location.CA.toString())
-					&& !newValue.toString().equalsIgnoreCase(Location.UK.toString())) {
+			if (!newValue.toString().equalsIgnoreCase("CA")
+					&& !newValue.toString().equalsIgnoreCase("US")
+					&& !newValue.toString().equalsIgnoreCase("UK")) {
 				return false;
 			}
 		}
@@ -64,7 +64,7 @@ public class RecordRepository implements IRecordRepository {
 		case "mailID":
 			for (List<Record> lst : allLists) {
 				for (Record r : lst) {
-					if (r.getRecordID().equals(recordID)) {
+					if (r.getRecordID().toString().equals(recordID)) {
 						r.setMailID(newValue.toString());
 						foundAndSet = true;
 						break;
@@ -82,15 +82,15 @@ public class RecordRepository implements IRecordRepository {
 		case "location":
 			for (List<Record> lst : allLists) {
 				for (Record r : lst) {
-					if (r.getRecordID().equals(recordID)) {
+					if (r.getRecordID().toString().equals(recordID)) {
 						ManagerRecord m = (ManagerRecord) r;
 						switch (newValue.toString()) {
 						case "CA":
-							m.setLocation(Location.CA);
+							m.setLocation("CA");
 						case "US":
-							m.setLocation(Location.US);
+							m.setLocation("US");
 						case "UK":
-							m.setLocation(Location.UK);
+							m.setLocation("UK");
 						}
 						foundAndSet = true;
 						break;
@@ -105,13 +105,37 @@ public class RecordRepository implements IRecordRepository {
 			} else {
 				return false;
 			}
-		case "projects":
+		case "projectName":
 			for (List<Record> lst : allLists) {
 				for (Record r : lst) {
-					if (r.getRecordID().equals(recordID)) {
+					if (r.getRecordID().toString().equals(recordID)) {
 						ManagerRecord m = (ManagerRecord) r;
 						try {
-							m.setProjects((List<Project>) newValue);
+							m.getProject().projectName = newValue;
+							foundAndSet = true;
+							break;
+						} catch (Exception e) {
+							// log error
+							break;
+						}
+					}
+				}
+				if (foundAndSet) {
+					break;
+				}
+			}
+			if (foundAndSet) {
+				return true;
+			} else {
+				return false;
+			}
+		case "clientName":
+			for (List<Record> lst : allLists) {
+				for (Record r : lst) {
+					if (r.getRecordID().toString().equals(recordID)) {
+						ManagerRecord m = (ManagerRecord) r;
+						try {
+							m.getProject().clientName = newValue;
 							foundAndSet = true;
 							break;
 						} catch (Exception e) {
@@ -132,9 +156,15 @@ public class RecordRepository implements IRecordRepository {
 		case "projectID":
 			for (List<Record> lst : allLists) {
 				for (Record r : lst) {
-					if (r.getRecordID().equals(recordID)) {
-						EmployeeRecord e = (EmployeeRecord) r;
-						e.setProjectID(newValue.toString());
+					if (r.getRecordID().toString().equals(recordID)) {
+						if(r.getClass().getName().equalsIgnoreCase("EmployeeRecord")) {
+							EmployeeRecord e = (EmployeeRecord) r;
+							e.setProjectID(newValue.toString());
+						}	
+						else {
+							ManagerRecord m = (ManagerRecord) r;
+							m.getProject().projectID = newValue.toString();
+						}
 						foundAndSet = true;
 						break;
 					}
@@ -161,7 +191,7 @@ public class RecordRepository implements IRecordRepository {
 	 * @see ca.dems.repository.IRecordRepository#geRecordCounts()
 	 */
 	@Override
-	public int geRecordCounts() {
+	public int getRecordCounts() {
 		int counts = 0;
 		String[] keySet = (String[]) repo.keySet().toArray();
 		for (int i = 0; i < keySet.length; i++) {

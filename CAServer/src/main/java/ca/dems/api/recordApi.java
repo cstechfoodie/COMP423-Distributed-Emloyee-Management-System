@@ -2,16 +2,19 @@ package ca.dems.api;
 
 import java.util.List;
 
-import ca.dems.model.Location;
 import ca.dems.model.Project;
 
 public interface recordApi {
 	
-	public boolean createMRecord(String firstName, String lastName, String employeeID, String mailID, List<Project> projects, Location location);
+	//all return type should be string 
+	//aemployeeID is Integer, there should be only one project ID in this create method
+	public String createMRecord(String firstName, String lastName, Integer employeeID, String mailID, Project project, String location);
 	
-	public boolean createERecord(String firstName, String lastName, String employeeID, String mailID, String projectID);
+	public String createERecord(String firstName, String lastName, Integer employeeID, String mailID, String projectID);
 	
-	public int getecordCounts();
+	public String getecordCounts();
 	
-	public void editRecord(String recordID, String fieldName, Object newValue);
+	public String editRecord(String recordID, String fieldName, String newValue);
+	
+	public String printData(); //display the content of the map to the server side 
 }

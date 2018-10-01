@@ -26,4 +26,12 @@ public class EmployeeRecord extends Record{
 	public void setProjectID(String projectID) {
 		this.projectID = projectID;
 	}
+	
+	public String toString() {
+		String str = "This is a Manager Record with ID: " + this.getRecordID().toString() + "EmployeeId: "
+				+ this.getEmployeeID() + ". First name: " + this.getFirstName() + ", Last Name: " + this.getLastName()
+				+ ", Mail is " + this.getMailID() + ". The project Id is: "
+				+ this.getProjectID();
+		return str;
+	}
 }

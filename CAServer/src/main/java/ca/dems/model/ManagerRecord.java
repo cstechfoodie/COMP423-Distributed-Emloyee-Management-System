@@ -71,7 +71,7 @@ public class ManagerRecord extends Record {
 	public String toString() {
 		String str = "This is a Manager Record with ID: " + this.getRecordID().toString() + "EmployeeId: "
 				+ this.getEmployeeID() + ". First name: " + this.getFirstName() + ", Last Name: " + this.getLastName()
-				+ "Located at: " + this.getLocation() + ", Mail is " + this.getMailID() + ". The project info is: "
+				+ " Located at: " + this.getLocation() + ", Mail is " + this.getMailID() + ". The project info is: "
 				+ this.project.toString();
 		return str;
 	}

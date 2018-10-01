@@ -30,26 +30,26 @@ public class Logger {
 
 	public synchronized void logInfo(String message) {
 		this.printWriter.println(formatter.format(new Date()) + ": " + message);
-		closeWriter();
+		flush();
 	}
 
 	public synchronized void logSuccessfullyCreated(Record r) {
 		this.printWriter.println(formatter.format(new Date()) + ": The following record has been successfully created!");
 		this.printWriter.println("------>" + r.toString());
-		closeWriter();
+		flush();
 	}
 
 	public synchronized void logUnsuccessfullyCreated(Record r) {
 		this.printWriter
 				.println(formatter.format(new Date()) + ": The following record has NOT been successfully created!");
 		this.printWriter.println("------>" + r.toString());
-		closeWriter();
+		flush();
 	}
 
 	public synchronized void logEdit(String recordID, String fieldName, String newValue) {
 		this.printWriter.println(formatter.format(new Date()) + ": In Record " + recordID + ", fieldName {" + fieldName
 				+ "} was changed to " + newValue + ".");
-		closeWriter();
+		flush();
 	}
 
 	public synchronized void logMap(Map<String, List<Record>> map) {
@@ -59,13 +59,13 @@ public class Logger {
 			for (int i = 0; i < v.size(); i++) {
 				this.printWriter.println(i + ": " + v.get(i).toString());
 			}
-			this.printWriter.println("-=-=> Ttoal records associate with this key is " + v.size());
+			this.printWriter.println("-=-=> Total records associate with this key is " + v.size());
 		});
-		closeWriter();
+		flush();
 	}
 
-	private void closeWriter() {
-		this.printWriter.close();
+	private void flush() {
+		this.printWriter.flush();
 	}
 
 }

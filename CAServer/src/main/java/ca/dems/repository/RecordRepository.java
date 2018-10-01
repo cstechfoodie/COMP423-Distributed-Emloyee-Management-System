@@ -1,6 +1,7 @@
 package ca.dems.repository;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -60,7 +61,7 @@ public class RecordRepository implements IRecordRepository {
 				return false;
 			}
 		}
-		List<List<Record>> allLists = (List<List<Record>>) repo.values();
+		Collection<List<Record>> allLists = repo.values();
 		boolean foundAndSet = false;
 
 		switch (fieldName) {
@@ -90,10 +91,13 @@ public class RecordRepository implements IRecordRepository {
 						switch (newValue.toString()) {
 						case "CA":
 							m.setLocation("CA");
+							break;
 						case "US":
 							m.setLocation("US");
+							break;
 						case "UK":
 							m.setLocation("UK");
+							break;
 						}
 						foundAndSet = true;
 						break;
@@ -160,7 +164,7 @@ public class RecordRepository implements IRecordRepository {
 			for (List<Record> lst : allLists) {
 				for (Record r : lst) {
 					if (r.getRecordID().toString().equals(recordID)) {
-						if(r.getClass().getName().equalsIgnoreCase("EmployeeRecord")) {
+						if(r.getClass().getSimpleName().equalsIgnoreCase("EmployeeRecord")) {
 							EmployeeRecord e = (EmployeeRecord) r;
 							e.setProjectID(newValue.toString());
 						}	

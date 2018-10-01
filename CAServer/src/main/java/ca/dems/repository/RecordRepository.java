@@ -196,7 +196,7 @@ public class RecordRepository implements IRecordRepository {
 	@Override
 	public int getRecordCounts() {
 		int counts = 0;
-		String[] keySet = (String[]) repo.keySet().toArray();
+		Object[] keySet = repo.keySet().toArray();
 		for (int i = 0; i < keySet.length; i++) {
 			counts += repo.get(keySet[i]).size();
 		}
@@ -204,15 +204,8 @@ public class RecordRepository implements IRecordRepository {
 	}
 
 	@Override
-	public boolean printData() {
-		try {
-			logger.logMap(this.repo);
-			return true;
-		}
-		catch (Exception e){
-			System.out.println("Logger Error!");
-			return false;
-		}
+	public Map<String, List<Record>> getDataMap() {
+		return this.repo;
 	}
 
 }

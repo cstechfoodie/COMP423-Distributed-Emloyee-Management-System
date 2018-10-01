@@ -6,21 +6,23 @@ import ca.dems.model.ManagerRecord;
 import ca.dems.model.Project;
 import ca.dems.repository.IRecordRepository;
 
-public class recordController implements recordApi {
-	
+public class RecordController implements RecordApi {
+
 	private IRecordRepository repo;
-	
-	private Logger logger = new Logger();
-	
-	public recordController(IRecordRepository repo) {
+
+	private Logger logger;
+
+	public RecordController(IRecordRepository repo) {
 		this.repo = repo;
+		logger = new Logger();
 	}
 
 	@Override
-	public String createMRecord(String firstName, String lastName, Integer employeeID, String mailID, Project project, String location) {
+	public String createMRecord(String firstName, String lastName, Integer employeeID, String mailID, Project project,
+			String location) {
 		ManagerRecord m = new ManagerRecord(firstName, lastName, employeeID, mailID, project, location);
 		boolean isSuccessful = repo.createMRecord(m);
-		if(isSuccessful) {
+		if (isSuccessful) {
 			logger.logSuccessfullyCreated(m);
 			return "ManagerRecord has been successfully created!";
 		} else {
@@ -34,7 +36,7 @@ public class recordController implements recordApi {
 			String projectID) {
 		EmployeeRecord e = new EmployeeRecord(firstName, lastName, employeeID, mailID, projectID);
 		boolean isSuccessful = repo.createMRecord(e);
-		if(isSuccessful) {
+		if (isSuccessful) {
 			logger.logSuccessfullyCreated(e);
 			return "EmployeeRecord has been successfully created!";
 		} else {
@@ -46,19 +48,19 @@ public class recordController implements recordApi {
 	@Override
 	public String getecordCounts() {
 		int localServerCount = this.repo.getRecordCounts();
-		if(localServerCount >= 0) {
+		if (localServerCount >= 0) {
 			logger.logInfo("Check the count of the local server. The total number is: " + localServerCount);
 		}
-		
-		//UDP
-		
+
+		// UDP
+
 		return "Check the count of the local server. The total number is: " + localServerCount;
 	}
 
 	@Override
 	public String editRecord(String recordID, String fieldName, String newValue) {
-		boolean isSuccessful =  this.repo.editRecord(recordID, fieldName, newValue);
-		if(isSuccessful) {
+		boolean isSuccessful = this.repo.editRecord(recordID, fieldName, newValue);
+		if (isSuccessful) {
 			logger.logEdit(recordID, fieldName, newValue);
 			return "Edited Successfully!";
 		} else {
@@ -68,12 +70,8 @@ public class recordController implements recordApi {
 
 	@Override
 	public String printData() {
-		boolean isSuccessful =  this.repo.printData();
-		if(isSuccessful) {
-			return "Edited Successfully!";
-		} else {
-			return "Failed to Edit!";
-		}
+		logger.logMap(this.repo.getDataMap());
+		return "Print to File Successfully!";
 	}
 
 }

@@ -1,10 +1,8 @@
 package ca.dems.api;
 
-import java.util.List;
-
 import ca.dems.model.Project;
 
-public interface recordApi {
+public interface RecordApi {
 	
 	//all return type should be string 
 	//aemployeeID is Integer, there should be only one project ID in this create method

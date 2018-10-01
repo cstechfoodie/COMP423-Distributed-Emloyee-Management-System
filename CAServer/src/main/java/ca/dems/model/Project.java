@@ -30,6 +30,6 @@ public class Project implements Serializable{
 	
 	
 	public String toString() {
-		return "{ProjectID is " + projectID + ", client name is " + this.clientName + " project name is" + this.projectName + "}";
+		return "{ProjectID is " + projectID + ", client name is " + this.clientName + " project name is " + this.projectName + "}";
 	}
 }

@@ -11,9 +11,9 @@ import java.util.Map;
 
 public class Logger {
 
-	private final String filePath = "CAServerLogs.txt";
+	private final static String filePath = "CAServerLogs.txt";
 
-	private File file;
+	private static File file = new File(filePath);
 
 	private PrintWriter printWriter;
 
@@ -21,7 +21,6 @@ public class Logger {
 
 	public Logger() {
 		try {
-			file = new File(filePath);
 			printWriter = new PrintWriter(file);
 		} catch (FileNotFoundException e) {
 			System.out.println("Logger Error!");
@@ -29,30 +28,31 @@ public class Logger {
 		}
 	}
 
-	public void logInfo(String message) {
+	public synchronized void logInfo(String message) {
 		this.printWriter.println(formatter.format(new Date()) + ": " + message);
+		closeWriter();
 	}
 
-	public void logSuccessfullyCreated(Record r) {
-		this.printWriter.println(formatter.format(new Date()) + ": The following record has been succesffuly created!");
+	public synchronized void logSuccessfullyCreated(Record r) {
+		this.printWriter.println(formatter.format(new Date()) + ": The following record has been successfully created!");
 		this.printWriter.println("------>" + r.toString());
 		closeWriter();
 	}
 
-	public void logUnsuccessfullyCreated(Record r) {
+	public synchronized void logUnsuccessfullyCreated(Record r) {
 		this.printWriter
-				.println(formatter.format(new Date()) + ": The following record has NOT been succesffuly created!");
+				.println(formatter.format(new Date()) + ": The following record has NOT been successfully created!");
 		this.printWriter.println("------>" + r.toString());
 		closeWriter();
 	}
 
-	public void logEdit(String recordID, String fieldName, String newValue) {
+	public synchronized void logEdit(String recordID, String fieldName, String newValue) {
 		this.printWriter.println(formatter.format(new Date()) + ": In Record " + recordID + ", fieldName {" + fieldName
 				+ "} was changed to " + newValue + ".");
 		closeWriter();
 	}
 
-	public void logMap(Map<String, List<Record>> map) {
+	public synchronized void logMap(Map<String, List<Record>> map) {
 		this.printWriter.println(formatter.format(new Date()) + ": Print all records associate with their keys");
 		map.forEach((k, v) -> {
 			this.printWriter.println("==============================Key: " + k + "==================================");

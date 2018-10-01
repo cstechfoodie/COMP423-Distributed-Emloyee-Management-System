@@ -1,0 +1,2 @@
+2018-10-01:04-48-05: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10001EmployeeId: 12345. First name: Shunyu, Last Name: WangLocated at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}

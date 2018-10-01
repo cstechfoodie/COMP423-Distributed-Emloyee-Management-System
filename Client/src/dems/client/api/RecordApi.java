@@ -1,6 +1,6 @@
-package ca.dems.api;
+package dems.client.api;
 
-import ca.dems.model.Project;
+import dems.client.model.Project;
 
 public interface RecordApi {
 	

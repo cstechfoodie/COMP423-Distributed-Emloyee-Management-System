@@ -34,7 +34,7 @@ public class CAServer {
 		}
 		
 		con.printData();
-		String count = con.getecordCounts();
+		String count = con.getRecordCounts();
 		System.out.println(count);
 		con.editRecord("ER10001", "projectID", "P00200");
 		con.editRecord("MR10003", "location", "US");
@@ -42,14 +42,13 @@ public class CAServer {
 		con.printData();
 		
 		
-//		recordController recordController = new recordController(repo);
-//		try{
-//			Registry registry = LocateRegistry.createRegistry(2964);
-//			registry.bind("recordApi", (Remote) recordController);
-//			System.out.println("Server is started");
-//		} catch(Exception e) {
-//			
-//		}
+		try{
+			Registry registry = LocateRegistry.createRegistry(2964);
+			registry.bind("recordApi", (Remote) con);
+			System.out.println("Server is started");
+		} catch(Exception e) {
+			
+		}
 
 	}
 

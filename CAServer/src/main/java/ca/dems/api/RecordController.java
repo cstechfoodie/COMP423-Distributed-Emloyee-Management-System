@@ -46,7 +46,7 @@ public class RecordController implements RecordApi {
 	}
 
 	@Override
-	public String getecordCounts() {
+	public String getRecordCounts() {
 		int localServerCount = this.repo.getRecordCounts();
 		if (localServerCount >= 0) {
 			logger.logInfo("Check the count of the local server. The total number is: " + localServerCount);

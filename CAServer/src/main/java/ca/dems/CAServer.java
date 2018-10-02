@@ -9,6 +9,7 @@ import ca.dems.model.EmployeeRecord;
 import ca.dems.model.ManagerRecord;
 import ca.dems.model.Project;
 import ca.dems.model.Record;
+import ca.dems.model.UDPServer;
 import ca.dems.repository.IRecordRepository;
 import ca.dems.repository.RecordRepository;
 
@@ -43,6 +44,9 @@ public class CAServer {
 		
 		
 		try{
+			UDPServer udp = new UDPServer(repo);
+			udp.start();
+
 			Registry registry = LocateRegistry.createRegistry(2964);
 			registry.bind("recordApi", (Remote) con);
 			System.out.println("Server is started");

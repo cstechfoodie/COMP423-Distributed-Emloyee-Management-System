@@ -4,6 +4,7 @@ import ca.dems.model.EmployeeRecord;
 import ca.dems.model.Logger;
 import ca.dems.model.ManagerRecord;
 import ca.dems.model.Project;
+import ca.dems.model.UDPClient;
 import ca.dems.repository.IRecordRepository;
 
 public class RecordController implements RecordApi {
@@ -53,7 +54,12 @@ public class RecordController implements RecordApi {
 		}
 
 		// UDP
+		//String countsUS = UDPClient.getRecordCounts("localhost", 9002);
+		//String countsUK = UDPClient.getRecordCounts("localhost", 9003);
+		
+		//String result = "CA " + localServerCount + " " + countsUS + " " + countsUK;
 
+		//return result;
 		return "Check the count of the local server. The total number is: " + localServerCount;
 	}
 

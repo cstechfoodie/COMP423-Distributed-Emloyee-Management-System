@@ -1,5 +1,8 @@
 package ca.dems.api;
 
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
 import ca.dems.model.EmployeeRecord;
 import ca.dems.model.Logger;
 import ca.dems.model.ManagerRecord;
@@ -7,13 +10,19 @@ import ca.dems.model.Project;
 import ca.dems.model.UDPClient;
 import ca.dems.repository.IRecordRepository;
 
-public class RecordController implements RecordApi {
+public class RecordController extends UnicastRemoteObject implements RecordApi {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private IRecordRepository repo;
 
 	private Logger logger;
 
-	public RecordController(IRecordRepository repo) {
+	public RecordController(IRecordRepository repo) throws RemoteException {
+		super();
 		this.repo = repo;
 		logger = new Logger();
 	}

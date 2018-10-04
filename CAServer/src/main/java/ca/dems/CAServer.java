@@ -1,12 +1,12 @@
 package ca.dems;
 
-import java.rmi.Remote;
+import java.rmi.Naming;
+import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
+import ca.dems.api.RecordApi;
 import ca.dems.api.RecordController;
-import ca.dems.model.EmployeeRecord;
-import ca.dems.model.ManagerRecord;
 import ca.dems.model.Project;
 import ca.dems.model.Record;
 import ca.dems.model.UDPServer;
@@ -15,11 +15,11 @@ import ca.dems.repository.RecordRepository;
 
 public class CAServer {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws RemoteException {
 		
 		//initialize the database
 		IRecordRepository repo = new RecordRepository();
-		RecordController con = new RecordController(repo);
+		RecordApi con = new RecordController(repo);
 		
 		Record r;
 		for(int i = 0; i < 10; i++) {
@@ -42,16 +42,20 @@ public class CAServer {
 		con.editRecord("MR10005", "mailID", "john@mail.concordia.ca");
 		con.printData();
 		
-		
+		UDPServer udp = null;
 		try{
-			UDPServer udp = new UDPServer(repo);
-			udp.start();
+//			udp = new UDPServer(repo);
+//			udp.start();
 
-			Registry registry = LocateRegistry.createRegistry(2964);
-			registry.bind("recordApi", (Remote) con);
+			Registry registry = LocateRegistry.createRegistry(1099);
+			registry.bind("recordApi", con);
+			
 			System.out.println("Server is started");
 		} catch(Exception e) {
-			
+			System.out.println(e);
+		}
+		finally {
+			//udp.stop();
 		}
 
 	}

@@ -36,6 +36,8 @@ public class UDPClient {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			aSocket.close();			
 		}
 		return replyMessage;
 	}

@@ -1,17 +1,16 @@
 package ca.dems;
 
-import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import ca.dems.api.RecordApi;
-import ca.dems.api.RecordController;
-import ca.dems.model.Project;
 import ca.dems.model.Record;
 import ca.dems.model.UDPServer;
 import ca.dems.repository.IRecordRepository;
 import ca.dems.repository.RecordRepository;
+import dems.api.Project;
+import dems.api.RecordApi;
+import dems.api.RecordController;
 
 public class CAServer {
 

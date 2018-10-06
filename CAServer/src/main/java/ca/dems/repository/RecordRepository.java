@@ -118,7 +118,7 @@ public class RecordRepository implements IRecordRepository {
 					if (r.getRecordID().toString().equals(recordID)) {
 						ManagerRecord m = (ManagerRecord) r;
 						try {
-							m.getProject().projectName = newValue;
+							m.getProject().setProjectName(newValue);
 							foundAndSet = true;
 							break;
 						} catch (Exception e) {
@@ -142,7 +142,7 @@ public class RecordRepository implements IRecordRepository {
 					if (r.getRecordID().toString().equals(recordID)) {
 						ManagerRecord m = (ManagerRecord) r;
 						try {
-							m.getProject().clientName = newValue;
+							m.getProject().setClientName(newValue);
 							foundAndSet = true;
 							break;
 						} catch (Exception e) {
@@ -170,7 +170,7 @@ public class RecordRepository implements IRecordRepository {
 						}	
 						else {
 							ManagerRecord m = (ManagerRecord) r;
-							m.getProject().projectID = newValue.toString();
+							m.getProject().setProjectID(newValue);
 						}
 						foundAndSet = true;
 						break;

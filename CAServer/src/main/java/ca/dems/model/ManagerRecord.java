@@ -1,5 +1,7 @@
 package ca.dems.model;
 
+import dems.api.Project;
+
 public class ManagerRecord extends Record {
 
 	/**

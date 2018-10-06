@@ -1,9 +1,8 @@
-package ca.dems.api;
+package dems.api;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import ca.dems.model.Project;
 
 public interface RecordApi extends Remote {
 	

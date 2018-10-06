@@ -1,0 +1,7 @@
+2018-10-06:07-44-36: Check the count of the local server. The total number is: 26
+2018-10-06:07-44-39: Check the count of the local server. The total number is: 26
+2018-10-06:07-49-54: Request server to print its data into its log.
+2018-10-06:07-49-56: Check the count of the local server. The total number is: 26
+2018-10-06:07-50-00: Check the count of the local server. The total number is: 26
+2018-10-06:07-56-13: Check the count of the local server. The total number is: 25
+2018-10-06:07-56-56: Check the count of the local server. The total number is: 25

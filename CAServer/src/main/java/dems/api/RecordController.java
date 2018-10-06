@@ -1,4 +1,4 @@
-package ca.dems.api;
+package dems.api;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -6,7 +6,6 @@ import java.rmi.server.UnicastRemoteObject;
 import ca.dems.model.EmployeeRecord;
 import ca.dems.model.Logger;
 import ca.dems.model.ManagerRecord;
-import ca.dems.model.Project;
 import ca.dems.model.UDPClient;
 import ca.dems.repository.IRecordRepository;
 

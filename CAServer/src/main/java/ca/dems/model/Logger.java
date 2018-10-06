@@ -1,7 +1,7 @@
 package ca.dems.model;
 
-import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -13,7 +13,7 @@ public class Logger {
 
 	private final static String filePath = "CAServerLogs.txt";
 
-	private static File file = new File(filePath);
+	private static FileOutputStream file;
 
 	private PrintWriter printWriter;
 
@@ -21,6 +21,7 @@ public class Logger {
 
 	public Logger() {
 		try {
+			file = new FileOutputStream(filePath, true);
 			printWriter = new PrintWriter(file);
 		} catch (FileNotFoundException e) {
 			System.out.println("Logger Error!");

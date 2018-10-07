@@ -1,7 +1,6 @@
 package dems.client;
 
 import java.rmi.NotBoundException;
-import java.rmi.RMISecurityManager;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -11,18 +10,92 @@ import dems.api.Project;
 import dems.api.RecordApi;
 import dems.client.model.Logger;
 
-public class Client {
+public class Client extends Thread{
 
-	private static int port;
+	private int port;
 
-	private static String host = "localhost";
+	private String host = "localhost";
+	
+	private String managerID;
+	
+	public Client(String managerID) {
+		this.managerID = managerID;
+	}
+	
+	@Override
+	public void run() {
+		if (managerID.toUpperCase().startsWith("CA")) {
+			port = 1099;
+			System.out.println("in CA");
+		} else if (managerID.toUpperCase().startsWith("UK")) {
+			port = 2965;
+			System.out.println("in UK");
+		} else {
+			port = 2966;
+			System.out.println("in US");
+		}
+
+		Logger logger = new Logger(managerID);
+		
+		Registry registry;
+		try {
+			registry = LocateRegistry.getRegistry(port);
+			RecordApi api = (RecordApi) registry.lookup("recordApi");
+			for(int i = 0; i < 10; i++) {
+				logger.logCreateMRecord("Shunyu", "Wang", 12345 + i, "shunyu.wang@mail.concordia.ca", new Project("P00001", "client", "project"), "CA");
+				String res = api.createMRecord("Shunyu", "Wang", 12345 + i, "shunyu.wang@mail.concordia.ca", new Project("P00001", "client", "project"), "CA");
+				logger.logInfo(res);
+			}
+			
+			for(int i = 0; i < 10; i++) {
+				logger.logCreateERecord("Shunyu", "Zang", 67890 + i, "shunyu.wang@mail.concordia.ca", "P00001"+i);
+				String res = api.createERecord("Shunyu", "Zang", 67890 + i, "shunyu.wang@mail.concordia.ca", "P00001" + i);
+				logger.logInfo(res);
+			}
+			
+//			for(int i = 0; i < 5; i++) {
+//				logger.logCreateERecord("Martin", "Smith", 20100 + i, "aaa.bbb@mail.concordia.ca", "P00001"+i);
+//				String res = api.createERecord("Martin", "Smith", 20100 + i, "aaa.bbb@mail.concordia.ca", "P00001" + i);
+//				logger.logInfo(res);
+//			}
+			
+			String res = api.printData();
+			logger.logInfo(res);
+			String count = api.getRecordCounts();
+			logger.logInfo(count);
+			for(int i = 0; i < 10; i++) {
+				logger.logEdit("ER10001", "projectID", "P00200");
+				res = api.editRecord("ER10001", "projectID", "P00200");
+				logger.logInfo(res);
+				logger.logEdit("MR10003", "location", "US");
+				res = api.editRecord("MR10003", "location", "US");
+				logger.logInfo(res);
+				logger.logEdit("MR10005", "mailID", "john@mail.concordia.ca");
+				res = api.editRecord("MR10005", "mailID", "john@mail.concordia.ca");	
+				logger.logInfo(res);
+			}
+			res = api.printData();
+			logger.logInfo(res);
+		} catch (RemoteException | NotBoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 
 	public static void main(String[] args) {
-
+		
+//		Client[] clients = new Client[1];
+//		for(int i = 0; i < 1; i++) {
+//			clients[i] = new Client();
+//			clients[i].start();
+//		}
+		
 		System.out.println("Welcome to DEMS. Please enter your Manager ID: ");
 		Scanner scanner = new Scanner(System.in);
 
 		// gear to proper server base on Manager ID
+		int port;
 		String managerID = scanner.nextLine().trim();
 		if (managerID.toUpperCase().startsWith("CA")) {
 			port = 1099;
@@ -50,7 +123,7 @@ public class Client {
 					System.out.println("3 --> Edit Record");
 					System.out.println("4 --> Check the number of records in file");
 					System.out.println("5 --> Print all records to server file");
-					//try {
+					try {
 						int option = Integer.parseInt(scanner.nextLine().trim());
 						switch (option) {
 						case 1:
@@ -142,10 +215,9 @@ public class Client {
 							break;
 						default:
 						}
-
-//					} catch (Exception e) {
-//						continue;
-//					}
+					} catch (Exception e) {
+						continue;
+					}
 				}
 
 			} catch (NotBoundException e) {
@@ -159,7 +231,6 @@ public class Client {
 			scanner.close();
 			logger.close();
 		}
-
 	}
 
 }

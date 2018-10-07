@@ -1,4 +1,0 @@
-2018-10-06:10-00-07: Check the counts of record in each server. The total number is: US 25 UK 25 CA 25
-2018-10-06:10-00-22: Trying to create the following record: 
------->EmployeeId: 12312. First name: asd, Last Name: sfd, Mail is sfds. The project Id is: P45345
-2018-10-06:10-00-22: EmployeeRecord has been successfully created!

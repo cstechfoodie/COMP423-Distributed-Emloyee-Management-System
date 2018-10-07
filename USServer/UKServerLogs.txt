@@ -357,3 +357,5 @@
 2018-10-06:10-00-07: Check the counts of record in each server. The total number is: US 25 UK 25 CA 25
 2018-10-06:10-00-22: The following record has been successfully created!
 ------>This is a Manager Record with ID: ER10015 EmployeeId: 12312. First name: asd, Last Name: sfd, Mail is sfds. The project Id is: P45345
+2018-10-06:11-01-29: Check the count of the local server. The total number is: 26
+2018-10-06:11-01-29: Check the counts of record in each server. The total number is: US 26 UK 25 CA 25

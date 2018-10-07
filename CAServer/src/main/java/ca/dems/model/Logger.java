@@ -55,13 +55,15 @@ public class Logger {
 
 	public synchronized void logMap(Map<String, List<Record>> map) {
 		this.printWriter.println(formatter.format(new Date()) + ": Print all records associate with their keys");
-		map.forEach((k, v) -> {
-			this.printWriter.println("==============================Key: " + k + "==================================");
-			for (int i = 0; i < v.size(); i++) {
-				this.printWriter.println(i + ": " + v.get(i).toString());
-			}
-			this.printWriter.println("-=-=> Total records associate with this key is " + v.size());
-		});
+		if(map.size() > 0) {
+			map.forEach((k, v) -> {
+				this.printWriter.println("==============================Key: " + k + "==================================");
+				for (int i = 0; i < v.size(); i++) {
+					this.printWriter.println(i + ": " + v.get(i).toString());
+				}
+				this.printWriter.println("-=-=> Total records associate with this key is " + v.size());
+			});
+		}
 		flush();
 	}
 

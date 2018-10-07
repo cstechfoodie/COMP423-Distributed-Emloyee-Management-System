@@ -22,7 +22,7 @@ public class RecordRepository implements IRecordRepository {
 	 * @see ca.dems.repository.IRecordRepository#createMRecord(ca.dems.model.Record)
 	 */
 	@Override
-	public boolean createMRecord(Record record) {
+	public synchronized boolean createMRecord(Record record) {
 		try {
 			String key = record.getLastName().substring(0, 1).toUpperCase();
 			if (repo.keySet().contains(key)) {
@@ -41,7 +41,7 @@ public class RecordRepository implements IRecordRepository {
 	}
 	
 	@Override
-	public boolean createERecord(Record record) {
+	public synchronized boolean createERecord(Record record) {
 		return createMRecord(record);
 	}
 	
@@ -50,7 +50,7 @@ public class RecordRepository implements IRecordRepository {
 	 * @see ca.dems.repository.IRecordRepository#editRecord(java.util.UUID, java.lang.String, java.lang.Object)
 	 */
 	@Override
-	public boolean editRecord(String recordID, String fieldName, String newValue) {
+	public synchronized boolean editRecord(String recordID, String fieldName, String newValue) {
 		if (newValue == null) {
 			return false;
 		}
@@ -198,7 +198,7 @@ public class RecordRepository implements IRecordRepository {
 	 * @see ca.dems.repository.IRecordRepository#geRecordCounts()
 	 */
 	@Override
-	public int getRecordCounts() {
+	public synchronized int getRecordCounts() {
 		int counts = 0;
 		Object[] keySet = repo.keySet().toArray();
 		for (int i = 0; i < keySet.length; i++) {
@@ -208,7 +208,7 @@ public class RecordRepository implements IRecordRepository {
 	}
 
 	@Override
-	public Map<String, List<Record>> getDataMap() {
+	public synchronized Map<String, List<Record>> getDataMap() {
 		return this.repo;
 	}
 

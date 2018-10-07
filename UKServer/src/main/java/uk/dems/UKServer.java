@@ -34,8 +34,8 @@ public class UKServer {
 		}
 		
 		con.printData();
-		String count = con.getRecordCounts();
-		System.out.println(count);
+		//String count = con.getRecordCounts();
+		//System.out.println(count);
 		con.editRecord("ER10001", "projectID", "P00200");
 		con.editRecord("MR10003", "location", "US");
 		con.editRecord("MR10005", "mailID", "john@mail.concordia.ca");
@@ -43,10 +43,10 @@ public class UKServer {
 		
 		UDPServer udp = null;
 		try{
-//			udp = new UDPServer(repo);
-//			udp.start();
+			udp = new UDPServer(repo);
+			udp.start();
 
-			Registry registry = LocateRegistry.createRegistry(1099);
+			Registry registry = LocateRegistry.createRegistry(2965);
 			registry.bind("recordApi", con);
 			
 			System.out.println("Server is started");

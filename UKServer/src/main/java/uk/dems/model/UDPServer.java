@@ -22,7 +22,7 @@ public class UDPServer extends Thread {
 	public void run() {
 		DatagramSocket aSocket = null;
 		try {
-			aSocket = new DatagramSocket(9001);
+			aSocket = new DatagramSocket(9002);
 		} catch (SocketException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -35,7 +35,7 @@ public class UDPServer extends Thread {
 				aSocket.receive(request);
 				if(request.getLength() >0) {
 					int count = this.repo.getRecordCounts();
-					String replyMessage = "CA " + count;
+					String replyMessage = "UK " + count;
 					DatagramPacket response = new DatagramPacket(replyMessage.getBytes(), replyMessage.getBytes().length,
 							request.getAddress(), request.getPort());
 					aSocket.send(response);

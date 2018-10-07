@@ -34,8 +34,8 @@ public class CAServer {
 		}
 		
 		con.printData();
-		String count = con.getRecordCounts();
-		System.out.println(count);
+		//String count = con.getRecordCounts();
+		//System.out.println(count);
 		con.editRecord("ER10001", "projectID", "P00200");
 		con.editRecord("MR10003", "location", "US");
 		con.editRecord("MR10005", "mailID", "john@mail.concordia.ca");
@@ -43,8 +43,8 @@ public class CAServer {
 		
 		UDPServer udp = null;
 		try{
-//			udp = new UDPServer(repo);
-//			udp.start();
+			udp = new UDPServer(repo);
+			udp.start();
 
 			Registry registry = LocateRegistry.createRegistry(1099);
 			registry.bind("recordApi", con);

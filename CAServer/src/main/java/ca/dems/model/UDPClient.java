@@ -9,7 +9,7 @@ import java.net.UnknownHostException;
 
 public class UDPClient {
 	
-	public static String getRecordCounts(String address, int port) {
+	public synchronized static String getRecordCounts(String address, int port) {
 		String msg = "get record counts";
 		String replyMessage = null;
 		
@@ -26,7 +26,7 @@ public class UDPClient {
 			byte[] buffer = new byte[1000];
 			DatagramPacket reply = new DatagramPacket(buffer, buffer.length);
 			aSocket.receive(reply);
-			replyMessage = new String(reply.getData());
+			replyMessage = new String(reply.getData()).trim();
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

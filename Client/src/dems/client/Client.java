@@ -50,7 +50,7 @@ public class Client {
 					System.out.println("3 --> Edit Record");
 					System.out.println("4 --> Check the number of records in file");
 					System.out.println("5 --> Print all records to server file");
-					try {
+					//try {
 						int option = Integer.parseInt(scanner.nextLine().trim());
 						switch (option) {
 						case 1:
@@ -143,9 +143,9 @@ public class Client {
 						default:
 						}
 
-					} catch (Exception e) {
-						continue;
-					}
+//					} catch (Exception e) {
+//						continue;
+//					}
 				}
 
 			} catch (NotBoundException e) {

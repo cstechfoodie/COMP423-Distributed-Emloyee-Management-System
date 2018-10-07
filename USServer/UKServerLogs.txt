@@ -1,0 +1,359 @@
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10000 EmployeeId: 12345. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10001 EmployeeId: 12346. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10002 EmployeeId: 12347. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10003 EmployeeId: 12348. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10004 EmployeeId: 12349. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10005 EmployeeId: 12350. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10006 EmployeeId: 12351. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10007 EmployeeId: 12352. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10008 EmployeeId: 12353. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10009 EmployeeId: 12354. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10000 EmployeeId: 67890. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10001 EmployeeId: 67891. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10002 EmployeeId: 67892. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10003 EmployeeId: 67893. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10004 EmployeeId: 67894. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10005 EmployeeId: 67895. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10006 EmployeeId: 67896. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10007 EmployeeId: 67897. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10008 EmployeeId: 67898. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10009 EmployeeId: 67899. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10010 EmployeeId: 20100. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10011 EmployeeId: 20101. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10012 EmployeeId: 20102. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10013 EmployeeId: 20103. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-00-38: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10014 EmployeeId: 20104. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-00-38: Print all records associate with their keys
+==============================Key: S==================================
+0: This is a Manager Record with ID: ER10010 EmployeeId: 20100. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+1: This is a Manager Record with ID: ER10011 EmployeeId: 20101. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+2: This is a Manager Record with ID: ER10012 EmployeeId: 20102. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+3: This is a Manager Record with ID: ER10013 EmployeeId: 20103. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+4: This is a Manager Record with ID: ER10014 EmployeeId: 20104. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+-=-=> Total records associate with this key is 5
+==============================Key: W==================================
+0: This is a Manager Record with ID: MR10000 EmployeeId: 12345. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+1: This is a Manager Record with ID: MR10001 EmployeeId: 12346. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2: This is a Manager Record with ID: MR10002 EmployeeId: 12347. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+3: This is a Manager Record with ID: MR10003 EmployeeId: 12348. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+4: This is a Manager Record with ID: MR10004 EmployeeId: 12349. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+5: This is a Manager Record with ID: MR10005 EmployeeId: 12350. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+6: This is a Manager Record with ID: MR10006 EmployeeId: 12351. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+7: This is a Manager Record with ID: MR10007 EmployeeId: 12352. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+8: This is a Manager Record with ID: MR10008 EmployeeId: 12353. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+9: This is a Manager Record with ID: MR10009 EmployeeId: 12354. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+-=-=> Total records associate with this key is 10
+==============================Key: Z==================================
+0: This is a Manager Record with ID: ER10000 EmployeeId: 67890. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+1: This is a Manager Record with ID: ER10001 EmployeeId: 67891. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2: This is a Manager Record with ID: ER10002 EmployeeId: 67892. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+3: This is a Manager Record with ID: ER10003 EmployeeId: 67893. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+4: This is a Manager Record with ID: ER10004 EmployeeId: 67894. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+5: This is a Manager Record with ID: ER10005 EmployeeId: 67895. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+6: This is a Manager Record with ID: ER10006 EmployeeId: 67896. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+7: This is a Manager Record with ID: ER10007 EmployeeId: 67897. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+8: This is a Manager Record with ID: ER10008 EmployeeId: 67898. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+9: This is a Manager Record with ID: ER10009 EmployeeId: 67899. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+-=-=> Total records associate with this key is 10
+2018-10-06:09-00-38: In Record ER10001, fieldName {projectID} was changed to P00200.
+2018-10-06:09-00-38: In Record MR10003, fieldName {location} was changed to US.
+2018-10-06:09-00-38: In Record MR10005, fieldName {mailID} was changed to john@mail.concordia.ca.
+2018-10-06:09-00-38: Print all records associate with their keys
+==============================Key: S==================================
+0: This is a Manager Record with ID: ER10010 EmployeeId: 20100. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+1: This is a Manager Record with ID: ER10011 EmployeeId: 20101. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+2: This is a Manager Record with ID: ER10012 EmployeeId: 20102. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+3: This is a Manager Record with ID: ER10013 EmployeeId: 20103. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+4: This is a Manager Record with ID: ER10014 EmployeeId: 20104. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+-=-=> Total records associate with this key is 5
+==============================Key: W==================================
+0: This is a Manager Record with ID: MR10000 EmployeeId: 12345. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+1: This is a Manager Record with ID: MR10001 EmployeeId: 12346. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2: This is a Manager Record with ID: MR10002 EmployeeId: 12347. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+3: This is a Manager Record with ID: MR10003 EmployeeId: 12348. First name: Shunyu, Last Name: Wang Located at: US, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+4: This is a Manager Record with ID: MR10004 EmployeeId: 12349. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+5: This is a Manager Record with ID: MR10005 EmployeeId: 12350. First name: Shunyu, Last Name: Wang Located at: CA, Mail is john@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+6: This is a Manager Record with ID: MR10006 EmployeeId: 12351. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+7: This is a Manager Record with ID: MR10007 EmployeeId: 12352. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+8: This is a Manager Record with ID: MR10008 EmployeeId: 12353. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+9: This is a Manager Record with ID: MR10009 EmployeeId: 12354. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+-=-=> Total records associate with this key is 10
+==============================Key: Z==================================
+0: This is a Manager Record with ID: ER10000 EmployeeId: 67890. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+1: This is a Manager Record with ID: ER10001 EmployeeId: 67891. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00200
+2: This is a Manager Record with ID: ER10002 EmployeeId: 67892. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+3: This is a Manager Record with ID: ER10003 EmployeeId: 67893. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+4: This is a Manager Record with ID: ER10004 EmployeeId: 67894. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+5: This is a Manager Record with ID: ER10005 EmployeeId: 67895. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+6: This is a Manager Record with ID: ER10006 EmployeeId: 67896. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+7: This is a Manager Record with ID: ER10007 EmployeeId: 67897. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+8: This is a Manager Record with ID: ER10008 EmployeeId: 67898. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+9: This is a Manager Record with ID: ER10009 EmployeeId: 67899. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+-=-=> Total records associate with this key is 10
+2018-10-06:09-01-07: Check the count of the local server. The total number is: 25
+2018-10-06:09-01-07: Check the counts of record in each server. The total number is: US 25 UK 25                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    CA 25                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+2018-10-06:09-01-19: Check the count of the local server. The total number is: 25
+2018-10-06:09-01-19: Check the counts of record in each server. The total number is: US 25 UK 25                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    CA 25                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10000 EmployeeId: 12345. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10001 EmployeeId: 12346. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10002 EmployeeId: 12347. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10003 EmployeeId: 12348. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10004 EmployeeId: 12349. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10005 EmployeeId: 12350. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10006 EmployeeId: 12351. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10007 EmployeeId: 12352. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10008 EmployeeId: 12353. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10009 EmployeeId: 12354. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10000 EmployeeId: 67890. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10001 EmployeeId: 67891. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10002 EmployeeId: 67892. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10003 EmployeeId: 67893. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10004 EmployeeId: 67894. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10005 EmployeeId: 67895. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10006 EmployeeId: 67896. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10007 EmployeeId: 67897. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10008 EmployeeId: 67898. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10009 EmployeeId: 67899. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10010 EmployeeId: 20100. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10011 EmployeeId: 20101. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10012 EmployeeId: 20102. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10013 EmployeeId: 20103. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-05-46: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10014 EmployeeId: 20104. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-05-46: Print all records associate with their keys
+==============================Key: S==================================
+0: This is a Manager Record with ID: ER10010 EmployeeId: 20100. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+1: This is a Manager Record with ID: ER10011 EmployeeId: 20101. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+2: This is a Manager Record with ID: ER10012 EmployeeId: 20102. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+3: This is a Manager Record with ID: ER10013 EmployeeId: 20103. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+4: This is a Manager Record with ID: ER10014 EmployeeId: 20104. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+-=-=> Total records associate with this key is 5
+==============================Key: W==================================
+0: This is a Manager Record with ID: MR10000 EmployeeId: 12345. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+1: This is a Manager Record with ID: MR10001 EmployeeId: 12346. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2: This is a Manager Record with ID: MR10002 EmployeeId: 12347. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+3: This is a Manager Record with ID: MR10003 EmployeeId: 12348. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+4: This is a Manager Record with ID: MR10004 EmployeeId: 12349. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+5: This is a Manager Record with ID: MR10005 EmployeeId: 12350. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+6: This is a Manager Record with ID: MR10006 EmployeeId: 12351. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+7: This is a Manager Record with ID: MR10007 EmployeeId: 12352. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+8: This is a Manager Record with ID: MR10008 EmployeeId: 12353. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+9: This is a Manager Record with ID: MR10009 EmployeeId: 12354. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+-=-=> Total records associate with this key is 10
+==============================Key: Z==================================
+0: This is a Manager Record with ID: ER10000 EmployeeId: 67890. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+1: This is a Manager Record with ID: ER10001 EmployeeId: 67891. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2: This is a Manager Record with ID: ER10002 EmployeeId: 67892. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+3: This is a Manager Record with ID: ER10003 EmployeeId: 67893. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+4: This is a Manager Record with ID: ER10004 EmployeeId: 67894. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+5: This is a Manager Record with ID: ER10005 EmployeeId: 67895. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+6: This is a Manager Record with ID: ER10006 EmployeeId: 67896. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+7: This is a Manager Record with ID: ER10007 EmployeeId: 67897. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+8: This is a Manager Record with ID: ER10008 EmployeeId: 67898. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+9: This is a Manager Record with ID: ER10009 EmployeeId: 67899. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+-=-=> Total records associate with this key is 10
+2018-10-06:09-05-46: In Record ER10001, fieldName {projectID} was changed to P00200.
+2018-10-06:09-05-46: In Record MR10003, fieldName {location} was changed to US.
+2018-10-06:09-05-46: In Record MR10005, fieldName {mailID} was changed to john@mail.concordia.ca.
+2018-10-06:09-05-46: Print all records associate with their keys
+==============================Key: S==================================
+0: This is a Manager Record with ID: ER10010 EmployeeId: 20100. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+1: This is a Manager Record with ID: ER10011 EmployeeId: 20101. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+2: This is a Manager Record with ID: ER10012 EmployeeId: 20102. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+3: This is a Manager Record with ID: ER10013 EmployeeId: 20103. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+4: This is a Manager Record with ID: ER10014 EmployeeId: 20104. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+-=-=> Total records associate with this key is 5
+==============================Key: W==================================
+0: This is a Manager Record with ID: MR10000 EmployeeId: 12345. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+1: This is a Manager Record with ID: MR10001 EmployeeId: 12346. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2: This is a Manager Record with ID: MR10002 EmployeeId: 12347. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+3: This is a Manager Record with ID: MR10003 EmployeeId: 12348. First name: Shunyu, Last Name: Wang Located at: US, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+4: This is a Manager Record with ID: MR10004 EmployeeId: 12349. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+5: This is a Manager Record with ID: MR10005 EmployeeId: 12350. First name: Shunyu, Last Name: Wang Located at: CA, Mail is john@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+6: This is a Manager Record with ID: MR10006 EmployeeId: 12351. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+7: This is a Manager Record with ID: MR10007 EmployeeId: 12352. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+8: This is a Manager Record with ID: MR10008 EmployeeId: 12353. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+9: This is a Manager Record with ID: MR10009 EmployeeId: 12354. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+-=-=> Total records associate with this key is 10
+==============================Key: Z==================================
+0: This is a Manager Record with ID: ER10000 EmployeeId: 67890. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+1: This is a Manager Record with ID: ER10001 EmployeeId: 67891. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00200
+2: This is a Manager Record with ID: ER10002 EmployeeId: 67892. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+3: This is a Manager Record with ID: ER10003 EmployeeId: 67893. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+4: This is a Manager Record with ID: ER10004 EmployeeId: 67894. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+5: This is a Manager Record with ID: ER10005 EmployeeId: 67895. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+6: This is a Manager Record with ID: ER10006 EmployeeId: 67896. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+7: This is a Manager Record with ID: ER10007 EmployeeId: 67897. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+8: This is a Manager Record with ID: ER10008 EmployeeId: 67898. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+9: This is a Manager Record with ID: ER10009 EmployeeId: 67899. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+-=-=> Total records associate with this key is 10
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10000 EmployeeId: 12345. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10001 EmployeeId: 12346. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10002 EmployeeId: 12347. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10003 EmployeeId: 12348. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10004 EmployeeId: 12349. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10005 EmployeeId: 12350. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10006 EmployeeId: 12351. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10007 EmployeeId: 12352. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10008 EmployeeId: 12353. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10009 EmployeeId: 12354. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10000 EmployeeId: 67890. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10001 EmployeeId: 67891. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10002 EmployeeId: 67892. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10003 EmployeeId: 67893. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10004 EmployeeId: 67894. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10005 EmployeeId: 67895. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10006 EmployeeId: 67896. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10007 EmployeeId: 67897. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10008 EmployeeId: 67898. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10009 EmployeeId: 67899. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10010 EmployeeId: 20100. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10011 EmployeeId: 20101. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10012 EmployeeId: 20102. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10013 EmployeeId: 20103. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-58-48: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10014 EmployeeId: 20104. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+2018-10-06:09-58-48: Print all records associate with their keys
+==============================Key: S==================================
+0: This is a Manager Record with ID: ER10010 EmployeeId: 20100. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+1: This is a Manager Record with ID: ER10011 EmployeeId: 20101. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+2: This is a Manager Record with ID: ER10012 EmployeeId: 20102. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+3: This is a Manager Record with ID: ER10013 EmployeeId: 20103. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+4: This is a Manager Record with ID: ER10014 EmployeeId: 20104. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+-=-=> Total records associate with this key is 5
+==============================Key: W==================================
+0: This is a Manager Record with ID: MR10000 EmployeeId: 12345. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+1: This is a Manager Record with ID: MR10001 EmployeeId: 12346. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2: This is a Manager Record with ID: MR10002 EmployeeId: 12347. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+3: This is a Manager Record with ID: MR10003 EmployeeId: 12348. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+4: This is a Manager Record with ID: MR10004 EmployeeId: 12349. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+5: This is a Manager Record with ID: MR10005 EmployeeId: 12350. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+6: This is a Manager Record with ID: MR10006 EmployeeId: 12351. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+7: This is a Manager Record with ID: MR10007 EmployeeId: 12352. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+8: This is a Manager Record with ID: MR10008 EmployeeId: 12353. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+9: This is a Manager Record with ID: MR10009 EmployeeId: 12354. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+-=-=> Total records associate with this key is 10
+==============================Key: Z==================================
+0: This is a Manager Record with ID: ER10000 EmployeeId: 67890. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+1: This is a Manager Record with ID: ER10001 EmployeeId: 67891. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+2: This is a Manager Record with ID: ER10002 EmployeeId: 67892. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+3: This is a Manager Record with ID: ER10003 EmployeeId: 67893. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+4: This is a Manager Record with ID: ER10004 EmployeeId: 67894. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+5: This is a Manager Record with ID: ER10005 EmployeeId: 67895. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+6: This is a Manager Record with ID: ER10006 EmployeeId: 67896. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+7: This is a Manager Record with ID: ER10007 EmployeeId: 67897. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+8: This is a Manager Record with ID: ER10008 EmployeeId: 67898. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+9: This is a Manager Record with ID: ER10009 EmployeeId: 67899. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+-=-=> Total records associate with this key is 10
+2018-10-06:09-58-48: In Record ER10001, fieldName {projectID} was changed to P00200.
+2018-10-06:09-58-48: In Record MR10003, fieldName {location} was changed to US.
+2018-10-06:09-58-48: In Record MR10005, fieldName {mailID} was changed to john@mail.concordia.ca.
+2018-10-06:09-58-48: Print all records associate with their keys
+==============================Key: S==================================
+0: This is a Manager Record with ID: ER10010 EmployeeId: 20100. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+1: This is a Manager Record with ID: ER10011 EmployeeId: 20101. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+2: This is a Manager Record with ID: ER10012 EmployeeId: 20102. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+3: This is a Manager Record with ID: ER10013 EmployeeId: 20103. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+4: This is a Manager Record with ID: ER10014 EmployeeId: 20104. First name: Martin, Last Name: Smith, Mail is aaa.bbb@mail.concordia.ca. The project Id is: P00001
+-=-=> Total records associate with this key is 5
+==============================Key: W==================================
+0: This is a Manager Record with ID: MR10000 EmployeeId: 12345. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+1: This is a Manager Record with ID: MR10001 EmployeeId: 12346. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+2: This is a Manager Record with ID: MR10002 EmployeeId: 12347. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+3: This is a Manager Record with ID: MR10003 EmployeeId: 12348. First name: Shunyu, Last Name: Wang Located at: US, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+4: This is a Manager Record with ID: MR10004 EmployeeId: 12349. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+5: This is a Manager Record with ID: MR10005 EmployeeId: 12350. First name: Shunyu, Last Name: Wang Located at: CA, Mail is john@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+6: This is a Manager Record with ID: MR10006 EmployeeId: 12351. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+7: This is a Manager Record with ID: MR10007 EmployeeId: 12352. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+8: This is a Manager Record with ID: MR10008 EmployeeId: 12353. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+9: This is a Manager Record with ID: MR10009 EmployeeId: 12354. First name: Shunyu, Last Name: Wang Located at: CA, Mail is shunyu.wang@mail.concordia.ca. The project info is: {ProjectID is P00001, client name is client project name is project}
+-=-=> Total records associate with this key is 10
+==============================Key: Z==================================
+0: This is a Manager Record with ID: ER10000 EmployeeId: 67890. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+1: This is a Manager Record with ID: ER10001 EmployeeId: 67891. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00200
+2: This is a Manager Record with ID: ER10002 EmployeeId: 67892. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+3: This is a Manager Record with ID: ER10003 EmployeeId: 67893. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+4: This is a Manager Record with ID: ER10004 EmployeeId: 67894. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+5: This is a Manager Record with ID: ER10005 EmployeeId: 67895. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+6: This is a Manager Record with ID: ER10006 EmployeeId: 67896. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+7: This is a Manager Record with ID: ER10007 EmployeeId: 67897. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+8: This is a Manager Record with ID: ER10008 EmployeeId: 67898. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+9: This is a Manager Record with ID: ER10009 EmployeeId: 67899. First name: Shunyu, Last Name: Zang, Mail is shunyu.wang@mail.concordia.ca. The project Id is: P00001
+-=-=> Total records associate with this key is 10
+2018-10-06:10-00-07: Check the count of the local server. The total number is: 25
+2018-10-06:10-00-07: Check the counts of record in each server. The total number is: US 25 UK 25 CA 25
+2018-10-06:10-00-22: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10015 EmployeeId: 12312. First name: asd, Last Name: sfd, Mail is sfds. The project Id is: P45345

@@ -27,7 +27,7 @@ public class UDPServer extends Thread {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		byte[] buffer = new byte[1000];
+		byte[] buffer = new byte[100];
 
 		while (true) {
 			DatagramPacket request = new DatagramPacket(buffer, buffer.length);

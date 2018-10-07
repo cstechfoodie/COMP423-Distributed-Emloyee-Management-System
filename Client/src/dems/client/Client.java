@@ -39,10 +39,6 @@ public class Client {
 
 		try {
 			Registry registry = LocateRegistry.getRegistry(port);
-
-			String[] a = registry.list();
-			System.out.println(a[0]);
-
 			try {
 				RecordApi api = (RecordApi) registry.lookup("recordApi");
 

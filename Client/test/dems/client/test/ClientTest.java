@@ -13,15 +13,15 @@ public class ClientTest {
 	
 
 	public void setup() {
-		clients = new Client[10];
-		for(int i = 0; i < 10; i++) {
+		clients = new Client[20];
+		for(int i = 0; i < 20; i++) {
 			clients[i] = new Client("UK"+i);				
 		}
 	}
 
 
 	public void cleanUp() throws InterruptedException {
-		for(int i = 0; i < 10; i++) {
+		for(int i = 0; i < 20; i++) {
 			clients[i].join();
 		}
 	}
@@ -30,7 +30,7 @@ public class ClientTest {
 	@Test
 	public void ConcurrancyTest() throws InterruptedException {
 		setup();
-		for(int i = 0; i < 10; i++) {
+		for(int i = 0; i < 20; i++) {
 			clients[i].start();
 		}
 		cleanUp();

@@ -2,10 +2,13 @@ package dems.api;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
+import java.util.Map;
 
 import ca.dems.model.EmployeeRecord;
 import ca.dems.model.Logger;
 import ca.dems.model.ManagerRecord;
+import ca.dems.model.Record;
 import ca.dems.model.UDPClient;
 import ca.dems.repository.IRecordRepository;
 
@@ -87,8 +90,17 @@ public class RecordController extends UnicastRemoteObject implements RecordApi {
 
 	@Override
 	public String printData() {
-		logger.logMap(this.repo.getDataMap());
-		return "Print to File Successfully!";
+		Map<String, List<Record>> map = this.repo.getDataMap();
+		if(map.size() > 0) {
+			map.forEach((k, v) -> {
+				System.out.println("==============================Key: " + k + "==================================");
+				for (int i = 0; i < v.size(); i++) {
+					System.out.println(i + ": " + v.get(i).toString());
+				}
+				System.out.println("-=-=> Total records associate with this key is " + v.size());
+			});
+		}
+		return "Print to Console Successfully!";
 	}
 
 }

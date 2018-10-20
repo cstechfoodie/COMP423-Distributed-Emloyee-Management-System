@@ -1,0 +1,7 @@
+2018-10-16:03-15-01: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10000 EmployeeId: 343543. First name: asdad, Last Name: asdsdf Located at: CA, Mail is asdsaw@sadsa. The project info is: {ProjectID is P34324, client name is sdfsdf project name is weregfg}
+2018-10-16:03-17-07: The following record has NOT been successfully created!
+------>This is a Manager Record with ID: ER10000 EmployeeId: 123. First name: dd, Last Name: , Mail is dsfds. The project Id is: P32432
+2018-10-20:02-32-34: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10000 EmployeeId: 35345. First name: sfad, Last Name: asf Located at: CA, Mail is gdfg. The project info is: {ProjectID is P23423, client name is sfs project name is dghdfh}
+2018-10-20:02-32-41: Check the count of the local server. The total number is: 1

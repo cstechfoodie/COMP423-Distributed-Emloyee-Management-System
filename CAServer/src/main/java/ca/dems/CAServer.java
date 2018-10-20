@@ -28,7 +28,7 @@ public class CAServer {
 			Registry registry = LocateRegistry.createRegistry(1099);
 			registry.bind("recordApi", con);
 			
-			System.out.println("Server is started");
+			System.out.println("CA Server is started");
 		} catch(Exception e) {
 			System.out.println(e);
 		}

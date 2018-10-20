@@ -28,7 +28,7 @@ public class USServer {
 			Registry registry = LocateRegistry.createRegistry(2966);
 			registry.bind("recordApi", con);
 			
-			System.out.println("Server is started");
+			System.out.println("US Server is started");
 		} catch(Exception e) {
 			System.out.println(e);
 		}

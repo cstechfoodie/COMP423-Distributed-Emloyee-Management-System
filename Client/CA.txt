@@ -1,0 +1,10 @@
+2018-10-20:02-26-34: Request server to print its data into its log.
+2018-10-20:02-28-28: Request server to print its data into its log.
+2018-10-20:02-29-53: Request server to print its data into its log.
+2018-10-20:02-31-07: Request server to print its data into its log.
+2018-10-20:02-32-34: Trying to create the following record: 
+------>EmployeeId: 35345. First name: sfad, Last Name: asf Located at: CA, Mail is gdfg. The project info is: {ProjectID is P23423, client name is sfs project name is dghdfh}
+2018-10-20:02-32-34: ManagerRecord has been successfully created!
+2018-10-20:02-33-22: Request server to print its data into its log.
+2018-10-20:02-37-49: Manager with ID: CA logged in.
+2018-10-20:02-38-29: Manager with ID: [CA] logged in.

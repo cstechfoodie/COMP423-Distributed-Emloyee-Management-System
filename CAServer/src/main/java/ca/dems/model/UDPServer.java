@@ -31,6 +31,7 @@ public class UDPServer extends Thread {
 
 		while (true) {
 			DatagramPacket request = new DatagramPacket(buffer, buffer.length);
+			System.out.println("CA UDP Server Is Up!");
 			try {
 				aSocket.receive(request);
 				if(request.getLength() >0) {
@@ -40,8 +41,10 @@ public class UDPServer extends Thread {
 							request.getAddress(), request.getPort());
 					aSocket.send(response);
 				}
+				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
+				System.out.println("Warning: CA UDP Server Problem!");
 				e.printStackTrace();
 			}
 		}

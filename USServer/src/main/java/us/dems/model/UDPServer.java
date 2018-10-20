@@ -31,6 +31,7 @@ public class UDPServer extends Thread {
 
 		while (true) {
 			DatagramPacket request = new DatagramPacket(buffer, buffer.length);
+			System.out.println("US UDP Server Is Up!");
 			try {
 				aSocket.receive(request);
 				if(request.getLength() >0) {
@@ -42,6 +43,7 @@ public class UDPServer extends Thread {
 				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
+				System.out.println("Warning: US UDP Server Problem!");
 				e.printStackTrace();
 			}
 		}

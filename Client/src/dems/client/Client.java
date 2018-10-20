@@ -109,7 +109,8 @@ public class Client extends Thread{
 		}
 
 		Logger logger = new Logger(managerID);
-
+		logger.logInfo("Manager with ID: [" + managerID + "] logged in.");
+		
 		try {
 			Registry registry = LocateRegistry.getRegistry(port);
 			try {

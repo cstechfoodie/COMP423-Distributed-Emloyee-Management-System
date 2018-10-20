@@ -8,7 +8,7 @@ public class EmployeeRecord extends Record{
 	private static final long serialVersionUID = 1L;
 	private String projectID;
 	
-	private static int counter = 10000;
+	private static int counter = 20000;
 	private static String recordPrefix = "ER";
 	
 	private String recordID;

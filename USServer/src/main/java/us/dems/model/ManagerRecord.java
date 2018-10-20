@@ -11,7 +11,7 @@ public class ManagerRecord extends Record {
 	private Project project;
 	private String location;
 	
-	private static int counter = 10000;
+	private static int counter = 30000;
 	private static String recordPrefix = "MR";
 	
 	private String recordID;

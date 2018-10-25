@@ -30,7 +30,7 @@ public class RecordController extends UnicastRemoteObject implements RecordApi {
 	}
 
 	@Override
-	public String createMRecord(String firstName, String lastName, Integer employeeID, String mailID, Project project,
+	public String createMRecord(String managerID, String firstName, String lastName, Integer employeeID, String mailID, Project project,
 			String location) {
 		ManagerRecord m = new ManagerRecord(firstName, lastName, employeeID, mailID, project, location);
 		boolean isSuccessful = repo.createMRecord(m);
@@ -44,7 +44,7 @@ public class RecordController extends UnicastRemoteObject implements RecordApi {
 	}
 
 	@Override
-	public String createERecord(String firstName, String lastName, Integer employeeID, String mailID,
+	public String createERecord(String managerID, String firstName, String lastName, Integer employeeID, String mailID,
 			String projectID) {
 		EmployeeRecord e = new EmployeeRecord(firstName, lastName, employeeID, mailID, projectID);
 		boolean isSuccessful = repo.createMRecord(e);
@@ -58,7 +58,7 @@ public class RecordController extends UnicastRemoteObject implements RecordApi {
 	}
 
 	@Override
-	public String getRecordCounts() {
+	public String getRecordCounts(String managerID) {
 		int localServerCount = this.repo.getRecordCounts();
 		if (localServerCount >= 0) {
 			logger.logInfo("Check the count of the local server. The total number is: " + localServerCount);
@@ -78,7 +78,7 @@ public class RecordController extends UnicastRemoteObject implements RecordApi {
 	}
 
 	@Override
-	public String editRecord(String recordID, String fieldName, String newValue) {
+	public String editRecord(String managerID, String recordID, String fieldName, String newValue) {
 		boolean isSuccessful = this.repo.editRecord(recordID, fieldName, newValue);
 		if (isSuccessful) {
 			logger.logEdit(recordID, fieldName, newValue);
@@ -101,6 +101,13 @@ public class RecordController extends UnicastRemoteObject implements RecordApi {
 			});
 		}
 		return "Print to Console Successfully!";
+	}
+
+	@Override
+	public String transferRecord(String managerID, String recordID, String fieldName, String newValue)
+			throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

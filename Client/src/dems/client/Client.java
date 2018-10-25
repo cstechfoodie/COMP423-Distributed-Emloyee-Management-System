@@ -43,13 +43,13 @@ public class Client extends Thread{
 			RecordApi api = (RecordApi) registry.lookup("recordApi");
 			for(int i = 0; i < 10; i++) {
 				logger.logCreateMRecord("Shunyu", "Wang", 12345 + i, "shunyu.wang@mail.concordia.ca", new Project("P00001", "client", "project"), "CA");
-				String res = api.createMRecord("Shunyu", "Wang", 12345 + i, "shunyu.wang@mail.concordia.ca", new Project("P00001", "client", "project"), "CA");
+				String res = api.createMRecord(managerID, "Shunyu", "Wang", 12345 + i, "shunyu.wang@mail.concordia.ca", new Project("P00001", "client", "project"), "CA");
 				logger.logInfo(res);
 			}
 			
 			for(int i = 0; i < 10; i++) {
 				logger.logCreateERecord("Shunyu", "Zang", 67890 + i, "shunyu.wang@mail.concordia.ca", "P00001"+i);
-				String res = api.createERecord("Shunyu", "Zang", 67890 + i, "shunyu.wang@mail.concordia.ca", "P00001" + i);
+				String res = api.createERecord(managerID, "Shunyu", "Zang", 67890 + i, "shunyu.wang@mail.concordia.ca", "P00001" + i);
 				logger.logInfo(res);
 			}
 			
@@ -61,17 +61,17 @@ public class Client extends Thread{
 			
 			String res = api.printData();
 			logger.logInfo(res);
-			String count = api.getRecordCounts();
+			String count = api.getRecordCounts(managerID);
 			logger.logInfo(count);
 			for(int i = 0; i < 10; i++) {
 				logger.logEdit("ER10001", "projectID", "P00200");
-				res = api.editRecord("ER10001", "projectID", "P00200");
+				res = api.editRecord(managerID, "ER10001", "projectID", "P00200");
 				logger.logInfo(res);
 				logger.logEdit("MR10003", "location", "US");
-				res = api.editRecord("MR10003", "location", "US");
+				res = api.editRecord(managerID, "MR10003", "location", "US");
 				logger.logInfo(res);
 				logger.logEdit("MR10005", "mailID", "john@mail.concordia.ca");
-				res = api.editRecord("MR10005", "mailID", "john@mail.concordia.ca");	
+				res = api.editRecord(managerID, "MR10005", "mailID", "john@mail.concordia.ca");	
 				logger.logInfo(res);
 			}
 			res = api.printData();
@@ -152,7 +152,7 @@ public class Client extends Thread{
 
 							Project project = new Project(projectID, clientName, projectName);
 							logger.logCreateMRecord(firstName, lastName, employeeID, mailID, project, location);
-							String res = api.createMRecord(firstName, lastName, employeeID, mailID, project, location);
+							String res = api.createMRecord(managerID, firstName, lastName, employeeID, mailID, project, location);
 							System.out.println(res);
 							logger.logInfo(res);
 
@@ -176,7 +176,7 @@ public class Client extends Thread{
 							System.out.println("Project ID:");
 							projectID = scanner.nextLine();
 							logger.logCreateERecord(firstName, lastName, employeeID, mailID, projectID);
-							res = api.createERecord(firstName, lastName, employeeID, mailID, projectID);
+							res = api.createERecord(managerID, firstName, lastName, employeeID, mailID, projectID);
 							System.out.println(res);
 							logger.logInfo(res);
 							System.out.println("Do you have other operations? Y/N");
@@ -193,7 +193,7 @@ public class Client extends Thread{
 							String newValue = scanner.nextLine();
 
 							logger.logEdit(recordID, fieldName, newValue);
-							res = api.editRecord(recordID, fieldName, newValue);
+							res = api.editRecord(managerID, recordID, fieldName, newValue);
 							System.out.println(res);
 							logger.logInfo(res);
 
@@ -201,7 +201,7 @@ public class Client extends Thread{
 							loop = scanner.nextLine().toUpperCase().equals("Y") ? true : false;
 							break;
 						case 4:
-							res = api.getRecordCounts();
+							res = api.getRecordCounts(managerID);
 							System.out.println(res);
 							logger.logInfo(res);
 							System.out.println("Do you have other operations? Y/N");

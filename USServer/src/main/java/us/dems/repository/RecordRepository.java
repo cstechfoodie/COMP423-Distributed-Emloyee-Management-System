@@ -2,9 +2,9 @@ package us.dems.repository;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 import us.dems.model.EmployeeRecord;
 import us.dems.model.Logger;
@@ -15,7 +15,7 @@ public class RecordRepository implements IRecordRepository {
 	
 	private Logger logger = new Logger();
 
-	private Map<String, List<Record>> repo = new ConcurrentHashMap<String, List<Record>>();
+	private Map<String, List<Record>> repo = new HashMap<String, List<Record>>();
 
 	/*
 	 * (non-Javadoc)

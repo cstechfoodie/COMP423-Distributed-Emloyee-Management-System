@@ -12,13 +12,14 @@ import ca.dems.model.ManagerRecord;
 import ca.dems.model.Record;
 
 public class RecordRepository implements IRecordRepository {
-	
+
 	private Logger logger = new Logger();
 
 	private Map<String, List<Record>> repo = new HashMap<String, List<Record>>();
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see ca.dems.repository.IRecordRepository#createMRecord(ca.dems.model.Record)
 	 */
 	@Override
@@ -39,15 +40,17 @@ public class RecordRepository implements IRecordRepository {
 			return false;
 		}
 	}
-	
+
 	@Override
 	public synchronized boolean createERecord(Record record) {
 		return createMRecord(record);
 	}
-	
+
 	/*
 	 * (non-Javadoc)
-	 * @see ca.dems.repository.IRecordRepository#editRecord(java.util.UUID, java.lang.String, java.lang.Object)
+	 * 
+	 * @see ca.dems.repository.IRecordRepository#editRecord(java.util.UUID,
+	 * java.lang.String, java.lang.Object)
 	 */
 	@Override
 	public synchronized boolean editRecord(String recordID, String fieldName, String newValue) {
@@ -55,8 +58,7 @@ public class RecordRepository implements IRecordRepository {
 			return false;
 		}
 		if (fieldName.equals("location")) {
-			if (!newValue.toString().equalsIgnoreCase("CA")
-					&& !newValue.toString().equalsIgnoreCase("US")
+			if (!newValue.toString().equalsIgnoreCase("CA") && !newValue.toString().equalsIgnoreCase("US")
 					&& !newValue.toString().equalsIgnoreCase("UK")) {
 				return false;
 			}
@@ -164,11 +166,10 @@ public class RecordRepository implements IRecordRepository {
 			for (List<Record> lst : allLists) {
 				for (Record r : lst) {
 					if (r.getRecordID().toString().equals(recordID)) {
-						if(r.getClass().getSimpleName().equalsIgnoreCase("EmployeeRecord")) {
+						if (r.getClass().getSimpleName().equalsIgnoreCase("EmployeeRecord")) {
 							EmployeeRecord e = (EmployeeRecord) r;
 							e.setProjectID(newValue.toString());
-						}	
-						else {
+						} else {
 							ManagerRecord m = (ManagerRecord) r;
 							m.getProject().setProjectID(newValue);
 						}
@@ -195,6 +196,7 @@ public class RecordRepository implements IRecordRepository {
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see ca.dems.repository.IRecordRepository#geRecordCounts()
 	 */
 	@Override
@@ -210,6 +212,19 @@ public class RecordRepository implements IRecordRepository {
 	@Override
 	public synchronized Map<String, List<Record>> getDataMap() {
 		return this.repo;
+	}
+
+	@Override
+	public synchronized boolean isExisted(String recordID) {
+		Collection<List<Record>> allLists = repo.values();
+		for (List<Record> lst : allLists) {
+			for (Record r : lst) {
+				if (r.getRecordID().toString().equals(recordID)) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 }

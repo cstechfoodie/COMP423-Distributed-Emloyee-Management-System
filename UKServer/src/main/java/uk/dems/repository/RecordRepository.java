@@ -212,4 +212,16 @@ public class RecordRepository implements IRecordRepository {
 		return this.repo;
 	}
 
+	@Override
+	public synchronized boolean isExisted(String recordID) {
+		Collection<List<Record>> allLists = repo.values();
+		for (List<Record> lst : allLists) {
+			for (Record r : lst) {
+				if (r.getRecordID().toString().equals(recordID)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 }

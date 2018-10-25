@@ -15,7 +15,7 @@ public interface RecordApi extends Remote {
 	
 	public String editRecord(String managerID, String recordID, String fieldName, String newValue) throws RemoteException;;
 	
-	public String transferRecord(String managerID, String recordID, String fieldName, String newValue) throws RemoteException;;
+	public String transferRecord(String managerID, String recordID, String remoteCenterServerName) throws RemoteException;;
 	
 	public String printData() throws RemoteException;; //display the content of the map to the server side 
 }

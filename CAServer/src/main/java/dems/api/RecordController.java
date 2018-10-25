@@ -104,10 +104,11 @@ public class RecordController extends UnicastRemoteObject implements RecordApi {
 	}
 
 	@Override
-	public String transferRecord(String managerID, String recordID, String fieldName, String newValue)
+	public String transferRecord(String managerID, String recordID, String remoteCenterServerName)
 			throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 }

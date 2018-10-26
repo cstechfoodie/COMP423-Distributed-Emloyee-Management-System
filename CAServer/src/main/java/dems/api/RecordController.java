@@ -80,9 +80,7 @@ public class RecordController extends UnicastRemoteObject implements RecordApi {
 		String result = "";
 		String countsUS = UDPClient.getRecordCounts("localhost", 9003);
 		String countsUK = UDPClient.getRecordCounts("localhost", 9002);
-		while(!result.contains("CA") || !result.contains("US") || !result.contains("UK")) {
-			result = "CA " + localServerCount + " " + countsUS + " " + countsUK;			
-		}
+		result = "CA " + localServerCount + " " + countsUS + " " + countsUK;			
 
 		//return result;
 		logger.logInfo("Check the counts of record in each server. The total number is: " + result);

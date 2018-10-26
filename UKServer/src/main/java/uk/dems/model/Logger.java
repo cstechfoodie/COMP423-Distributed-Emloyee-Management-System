@@ -9,9 +9,19 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-public class Logger {
 
-	private final static String filePath = "UKServerLogs.txt";
+public class Logger {
+	
+	private String userID ="";
+
+	/**
+	 * @param userID the userID to set
+	 */
+	public void setUserID(String userID) {
+		this.userID = userID;
+	}
+
+	private final static String filePath = "CAServerLogs.txt";
 
 	private static FileOutputStream file;
 
@@ -30,38 +40,40 @@ public class Logger {
 	}
 
 	public synchronized void logInfo(String message) {
-		this.printWriter.println(formatter.format(new Date()) + ": " + message);
+		this.printWriter.println(userID + "---" + formatter.format(new Date()) + ": " + message);
 		flush();
 	}
 
 	public synchronized void logSuccessfullyCreated(Record r) {
-		this.printWriter.println(formatter.format(new Date()) + ": The following record has been successfully created!");
+		this.printWriter.println(userID + "---" + formatter.format(new Date()) + ": The following record has been successfully created!");
 		this.printWriter.println("------>" + r.toString());
 		flush();
 	}
 
 	public synchronized void logUnsuccessfullyCreated(Record r) {
 		this.printWriter
-				.println(formatter.format(new Date()) + ": The following record has NOT been successfully created!");
+				.println(userID + "---" + formatter.format(new Date()) + ": The following record has NOT been successfully created!");
 		this.printWriter.println("------>" + r.toString());
 		flush();
 	}
 
 	public synchronized void logEdit(String recordID, String fieldName, String newValue) {
-		this.printWriter.println(formatter.format(new Date()) + ": In Record " + recordID + ", fieldName {" + fieldName
+		this.printWriter.println(userID + "---" + formatter.format(new Date()) + ": In Record " + recordID + ", fieldName {" + fieldName
 				+ "} was changed to " + newValue + ".");
 		flush();
 	}
 
 	public synchronized void logMap(Map<String, List<Record>> map) {
-		this.printWriter.println(formatter.format(new Date()) + ": Print all records associate with their keys");
-		map.forEach((k, v) -> {
-			this.printWriter.println("==============================Key: " + k + "==================================");
-			for (int i = 0; i < v.size(); i++) {
-				this.printWriter.println(i + ": " + v.get(i).toString());
-			}
-			this.printWriter.println("-=-=> Total records associate with this key is " + v.size());
-		});
+		this.printWriter.println(userID + "---" + formatter.format(new Date()) + ": Print all records associate with their keys");
+		if(map.size() > 0) {
+			map.forEach((k, v) -> {
+				this.printWriter.println("==============================Key: " + k + "==================================");
+				for (int i = 0; i < v.size(); i++) {
+					this.printWriter.println(i + ": " + v.get(i).toString());
+				}
+				this.printWriter.println("-=-=> Total records associate with this key is " + v.size());
+			});
+		}
 		flush();
 	}
 

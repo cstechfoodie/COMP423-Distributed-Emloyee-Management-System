@@ -211,5 +211,45 @@ public class RecordRepository implements IRecordRepository {
 	public synchronized Map<String, List<Record>> getDataMap() {
 		return this.repo;
 	}
+	
+	@Override
+	public synchronized boolean isExisted(String recordID) {
+		Collection<List<Record>> allLists = repo.values();
+		for (List<Record> lst : allLists) {
+			for (Record r : lst) {
+				if (r.getRecordID().toString().equals(recordID)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	@Override
+	public Record getRecord(String recordID) {
+		Collection<List<Record>> allLists = repo.values();
+		for (List<Record> lst : allLists) {
+			for (Record r : lst) {
+				if (r.getRecordID().toString().equals(recordID)) {
+					return r;
+				}
+			}
+		}
+		return null;
+	}
+	
+	@Override
+	public boolean deleteRecord(String recordID) {
+		Collection<List<Record>> allLists = repo.values();
+		for (List<Record> lst : allLists) {
+			for (Record r : lst) {
+				if (r.getRecordID().toString().equals(recordID)) {
+					lst.remove(r);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 
 }

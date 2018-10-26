@@ -5,6 +5,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import dems.api.RecordController;
 import us.dems.repository.IRecordRepository;
 
@@ -34,9 +35,53 @@ public class UDPServer extends Thread {
 			System.out.println("US UDP Server Is Up!");
 			try {
 				aSocket.receive(request);
-				if(request.getLength() >0) {
+				String requestMsg = new String(request.getData()).trim();
+				if(requestMsg.equals("1")) {
 					int count = this.repo.getRecordCounts();
-					String replyMessage = "US " + count;
+					String replyMessage = "CA " + count;
+					DatagramPacket response = new DatagramPacket(replyMessage.getBytes(), replyMessage.getBytes().length,
+							request.getAddress(), request.getPort());
+					aSocket.send(response);
+				}
+				if(requestMsg.startsWith("2")) {
+					String recordID = requestMsg.substring(1);
+					boolean isExisted = this.repo.isExisted(recordID);
+					String replyMessage;
+					if(isExisted) {
+						replyMessage = "true";
+					}
+					else {
+						replyMessage = "false";
+					}
+					DatagramPacket response = new DatagramPacket(replyMessage.getBytes(), replyMessage.getBytes().length,
+							request.getAddress(), request.getPort());
+					aSocket.send(response);
+				}
+				if(requestMsg.startsWith("3")) {
+					String recordJson = requestMsg.substring(1);
+					ObjectMapper objectMapper = new ObjectMapper();
+					if(requestMsg.contains("MR")) {
+						ManagerRecord mr = objectMapper.readValue(recordJson, ManagerRecord.class);	
+						this.repo.createMRecord(mr);
+					} else {
+						EmployeeRecord er = objectMapper.readValue(recordJson, EmployeeRecord.class);
+						this.repo.createMRecord(er);
+					}
+					String replyMessage = "true";
+					DatagramPacket response = new DatagramPacket(replyMessage.getBytes(), replyMessage.getBytes().length,
+							request.getAddress(), request.getPort());
+					aSocket.send(response);
+				}
+				if(requestMsg.startsWith("4")) {
+					String recordID = requestMsg.substring(1);
+					boolean isExisted = this.repo.isExisted(recordID);
+					String replyMessage;
+					if(isExisted) {
+						replyMessage = this.repo.deleteRecord(recordID)? "true" : "false";
+					}
+					else {
+						replyMessage = "true";
+					}
 					DatagramPacket response = new DatagramPacket(replyMessage.getBytes(), replyMessage.getBytes().length,
 							request.getAddress(), request.getPort());
 					aSocket.send(response);

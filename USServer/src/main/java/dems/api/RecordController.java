@@ -2,8 +2,11 @@ package dems.api;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 import us.dems.model.Record;
 import us.dems.model.EmployeeRecord;
@@ -22,16 +25,23 @@ public class RecordController extends UnicastRemoteObject implements RecordApi {
 	private IRecordRepository repo;
 
 	private Logger logger;
+	
+	private HashMap<String, Integer> serverPortRegistry;
 
 	public RecordController(IRecordRepository repo) throws RemoteException {
 		super();
 		this.repo = repo;
 		logger = new Logger();
+		serverPortRegistry = new HashMap<>();
+		serverPortRegistry.put("CA", 9001);
+		serverPortRegistry.put("UK", 9002);
+		serverPortRegistry.put("US", 9003);
 	}
 
 	@Override
 	public String createMRecord(String managerID, String firstName, String lastName, Integer employeeID, String mailID, Project project,
 			String location) {
+		logger.setUserID(managerID);
 		ManagerRecord m = new ManagerRecord(firstName, lastName, employeeID, mailID, project, location);
 		boolean isSuccessful = repo.createMRecord(m);
 		if (isSuccessful) {
@@ -46,6 +56,7 @@ public class RecordController extends UnicastRemoteObject implements RecordApi {
 	@Override
 	public String createERecord(String managerID, String firstName, String lastName, Integer employeeID, String mailID,
 			String projectID) {
+		logger.setUserID(managerID);
 		EmployeeRecord e = new EmployeeRecord(firstName, lastName, employeeID, mailID, projectID);
 		boolean isSuccessful = repo.createMRecord(e);
 		if (isSuccessful) {
@@ -59,6 +70,7 @@ public class RecordController extends UnicastRemoteObject implements RecordApi {
 
 	@Override
 	public String getRecordCounts(String managerID) {
+		logger.setUserID(managerID);
 		int localServerCount = this.repo.getRecordCounts();
 		if (localServerCount >= 0) {
 			logger.logInfo("Check the count of the local server. The total number is: " + localServerCount);
@@ -77,6 +89,7 @@ public class RecordController extends UnicastRemoteObject implements RecordApi {
 
 	@Override
 	public String editRecord(String managerID, String recordID, String fieldName, String newValue) {
+		logger.setUserID(managerID);
 		boolean isSuccessful = this.repo.editRecord(recordID, fieldName, newValue);
 		if (isSuccessful) {
 			logger.logEdit(recordID, fieldName, newValue);
@@ -104,8 +117,46 @@ public class RecordController extends UnicastRemoteObject implements RecordApi {
 	@Override
 	public String transferRecord(String managerID, String recordID, String remoteCenterServerName)
 			throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		logger.setUserID(managerID);
+		boolean isExisted;
+		if((isExisted = repo.isExisted(recordID))) {
+			String isExistedInRemote = UDPClient.checkRecordInRemoteServer("localhost", serverPortRegistry.get(remoteCenterServerName), recordID);
+			if(isExistedInRemote.equals("false")) {
+				try {
+					Record r = this.repo.getRecord(recordID);
+					String isTransferSuccessfully = UDPClient.transeferRecord("localhost", serverPortRegistry.get(remoteCenterServerName), r);
+					if(isTransferSuccessfully.equals("true")) {
+						boolean isDeleted = this.repo.deleteRecord(recordID);
+						if(isDeleted) {
+							logger.logInfo("The following record is sucessfully transfer to " + remoteCenterServerName + " server. " + r.toString());
+							return "The following record is sucessfully transfer to " + remoteCenterServerName + " server. " + r.toString();
+						} else {
+							//rollback
+							String rollback = UDPClient.rollbackTransfer("localhost", serverPortRegistry.get(remoteCenterServerName), recordID);
+							if(rollback.equals("true")) {
+								logger.logInfo("Transfer failed due to internal local server error. Rollback remote successfully");
+								return "Transfer failed due to internal local server error. Rollback remote successfully";								
+							} else {
+								logger.logInfo("Transfer failed due to internal local server error. Rollback remote failed");
+								return "Transfer failed due to internal local server error. Rollback remote failed";
+							}
+						}
+					} else {
+						logger.logInfo("Transfer failed due to " + remoteCenterServerName + " server error.");
+						return "Transfer failed due to " + remoteCenterServerName + " server error.";
+					}
+				} catch (JsonProcessingException e) {
+					logger.logInfo("Transfer failed due to JsonProcessingException");
+					return "Transfer failed due to JsonProcessingException";
+				}
+			} else {
+				logger.logInfo("Transfer failed due to conflicted recordID in "+ remoteCenterServerName + " server.");
+				return "Transfer failed due to conflicted recordID in "+ remoteCenterServerName + " server.";
+			}
+		} else {
+			logger.logInfo("Transfer failed due to recordID not existing in local server.");
+			return "Transfer failed due to recordID not existing in local server.";
+		}
 	}
 
 }

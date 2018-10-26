@@ -226,7 +226,7 @@ public class RecordRepository implements IRecordRepository {
 	}
 	
 	@Override
-	public Record getRecord(String recordID) {
+	public synchronized Record getRecord(String recordID) {
 		Collection<List<Record>> allLists = repo.values();
 		for (List<Record> lst : allLists) {
 			for (Record r : lst) {
@@ -239,7 +239,7 @@ public class RecordRepository implements IRecordRepository {
 	}
 	
 	@Override
-	public boolean deleteRecord(String recordID) {
+	public synchronized boolean deleteRecord(String recordID) {
 		Collection<List<Record>> allLists = repo.values();
 		for (List<Record> lst : allLists) {
 			for (Record r : lst) {

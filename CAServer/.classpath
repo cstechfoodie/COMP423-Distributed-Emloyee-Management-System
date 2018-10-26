@@ -2,5 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/wshy8/Downloads/Download from Chrome/jackson-core-2.9.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/wshy8/Downloads/Download from Chrome/jackson-annotations-2.9.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/wshy8/Downloads/Download from Chrome/jackson-databind-2.9.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -13,4 +13,6 @@ public interface IRecordRepository {
 	public int getRecordCounts();
 	public Map<String, List<Record>> getDataMap();
 	public boolean isExisted(String recordID);
+	public Record getRecord(String recordID);
+	public boolean deleteRecord(String recordID);
 }

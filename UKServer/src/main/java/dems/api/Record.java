@@ -1,4 +1,4 @@
-package uk.dems.model;
+package dems.api;
 
 import java.io.Serializable;
 import java.util.UUID;

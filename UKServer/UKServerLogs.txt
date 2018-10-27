@@ -67,3 +67,22 @@ UK10001---2018-10-27:02-31-30: The following record has been successfully create
 ------>This is a Manager Record with ID: ER10000 EmployeeId: 6. First name: j, Last Name: j, Mail is j. The project Id is: j
 UK10001---2018-10-27:02-31-56: Transfer failed due to conflicted recordID in CA server.
 UK10001---2018-10-27:02-34-31: Transfer failed due to conflicted recordID in CA server.
+UK10001---2018-10-27:02-42-00: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10000 EmployeeId: 5. First name: asd, Last Name: f Located at: CA, Mail is g. The project info is: {ProjectID is P345, client name is 46dfg project name is gfh}
+UK10001---2018-10-27:02-42-35: Transfer failed due to recordID not existing in local server.
+UK10001---2018-10-27:03-14-55: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10000 EmployeeId: 324. First name: f, Last Name: f, Mail is f. The project Id is: f
+UK10001---2018-10-27:03-17-47: The following record is sucessfully transfer to CA server. This is a Manager Record with ID: ER10000 EmployeeId: 324. First name: f, Last Name: f, Mail is f. The project Id is: f
+UK10001---2018-10-27:03-17-58: Check the count of the local server. The total number is: 0
+UK10001---2018-10-27:03-21-03: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10000 EmployeeId: 3. First name: f, Last Name: f, Mail is f. The project Id is: f
+UK10001---2018-10-27:03-21-19: Check the count of the local server. The total number is: 1
+UK10001---2018-10-27:03-21-19: Check the counts of record in each server. The total number is: UK 1 US 0 CA 0
+UK10001---2018-10-27:03-21-37: The following record is sucessfully transfer to CA server. This is a Manager Record with ID: ER10000 EmployeeId: 3. First name: f, Last Name: f, Mail is f. The project Id is: f
+UK10001---2018-10-27:03-24-20: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10000 EmployeeId: 687. First name: f, Last Name: f Located at: Ca, Mail is dg. The project info is: {ProjectID is dgf, client name is dgf project name is dg}
+UK10001---2018-10-27:03-24-23: Check the count of the local server. The total number is: 1
+UK10001---2018-10-27:03-24-23: Check the counts of record in each server. The total number is: UK 1 US 0 CA 1
+UK10001---2018-10-27:03-24-36: The following record is sucessfully transfer to CA server. This is a Manager Record with ID: MR10000 EmployeeId: 687. First name: f, Last Name: f Located at: Ca, Mail is dg. The project info is: {ProjectID is dgf, client name is dgf project name is dg}
+UK10001---2018-10-27:03-24-57: Check the count of the local server. The total number is: 0
+UK10001---2018-10-27:03-24-57: Check the counts of record in each server. The total number is: UK 0 US 0 CA 2

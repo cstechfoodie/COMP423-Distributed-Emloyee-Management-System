@@ -4,11 +4,11 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import ca.dems.model.Record;
 import ca.dems.model.UDPServer;
 import ca.dems.repository.IRecordRepository;
 import ca.dems.repository.RecordRepository;
 import dems.api.Project;
+import dems.api.Record;
 import dems.api.RecordApi;
 import dems.api.RecordController;
 

@@ -1,4 +1,4 @@
-package us.dems.model;
+package dems.api;
 
 public class EmployeeRecord extends Record{
 

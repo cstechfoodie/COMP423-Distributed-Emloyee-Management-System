@@ -6,10 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import uk.dems.model.EmployeeRecord;
+import dems.api.EmployeeRecord;
+import dems.api.ManagerRecord;
+import dems.api.Record;
 import uk.dems.model.Logger;
-import uk.dems.model.ManagerRecord;
-import uk.dems.model.Record;
 
 public class RecordRepository implements IRecordRepository {
 	

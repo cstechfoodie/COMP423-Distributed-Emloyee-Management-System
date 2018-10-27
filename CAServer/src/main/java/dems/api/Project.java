@@ -2,6 +2,9 @@ package dems.api;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Project implements Serializable{
 	
 	/**
@@ -9,10 +12,13 @@ public class Project implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@JsonProperty()
 	private String projectID;
 	
+	@JsonProperty()
 	private String clientName;
 	
+	@JsonProperty()
 	private String projectName;
 	
 //	public Project() {
@@ -21,7 +27,8 @@ public class Project implements Serializable{
 //		projectName = "PROJECT_NAME_DEFAULT";
 //	}
 	
-	public Project(String projectID, String clientName, String projectName) {
+	@JsonCreator
+	public Project(@JsonProperty("projectID")String projectID, @JsonProperty("clientName")String clientName, @JsonProperty("projectName")String projectName) {
 		this.projectID = projectID;
 		this.clientName = clientName;
 		this.projectName = projectName;

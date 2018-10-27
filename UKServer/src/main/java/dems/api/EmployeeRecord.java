@@ -1,6 +1,5 @@
-package ca.dems.model;
+package dems.api;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class EmployeeRecord extends Record{
@@ -9,16 +8,17 @@ public class EmployeeRecord extends Record{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@JsonProperty()
 	private String projectID;
 	
 	private static int counter = 10000;
 	private static String recordPrefix = "ER";
-	@JsonProperty()
+	
 	private String recordID;
 	
-	@JsonCreator
-	public EmployeeRecord(@JsonProperty("firstName")String firstName, @JsonProperty("lastName")String lastName, @JsonProperty("employeeID")Integer employeeID, @JsonProperty("mailID")String mailID, @JsonProperty("projectID")String projectID) {
+	public EmployeeRecord() {super();};
+	
+
+	public EmployeeRecord(String firstName, String lastName, Integer employeeID, String mailID, String projectID) {
 		super(firstName, lastName, employeeID, mailID);
 		this.recordID = recordPrefix + counter;
 		counter++;
@@ -53,7 +53,7 @@ public class EmployeeRecord extends Record{
 	}
 	
 	public String toString() {
-		String str = "This is a Manager Record with ID: " + this.getRecordID().toString() + " EmployeeId: "
+		String str = "This is a Employee Record with ID: " + this.getRecordID().toString() + " EmployeeId: "
 				+ this.getEmployeeID() + ". First name: " + this.getFirstName() + ", Last Name: " + this.getLastName()
 				+ ", Mail is " + this.getMailID() + ". The project Id is: "
 				+ this.getProjectID();

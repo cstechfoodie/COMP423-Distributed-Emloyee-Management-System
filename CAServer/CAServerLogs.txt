@@ -16,3 +16,5 @@ CA10001---2018-10-27:02-14-59: The following record has been successfully create
 ------>This is a Manager Record with ID: ER10000 EmployeeId: 345. First name: afd, Last Name: hfgd, Mail is sdgf. The project Id is: sgdf
 CA10001---2018-10-27:02-31-05: The following record has been successfully created!
 ------>This is a Manager Record with ID: ER10000 EmployeeId: 5. First name: sdfa, Last Name: dsfg, Mail is fgdh. The project Id is: sdgf
+CA10001---2018-10-27:03-21-54: Check the count of the local server. The total number is: 1
+CA10001---2018-10-27:03-21-54: Check the counts of record in each server. The total number is: CA 1 US 0 UK 0

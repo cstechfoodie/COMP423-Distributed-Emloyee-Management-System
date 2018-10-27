@@ -6,6 +6,10 @@ import java.net.DatagramSocket;
 import java.net.SocketException;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import dems.api.EmployeeRecord;
+import dems.api.ManagerRecord;
+import dems.api.Record;
 import dems.api.RecordController;
 import us.dems.repository.IRecordRepository;
 
@@ -58,13 +62,23 @@ public class UDPServer extends Thread {
 					aSocket.send(response);
 				}
 				if(requestMsg.startsWith("3")) {
-					String recordJson = requestMsg.substring(1);
-					ObjectMapper objectMapper = new ObjectMapper();
+					String record = requestMsg.substring(1);
+//					ObjectMapper objectMapper = new ObjectMapper();
+					Record obj = null;
+					try {
+						obj = (Record) BytesUtil.toObject(record.getBytes());
+					} catch (ClassNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
 					if(requestMsg.contains("MR")) {
-						ManagerRecord mr = objectMapper.readValue(recordJson, ManagerRecord.class);	
+						//ManagerRecord mr = objectMapper.readValue(recordJson, ManagerRecord.class);	
+						ManagerRecord mr = (ManagerRecord) obj;
 						this.repo.createMRecord(mr);
 					} else {
-						EmployeeRecord er = objectMapper.readValue(recordJson, EmployeeRecord.class);
+						//EmployeeRecord er = objectMapper.readValue(recordJson, EmployeeRecord.class);
+						EmployeeRecord er = (EmployeeRecord) obj;
 						this.repo.createMRecord(er);
 					}
 					String replyMessage = "true";

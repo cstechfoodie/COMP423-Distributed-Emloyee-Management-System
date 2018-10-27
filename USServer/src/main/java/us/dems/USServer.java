@@ -5,9 +5,9 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 import dems.api.Project;
+import dems.api.Record;
 import dems.api.RecordApi;
 import dems.api.RecordController;
-import us.dems.model.Record;
 import us.dems.model.UDPServer;
 import us.dems.repository.IRecordRepository;
 import us.dems.repository.RecordRepository;

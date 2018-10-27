@@ -7,9 +7,10 @@ import java.util.List;
 import java.util.Map;
 
 import dems.api.EmployeeRecord;
+import dems.api.ManagerRecord;
 import dems.api.Record;
 import us.dems.model.Logger;
-import us.dems.model.ManagerRecord;
+
 
 public class RecordRepository implements IRecordRepository {
 	

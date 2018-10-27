@@ -18,3 +18,19 @@ CA10001---2018-10-27:02-31-05: The following record has been successfully create
 ------>This is a Manager Record with ID: ER10000 EmployeeId: 5. First name: sdfa, Last Name: dsfg, Mail is fgdh. The project Id is: sdgf
 CA10001---2018-10-27:03-21-54: Check the count of the local server. The total number is: 1
 CA10001---2018-10-27:03-21-54: Check the counts of record in each server. The total number is: CA 1 US 0 UK 0
+CA10001---2018-10-27:03-32-14: Check the count of the local server. The total number is: 0
+CA10001---2018-10-27:03-32-14: Check the counts of record in each server. The total number is: CA 0 US 0 UK 0
+CA10001---2018-10-27:03-32-36: The following record has NOT been successfully created!
+------>This is a Emloyee Record with ID: ER10000 EmployeeId: 1. First name: a, Last Name: , Mail is ad. The project Id is: a
+CA10001---2018-10-27:03-32-49: The following record has been successfully created!
+------>This is a Emloyee Record with ID: ER10001 EmployeeId: 2. First name: a, Last Name: a, Mail is a. The project Id is: a
+CA10001---2018-10-27:03-34-58: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10000 EmployeeId: 4. First name: g, Last Name: g Located at: CA, Mail is g. The project info is: {ProjectID is g, client name is g project name is g}
+CA10001---2018-10-27:03-40-28: Check the count of the local server. The total number is: 0
+CA10001---2018-10-27:03-40-28: Check the counts of record in each server. The total number is: CA 0 US 0 UK 0
+CA10001---2018-10-27:03-40-42: The following record has been successfully created!
+------>This is a Emloyee Record with ID: ER10000 EmployeeId: 1. First name: m, Last Name: m, Mail is m. The project Id is: 
+CA10001---2018-10-27:03-46-07: Check the count of the local server. The total number is: 0
+CA10001---2018-10-27:03-46-07: Check the counts of record in each server. The total number is: CA 0 US 0 UK 0
+CA10001---2018-10-27:03-46-28: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10000 EmployeeId: 453. First name: ert, Last Name: try Located at: CA, Mail is sdf. The project info is: {ProjectID is P435, client name is fds project name is sf}

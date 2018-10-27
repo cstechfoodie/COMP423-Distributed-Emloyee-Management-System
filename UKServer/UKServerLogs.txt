@@ -86,3 +86,23 @@ UK10001---2018-10-27:03-24-23: Check the counts of record in each server. The to
 UK10001---2018-10-27:03-24-36: The following record is sucessfully transfer to CA server. This is a Manager Record with ID: MR10000 EmployeeId: 687. First name: f, Last Name: f Located at: Ca, Mail is dg. The project info is: {ProjectID is dgf, client name is dgf project name is dg}
 UK10001---2018-10-27:03-24-57: Check the count of the local server. The total number is: 0
 UK10001---2018-10-27:03-24-57: Check the counts of record in each server. The total number is: UK 0 US 0 CA 2
+UK10001---2018-10-27:03-33-01: Check the count of the local server. The total number is: 0
+UK10001---2018-10-27:03-33-01: Check the counts of record in each server. The total number is: UK 0 US 0 CA 1
+UK10001---2018-10-27:03-33-11: The following record has been successfully created!
+------>This is a Employee Record with ID: ER10000 EmployeeId: 3. First name: c, Last Name: c, Mail is c. The project Id is: c
+UK10001---2018-10-27:03-33-14: Check the count of the local server. The total number is: 1
+UK10001---2018-10-27:03-33-14: Check the counts of record in each server. The total number is: UK 1 US 0 CA 1
+UK10001---2018-10-27:03-33-30: The following record has been successfully created!
+------>This is a Employee Record with ID: ER10001 EmployeeId: 3. First name: v, Last Name: v, Mail is v. The project Id is: v
+UK10001---2018-10-27:03-33-41: The following record is sucessfully transfer to CA server. This is a Employee Record with ID: ER10000 EmployeeId: 3. First name: c, Last Name: c, Mail is c. The project Id is: c
+UK10001---2018-10-27:03-35-33: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10000 EmployeeId: 8. First name: k, Last Name: k Located at: k, Mail is k. The project info is: {ProjectID is k, client name is k project name is k}
+UK10001---2018-10-27:03-35-54: Transfer failed due to conflicted recordID in CA server.
+UK10001---2018-10-27:03-47-44: Check the count of the local server. The total number is: 0
+UK10001---2018-10-27:03-47-44: Check the counts of record in each server. The total number is: UK 0 US 0 CA 2
+UK10001---2018-10-27:03-49-18: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10000 EmployeeId: 7. First name: f, Last Name: f Located at: VVVV, Mail is iooio. The project info is: {ProjectID is hgf, client name is fgh project name is fh}
+UK10001---2018-10-27:03-49-20: Check the count of the local server. The total number is: 1
+UK10001---2018-10-27:03-49-20: Check the counts of record in each server. The total number is: UK 1 US 1 CA 2
+UK10001---2018-10-27:03-49-56: Transfer failed due to conflicted recordID in CA server.
+UK10001---2018-10-27:03-50-25: Transfer failed due to recordID not existing in local server.

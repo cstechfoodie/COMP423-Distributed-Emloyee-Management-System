@@ -38,7 +38,7 @@ public class UDPServer extends Thread {
 				String requestMsg = new String(request.getData()).trim();
 				if(requestMsg.equals("1")) {
 					int count = this.repo.getRecordCounts();
-					String replyMessage = "CA " + count;
+					String replyMessage = "US " + count;
 					DatagramPacket response = new DatagramPacket(replyMessage.getBytes(), replyMessage.getBytes().length,
 							request.getAddress(), request.getPort());
 					aSocket.send(response);

@@ -28,7 +28,7 @@ public class UDPServer extends Thread {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		byte[] buffer = new byte[100];
+		byte[] buffer = new byte[1000];
 
 		while (true) {
 			DatagramPacket request = new DatagramPacket(buffer, buffer.length);
@@ -36,7 +36,7 @@ public class UDPServer extends Thread {
 			try {
 				aSocket.receive(request);
 				String requestMsg = new String(request.getData()).trim();
-				if(requestMsg.equals("1")) {
+				if(requestMsg.startsWith("1")) {
 					int count = this.repo.getRecordCounts();
 					String replyMessage = "US " + count;
 					DatagramPacket response = new DatagramPacket(replyMessage.getBytes(), replyMessage.getBytes().length,
@@ -44,7 +44,7 @@ public class UDPServer extends Thread {
 					aSocket.send(response);
 				}
 				if(requestMsg.startsWith("2")) {
-					String recordID = requestMsg.substring(1);
+					String recordID = requestMsg.substring(1,8);
 					boolean isExisted = this.repo.isExisted(recordID);
 					String replyMessage;
 					if(isExisted) {

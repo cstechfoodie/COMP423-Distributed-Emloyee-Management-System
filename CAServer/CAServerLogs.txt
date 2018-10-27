@@ -1,0 +1,18 @@
+CA10001---2018-10-27:02-52-55: Check the count of the local server. The total number is: 1
+CA10001---2018-10-27:02-53-17: Check the counts of record in each server. The total number is: CA 1 US 0 UK 0
+CA10001---2018-10-27:02-55-46: Check the count of the local server. The total number is: 1
+CA10001---2018-10-27:02-56-11: Check the counts of record in each server. The total number is: CA 1 US 0 UK 0
+CA10001---2018-10-27:01-10-26: Check the count of the local server. The total number is: 2
+CA10001---2018-10-27:01-12-50: Check the counts of record in each server. The total number is: CA 2 US 0 UK 0
+CA10001---2018-10-27:01-44-48: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10001 EmployeeId: 789. First name: nmnm, Last Name: bvn, Mail is sdf. The project Id is: P3
+CA10001---2018-10-27:01-58-10: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10000 EmployeeId: 3543. First name: sdfg, Last Name: gfsd, Mail is fdsg. The project Id is: P1243
+CA10001---2018-10-27:02-04-10: Check the count of the local server. The total number is: 2
+CA10001---2018-10-27:02-04-16: Check the counts of record in each server. The total number is: CA 2 US 1 UK 1
+CA10001---2018-10-27:02-11-37: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10003 EmployeeId: 678. First name: dsfg, Last Name: ert, Mail is g. The project Id is: p
+CA10001---2018-10-27:02-14-59: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10000 EmployeeId: 345. First name: afd, Last Name: hfgd, Mail is sdgf. The project Id is: sgdf
+CA10001---2018-10-27:02-31-05: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10000 EmployeeId: 5. First name: sdfa, Last Name: dsfg, Mail is fgdh. The project Id is: sdgf

@@ -123,7 +123,8 @@ public class Client extends Thread{
 					System.out.println("2 --> create Employee Record");
 					System.out.println("3 --> Edit Record");
 					System.out.println("4 --> Check the number of records in file");
-					System.out.println("5 --> Print all records to server file");
+					System.out.println("5 --> Transfer record");
+					System.out.println("6 --> Print all records to server file");
 					try {
 						int option = Integer.parseInt(scanner.nextLine().trim());
 						switch (option) {
@@ -208,6 +209,20 @@ public class Client extends Thread{
 							loop = scanner.nextLine().toUpperCase().equals("Y") ? true : false;
 							break;
 						case 5:
+							System.out.println("Record ID:");
+							recordID = scanner.nextLine();
+
+							System.out.println("remoteCenterServerName:");
+							String remoteCenterServerName = scanner.nextLine();
+							
+							res = api.transferRecord(managerID, recordID, remoteCenterServerName);
+
+							logger.logInfo(res);
+							System.out.println(res);
+							System.out.println("Do you have other operations? Y/N");
+							loop = scanner.nextLine().toUpperCase().equals("Y") ? true : false;
+							break;
+						case 6:
 							res = api.printData();
 							System.out.println(res);
 							logger.logInfo("Request server to print its data into its log.");

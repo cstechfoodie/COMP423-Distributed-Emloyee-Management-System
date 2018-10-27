@@ -1,0 +1,43 @@
+US10001---2018-10-27:02-50-24: Check the count of the local server. The total number is: 0
+US10001---2018-10-27:02-50-24: Check the counts of record in each server. The total number is: US 0 UK 0 CA 0
+US10001---2018-10-27:02-50-49: The following record has been successfully created!
+------>This is a Manager Record with ID: ER30000 EmployeeId: 3424. First name: sfsdf, Last Name: sfsdf, Mail is 234234. The project Id is: P2342
+US10001---2018-10-27:02-50-52: Check the count of the local server. The total number is: 1
+US10001---2018-10-27:02-50-52: Check the counts of record in each server. The total number is: US 1 UK 0 CA 0
+US10001---2018-10-27:02-51-19: The following record is sucessfully transfer to CA server. This is a Manager Record with ID: ER30000 EmployeeId: 3424. First name: sfsdf, Last Name: sfsdf, Mail is 234234. The project Id is: P2342
+US10001---2018-10-27:02-53-46: Check the count of the local server. The total number is: 0
+US10001---2018-10-27:03-01-29: Check the count of the local server. The total number is: 0
+US10001---2018-10-27:03-02-00: Check the count of the local server. The total number is: 0
+US10001---2018-10-27:03-03-41: Check the count of the local server. The total number is: 0
+US10001---2018-10-27:03-05-22: Check the count of the local server. The total number is: 0
+US10001---2018-10-27:03-06-22: Check the count of the local server. The total number is: 0
+US10001---2018-10-27:03-08-17: Check the count of the local server. The total number is: 0
+US10001---2018-10-27:03-09-07: Check the count of the local server. The total number is: 0
+US10001---2018-10-27:03-10-00: Check the count of the local server. The total number is: 0
+US10001---2018-10-27:02-02-21: Check the count of the local server. The total number is: 0
+US10001---2018-10-27:02-02-21: Check the counts of record in each server. The total number is: US 0 UK 1 CA 1
+US10001---2018-10-27:02-02-34: The following record has been successfully created!
+------>This is a Manager Record with ID: ER30000 EmployeeId: 234234234. First name: sdfgdfgsdsfg, Last Name: asd, Mail is dfg. The project Id is: 6456
+US10001---2018-10-27:02-02-37: Check the count of the local server. The total number is: 1
+US10001---2018-10-27:02-02-37: Check the counts of record in each server. The total number is: US 1 UK 1 CA 1
+US10001---2018-10-27:02-03-18: The following record has been successfully created!
+------>This is a Manager Record with ID: ER30001 EmployeeId: 345. First name: hfgd, Last Name: hdfgh, Mail is sdgf. The project Id is: sdgf
+US10001---2018-10-27:02-03-43: The following record is sucessfully transfer to CA server. This is a Manager Record with ID: ER30000 EmployeeId: 234234234. First name: sdfgdfgsdsfg, Last Name: asd, Mail is dfg. The project Id is: 6456
+US10001---2018-10-27:02-04-00: Check the count of the local server. The total number is: 1
+US10001---2018-10-27:02-04-00: Check the counts of record in each server. The total number is: US 1 UK 1 CA 2
+US10001---2018-10-27:02-06-48: Transfer failed due to recordID not existing in local server.
+US10001---2018-10-27:02-16-29: The following record has been successfully created!
+------>This is a Manager Record with ID: ER30000 EmployeeId: 5. First name: u, Last Name: u, Mail is u. The project Id is: u
+US10001---2018-10-27:02-16-37: Check the count of the local server. The total number is: 1
+US10001---2018-10-27:02-16-37: Check the counts of record in each server. The total number is: US 1 UK 1 CA 1
+US10001---2018-10-27:02-17-02: The following record is sucessfully transfer to CA server. This is a Manager Record with ID: ER30000 EmployeeId: 5. First name: u, Last Name: u, Mail is u. The project Id is: u
+US10001---2018-10-27:02-20-35: Transfer failed due to recordID not existing in local server.
+US10001---2018-10-27:02-20-56: Check the count of the local server. The total number is: 0
+US10001---2018-10-27:02-20-56: Check the counts of record in each server. The total number is: US 0 UK 0 CA 3
+US10001---2018-10-27:02-21-21: The following record has been successfully created!
+------>This is a Manager Record with ID: ER30001 EmployeeId: 4. First name: g, Last Name: g, Mail is g. The project Id is: g
+US10001---2018-10-27:02-32-58: The following record has been successfully created!
+------>This is a Manager Record with ID: ER30000 EmployeeId: 4. First name: h, Last Name: h, Mail is . The project Id is: h
+US10001---2018-10-27:02-33-35: The following record is sucessfully transfer to CA server. This is a Manager Record with ID: ER30000 EmployeeId: 4. First name: h, Last Name: h, Mail is . The project Id is: h
+US10001---2018-10-27:02-33-49: Check the count of the local server. The total number is: 0
+US10001---2018-10-27:02-34-02: Check the counts of record in each server. The total number is: US 0 UK 1 CA 2

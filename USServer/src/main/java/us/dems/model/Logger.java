@@ -21,7 +21,7 @@ public class Logger {
 		this.userID = userID;
 	}
 
-	private final static String filePath = "CAServerLogs.txt";
+	private final static String filePath = "USServerLogs.txt";
 
 	private static FileOutputStream file;
 

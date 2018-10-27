@@ -3,19 +3,26 @@ package ca.dems.model;
 import java.io.Serializable;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public abstract class Record implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	
+	@JsonProperty()
 	private String firstName;
+	@JsonProperty()
 	private String lastName;
+	@JsonProperty()
 	private int employeeID;
+	@JsonProperty()
 	private String MailID;
 	
-	public Record(String firstName, String lastName, Integer employeeID, String mailID) {
+	@JsonCreator
+	public Record(@JsonProperty("firstName")String firstName, @JsonProperty("lastName")String lastName, @JsonProperty("employeeID")Integer employeeID, @JsonProperty("mailID")String mailID) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.employeeID = employeeID;

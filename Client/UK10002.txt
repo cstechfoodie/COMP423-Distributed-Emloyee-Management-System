@@ -1,0 +1,4 @@
+2018-10-27:02-07-51: Manager with ID: [UK10002] logged in.
+2018-10-27:02-08-00: Transfer failed due to recordID not existing in local server.
+2018-10-27:02-08-54: The following record is sucessfully transfer to CA server. This is a Manager Record with ID: ER10000 EmployeeId: 567567564. First name: dfsgjkhgjhgk, Last Name: sfsagfsfdg, Mail is gdsg. The project Id is: P76547547
+2018-10-27:02-09-37: Check the counts of record in each server. The total number is: UK 0 US 1 CA 3

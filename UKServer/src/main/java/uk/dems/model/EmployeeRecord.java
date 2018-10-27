@@ -1,17 +1,24 @@
 package uk.dems.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class EmployeeRecord extends Record{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	@JsonProperty
 	private String projectID;
 	
-	private static int counter = 20000;
+	private static int counter = 10000;
 	private static String recordPrefix = "ER";
 	
+	@JsonProperty()
 	private String recordID;
+	
+	public EmployeeRecord() {super();};
 	
 
 	public EmployeeRecord(String firstName, String lastName, Integer employeeID, String mailID, String projectID) {

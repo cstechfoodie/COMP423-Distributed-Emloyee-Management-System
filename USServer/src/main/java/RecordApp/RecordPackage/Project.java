@@ -1,5 +1,6 @@
 package RecordApp.RecordPackage;
 
+import java.io.Serializable;
 
 /**
 * RecordApp/RecordPackage/Project.java .
@@ -8,9 +9,13 @@ package RecordApp.RecordPackage;
 * Saturday, October 27, 2018 4:00:10 PM EDT
 */
 
-public final class Project implements org.omg.CORBA.portable.IDLEntity
+public final class Project implements org.omg.CORBA.portable.IDLEntity, Serializable
 {
-  public String projectID = null;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+public String projectID = null;
   public String clientName = null;
   public String projectName = null;
 
@@ -24,5 +29,47 @@ public final class Project implements org.omg.CORBA.portable.IDLEntity
     clientName = _clientName;
     projectName = _projectName;
   } // ctor
+
+/**
+ * @return the projectID
+ */
+public String getProjectID() {
+	return projectID;
+}
+
+/**
+ * @param projectID the projectID to set
+ */
+public void setProjectID(String projectID) {
+	this.projectID = projectID;
+}
+
+/**
+ * @return the clientName
+ */
+public String getClientName() {
+	return clientName;
+}
+
+/**
+ * @param clientName the clientName to set
+ */
+public void setClientName(String clientName) {
+	this.clientName = clientName;
+}
+
+/**
+ * @return the projectName
+ */
+public String getProjectName() {
+	return projectName;
+}
+
+/**
+ * @param projectName the projectName to set
+ */
+public void setProjectName(String projectName) {
+	this.projectName = projectName;
+}
 
 } // class Project

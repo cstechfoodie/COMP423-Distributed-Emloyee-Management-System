@@ -36,3 +36,19 @@ CA10001---2018-10-27:03-46-28: The following record has been successfully create
 ------>This is a Manager Record with ID: MR10000 EmployeeId: 453. First name: ert, Last Name: try Located at: CA, Mail is sdf. The project info is: {ProjectID is P435, client name is fds project name is sf}
 CA10001---2018-10-27:05-05-16: The following record has been successfully created!
 ------>This is a Emloyee Record with ID: ER10000 EmployeeId: 324. First name: sdf, Last Name: sdf, Mail is sfd. The project Id is: fsdf
+CA10001---2018-10-27:05-08-14: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10000 EmployeeId: 345. First name: sdf, Last Name: af Located at: sf, Mail is fsd. The project info is: RecordApp.RecordPackage.Project@14f8df7b
+CA10001---2018-10-27:05-09-43: In Record MR10000, fieldName {location} was changed to UK.
+CA10001---2018-10-27:05-29-14: Check the count of the local server. The total number is: 0
+CA10001---2018-10-27:05-29-14: Check the counts of record in each server. The total number is: CA 0 US 0 UK 0
+CA10001---2018-10-27:05-29-35: The following record has been successfully created!
+------>This is a Emloyee Record with ID: ER10000 EmployeeId: 234. First name: asd, Last Name: dsf, Mail is sdfa. The project Id is: fds
+CA10001---2018-10-27:05-29-38: Check the count of the local server. The total number is: 1
+CA10001---2018-10-27:05-29-38: Check the counts of record in each server. The total number is: CA 1 US 0 UK 0
+CA10001---2018-10-27:05-29-58: The following record is sucessfully transfer to US server. This is a Emloyee Record with ID: ER10000 EmployeeId: 234. First name: asd, Last Name: dsf, Mail is sdfa. The project Id is: fds
+CA10001---2018-10-27:05-30-01: Check the count of the local server. The total number is: 0
+CA10001---2018-10-27:05-30-01: Check the counts of record in each server. The total number is: CA 0 US 1 UK 0
+CA10001---2018-10-27:05-30-18: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10000 EmployeeId: 3543. First name: sdf, Last Name: tr Located at: sD, Mail is sfds. The project info is: RecordApp.RecordPackage.Project@7c31d75c
+CA10001---2018-10-27:05-30-21: Check the count of the local server. The total number is: 1
+CA10001---2018-10-27:05-30-21: Check the counts of record in each server. The total number is: CA 1 US 1 UK 0

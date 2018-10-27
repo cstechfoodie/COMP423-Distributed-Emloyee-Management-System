@@ -1,5 +1,6 @@
 package RecordApp.RecordPackage;
 
+import java.io.Serializable;
 
 /**
 * RecordApp/RecordPackage/Project.java .
@@ -8,9 +9,13 @@ package RecordApp.RecordPackage;
 * Saturday, October 27, 2018 4:00:10 PM EDT
 */
 
-public final class Project implements org.omg.CORBA.portable.IDLEntity
+public final class Project implements org.omg.CORBA.portable.IDLEntity, Serializable
 {
-  public String projectID = null;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+public String projectID = null;
   public String clientName = null;
   public String projectName = null;
 

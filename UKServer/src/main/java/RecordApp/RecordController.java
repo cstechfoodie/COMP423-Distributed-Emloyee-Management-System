@@ -1,19 +1,30 @@
-package dems.api;
+package RecordApp;
 
 import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.omg.CORBA.ORB;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+import RecordApp.RecordPackage.Project;
+import dems.api.EmployeeRecord;
+import dems.api.ManagerRecord;
+import dems.api.Record;
 import uk.dems.model.Logger;
 import uk.dems.model.UDPClient;
 import uk.dems.repository.IRecordRepository;
 
-public class RecordController extends UnicastRemoteObject implements RecordApi {
+public class RecordController extends RecordPOA {
 
+	
+	private ORB orb;
+
+	public void setORB(ORB orb_val) {
+	 orb = orb_val; 
+	}
 	/**
 	 * 
 	 */
@@ -35,23 +46,9 @@ public class RecordController extends UnicastRemoteObject implements RecordApi {
 		serverPortRegistry.put("US", 9003);
 	}
 
-	@Override
-	public String createMRecord(String managerID, String firstName, String lastName, Integer employeeID, String mailID, Project project,
-			String location) {
-		logger.setUserID(managerID);
-		ManagerRecord m = new ManagerRecord(firstName, lastName, employeeID, mailID, project, location);
-		boolean isSuccessful = repo.createMRecord(m);
-		if (isSuccessful) {
-			logger.logSuccessfullyCreated(m);
-			return "ManagerRecord has been successfully created!";
-		} else {
-			logger.logUnsuccessfullyCreated(m);
-			return "Failed to Create ManagerRecord!";
-		}
-	}
 
 	@Override
-	public String createERecord(String managerID, String firstName, String lastName, Integer employeeID, String mailID,
+	public String createERecord(String managerID, String firstName, String lastName, int employeeID, String mailID,
 			String projectID) {
 		logger.setUserID(managerID);
 		EmployeeRecord e = new EmployeeRecord(firstName, lastName, employeeID, mailID, projectID);
@@ -112,8 +109,7 @@ public class RecordController extends UnicastRemoteObject implements RecordApi {
 	}
 
 	@Override
-	public String transferRecord(String managerID, String recordID, String remoteCenterServerName)
-			throws RemoteException {
+	public String transferRecord(String managerID, String recordID, String remoteCenterServerName){
 		logger.setUserID(managerID);
 		boolean isExisted;
 		if((isExisted = repo.isExisted(recordID))) {
@@ -153,6 +149,21 @@ public class RecordController extends UnicastRemoteObject implements RecordApi {
 		} else {
 			logger.logInfo("Transfer failed due to recordID not existing in local server.");
 			return "Transfer failed due to recordID not existing in local server.";
+		}
+	}
+
+	@Override
+	public String createMRecord(String managerID, String firstName, String lastName, int employeeID, String mailID,
+			Project project, String location) {
+		logger.setUserID(managerID);
+		ManagerRecord m = new ManagerRecord(firstName, lastName, employeeID, mailID, project, location);
+		boolean isSuccessful = repo.createMRecord(m);
+		if (isSuccessful) {
+			logger.logSuccessfullyCreated(m);
+			return "ManagerRecord has been successfully created!";
+		} else {
+			logger.logUnsuccessfullyCreated(m);
+			return "Failed to Create ManagerRecord!";
 		}
 	}
 

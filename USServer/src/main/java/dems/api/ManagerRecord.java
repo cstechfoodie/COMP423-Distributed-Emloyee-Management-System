@@ -1,4 +1,7 @@
 package dems.api;
+
+import RecordApp.RecordPackage.Project;
+
 public class ManagerRecord extends Record {
 
 	/**

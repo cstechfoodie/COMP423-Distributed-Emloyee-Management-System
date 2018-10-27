@@ -3,6 +3,8 @@ package dems.api;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import RecordApp.RecordPackage.Project;
+
 public class ManagerRecord extends Record {
 
 	/**

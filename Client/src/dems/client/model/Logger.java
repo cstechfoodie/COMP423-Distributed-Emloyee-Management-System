@@ -1,16 +1,15 @@
 package dems.client.model;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
-import java.util.Map;
 
-import dems.api.Project;
+
+import RecordApp.RecordPackage.Project;
+
 
 public class Logger {
 

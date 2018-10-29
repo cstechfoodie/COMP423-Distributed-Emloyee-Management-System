@@ -28,8 +28,9 @@ public class Client extends Thread{
 	
 	@Override
 	public void run() {
+		String[] args = {"-ORBInitialPort", "1050", "-ORBInitialHost", "localhost"};
 	     // create and initialize the ORB
-	     ORB orb = ORB.init();
+	     ORB orb = ORB.init(args,null);
 
 	     // get the root naming context
 	     org.omg.CORBA.Object objRef = null;
@@ -59,6 +60,7 @@ public class Client extends Thread{
 		logger.logInfo("Manager with ID: [" + managerID + "] logged in.");
 		
 		 // resolve the Object Reference in Naming
+		Record recordController = null;
 	    try {
 			recordController = (Record)RecordHelper.narrow(ncRef.resolve_str(name));
 		} catch (NotFound e1) {

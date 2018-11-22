@@ -1,4 +1,4 @@
-package RecordApp;
+package uk.dems.RecordApp;
 
 
 /**
@@ -8,7 +8,7 @@ package RecordApp;
 * Saturday, October 27, 2018 4:00:10 PM EDT
 */
 
-public interface RecordApi 
+public interface RecordApi
 {
   String createMRecord (String managerID, String firstName, String lastName, int employeeID, String mailID, RecordApp.RecordPackage.Project project, String location);
   String createERecord (String managerID, String firstName, String lastName, int employeeID, String mailID, String projectID);

@@ -1,15 +1,14 @@
-package RecordApp;
-
+package ca.dems.RecordApp;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import RecordApp.RecordPackage.Project;
+
+import ca.dems.model.Logger;
+import ca.dems.model.UDPClient;
+import ca.dems.repository.IRecordRepository;
 import dems.api.EmployeeRecord;
 import dems.api.ManagerRecord;
 import dems.api.Record;
-import uk.dems.model.Logger;
-import uk.dems.model.UDPClient;
-import uk.dems.repository.IRecordRepository;
 
 public class RecordController implements RecordApi {
 
@@ -19,7 +18,7 @@ public class RecordController implements RecordApi {
 	
 	private HashMap<String, Integer> serverPortRegistry;
 
-	public RecordController(IRecordRepository repo) {
+	public RecordController(IRecordRepository repo){
 		super();
 		this.repo = repo;
 		logger = new Logger();
@@ -29,6 +28,19 @@ public class RecordController implements RecordApi {
 		serverPortRegistry.put("US", 9003);
 	}
 
+//	public String createMRecord(String managerID, String firstName, String lastName, Integer employeeID, String mailID, RecordApp.RecordPackage.Project project,
+//			String location) {
+//		logger.setUserID(managerID);
+//		ManagerRecord m = new ManagerRecord(firstName, lastName, employeeID, mailID, project, location);
+//		boolean isSuccessful = repo.createMRecord(m);
+//		if (isSuccessful) {
+//			logger.logSuccessfullyCreated(m);
+//			return "ManagerRecord has been successfully created!";
+//		} else {
+//			logger.logUnsuccessfullyCreated(m);
+//			return "Failed to Create ManagerRecord!";
+//		}
+//	}
 
 	@Override
 	public String createERecord(String managerID, String firstName, String lastName, int employeeID, String mailID,
@@ -54,10 +66,10 @@ public class RecordController implements RecordApi {
 		}
 
 		// UDP
+		String result = "";
 		String countsUS = UDPClient.getRecordCounts("localhost", 9003);
-		String countsCA = UDPClient.getRecordCounts("localhost", 9001);
-		
-		String result = "UK " + localServerCount + " " + countsUS + " " + countsCA;
+		String countsUK = UDPClient.getRecordCounts("localhost", 9002);
+		result = "CA " + localServerCount + " " + countsUS + " " + countsUK;			
 
 		//return result;
 		logger.logInfo("Check the counts of record in each server. The total number is: " + result);
@@ -122,8 +134,8 @@ public class RecordController implements RecordApi {
 						return "Transfer failed due to " + remoteCenterServerName + " server error.";
 					}
 				} catch (Exception e) {
-					logger.logInfo("Transfer failed due to JsonProcessingException");
-					return "Transfer failed due to JsonProcessingException";
+					logger.logInfo("Transfer failed due to Exception");
+					return "Transfer failed due to Exception";
 				}
 			} else {
 				logger.logInfo("Transfer failed due to conflicted recordID in "+ remoteCenterServerName + " server.");
@@ -137,7 +149,7 @@ public class RecordController implements RecordApi {
 
 	@Override
 	public String createMRecord(String managerID, String firstName, String lastName, int employeeID, String mailID,
-			Project project, String location) {
+			RecordApp.RecordPackage.Project project, String location) {
 		logger.setUserID(managerID);
 		ManagerRecord m = new ManagerRecord(firstName, lastName, employeeID, mailID, project, location);
 		boolean isSuccessful = repo.createMRecord(m);
@@ -149,7 +161,4 @@ public class RecordController implements RecordApi {
 			return "Failed to Create ManagerRecord!";
 		}
 	}
-
-
-
 }

@@ -1,6 +1,4 @@
-package RecordApp;
-
-
+package us.dems.RecordApp;
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.Object;
 import org.omg.CosNaming.NameComponent;
@@ -8,12 +6,12 @@ import org.omg.CosNaming.NamingContextExt;
 import org.omg.CosNaming.NamingContextExtHelper;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.POAHelper;
+import us.dems.model.UDPServer;
+import us.dems.repository.IRecordRepository;
+import us.dems.repository.RecordRepository;
 
-import uk.dems.model.UDPServer;
-import uk.dems.repository.IRecordRepository;
-import uk.dems.repository.RecordRepository;
+public class USServer {
 
-public class UKServer {
 
 	 public static void main(String args[]) {
 //		    try{
@@ -44,7 +42,7 @@ public class UKServer {
 //		      NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
 //
 //		      // bind the Object Reference in Naming
-//		      String name = "UKRecord";
+//		      String name = "USRecord";
 //		      NameComponent path[] = ncRef.to_name( name );
 //		      ncRef.rebind(path, (Object) href);
 //
@@ -64,7 +62,7 @@ public class UKServer {
 //		      }
 //		          
 //		      System.out.println("CAServer Exiting ...");
-		        
+//		        
 		  }
 
 }

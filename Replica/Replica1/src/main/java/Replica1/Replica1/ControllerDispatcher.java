@@ -26,14 +26,14 @@ public class ControllerDispatcher {
 		this.udpUS = udpUS;
 	}
 
-	public RecordApi findServer(String managerId) {
-		if (managerId.contains("CA")) {
+	public RecordApi findServer(String managerID) {
+		if (managerID.contains("CA")) {
 			return ca;
 		}
-		if (managerId.contains("UK")) {
+		if (managerID.contains("UK")) {
 			return uk;
 		}
-		if (managerId.contains("US")) {
+		if (managerID.contains("US")) {
 			return us;
 		}
 		return null;

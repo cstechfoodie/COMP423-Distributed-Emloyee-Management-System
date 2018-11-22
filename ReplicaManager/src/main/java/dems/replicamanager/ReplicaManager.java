@@ -20,7 +20,7 @@ public class ReplicaManager {
 	public ReplicaManager() {
 		try {
 			this.udp = new Reliable(LIS_PORT, DES_PORT); //listen 6001 replica1 listen on 7001
-			System.out.println("RM1 starts listening pn port" + LIS_PORT + "; ready to send msg to replica1 on " + DES_PORT);
+			System.out.println("RM1 starts listening pn port " + LIS_PORT + "; ready to send msg to replica1 on " + DES_PORT);
 		} catch (SocketException | UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -32,7 +32,7 @@ public class ReplicaManager {
 			this.LIS_PORT = LIS_PORT;
 			this.DES_PORT = DES_PORT;
 			this.udp = new Reliable(LIS_PORT, DES_PORT); //listen 6001 replica1 listen on 7001
-			System.out.println("RM1 starts listening pn port" + LIS_PORT + "; ready to send msg to replica1 on " + DES_PORT);
+			System.out.println("RM1 starts listening pn port " + LIS_PORT + "; ready to send msg to replica1 on " + DES_PORT);
 		} catch (SocketException | UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

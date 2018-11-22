@@ -7,7 +7,7 @@ import Replica1.Replica1.Interface.RecordApi;
  * Hello world!
  *
  */
-public class App 
+public class ReplicaLauncher 
 {
     public static void main( String[] args )
     {
@@ -31,12 +31,16 @@ public class App
 	      RecordApi recordControllerUS = (RecordApi) new us.dems.RecordApp.RecordController((us.dems.repository.IRecordRepository) repoUS);
 	      System.out.println("USServer ready and waiting ...");
 	      us.dems.model.UDPServer udpUS = new us.dems.model.UDPServer((us.dems.repository.IRecordRepository) repoUS);
-	      udpUS.start();	      
+	      udpUS.start();	
+	      
+	      ControllerDispatcher cd = new ControllerDispatcher(recordControllerCA, recordControllerUK, recordControllerUS, udpCA, udpUK, udpUS);
+
+	      UDPRequestHandler requestHandler = new UDPRequestHandler(cd);
 
 	      
-
-	      
-	      
+	      while(true) {
+	    	  requestHandler.listenAndHandleRequest();
+	      }
 	      
 	    } 
 	        

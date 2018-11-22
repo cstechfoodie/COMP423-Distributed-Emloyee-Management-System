@@ -1,8 +1,4 @@
 package dems.api;
-
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import RecordApp.RecordPackage.Project;
 
 public class ManagerRecord extends Record {
@@ -11,18 +7,18 @@ public class ManagerRecord extends Record {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@JsonProperty()
+
 	private Project project;
-	@JsonProperty()
+
 	private String location;
 	
 	private static int counter = 10000;
 	private static String recordPrefix = "MR";
-	@JsonProperty()
+
 	private String recordID;
 
-	@JsonCreator
-	public ManagerRecord(@JsonProperty("firstName")String firstName, @JsonProperty("lastName")String lastName, @JsonProperty("employeeID")Integer employeeID, @JsonProperty("mailID")String mailID, @JsonProperty("project")Project project,
+
+	public ManagerRecord(String firstName, String lastName, Integer employeeID, String mailID, Project project,
 			String location) {
 		super(firstName, lastName, employeeID, mailID);
 		this.recordID = recordPrefix + counter;

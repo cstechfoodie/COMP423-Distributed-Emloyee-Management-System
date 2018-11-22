@@ -15,7 +15,7 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
+<!-- 		<dependency>
 			<groupId>UKServer</groupId>
 			<artifactId>UKServer</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
@@ -38,7 +38,7 @@
 			<artifactId>ReliableUDP</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-
+ -->
 
 
 		<dependency>

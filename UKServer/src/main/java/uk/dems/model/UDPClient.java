@@ -7,9 +7,6 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import dems.api.Record;
 
 public class UDPClient {
@@ -80,7 +77,7 @@ public class UDPClient {
 		return replyMessage;
 	}
 	
-	public synchronized static String transeferRecord(String address, int port, Record record) throws JsonProcessingException {
+	public synchronized static String transeferRecord(String address, int port, Record record) {
 //		ObjectMapper objectMapper = new ObjectMapper();
 //		String recordJson = objectMapper.writeValueAsString(record);
 		

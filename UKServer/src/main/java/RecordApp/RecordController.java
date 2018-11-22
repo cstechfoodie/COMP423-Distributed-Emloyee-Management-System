@@ -4,11 +4,6 @@ import java.rmi.RemoteException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.omg.CORBA.ORB;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-
 import RecordApp.RecordPackage.Project;
 import dems.api.EmployeeRecord;
 import dems.api.ManagerRecord;
@@ -17,18 +12,7 @@ import uk.dems.model.Logger;
 import uk.dems.model.UDPClient;
 import uk.dems.repository.IRecordRepository;
 
-public class RecordController extends RecordPOA {
-
-	
-	private ORB orb;
-
-	public void setORB(ORB orb_val) {
-	 orb = orb_val; 
-	}
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class RecordController implements RecordApi {
 
 	private IRecordRepository repo;
 
@@ -138,7 +122,7 @@ public class RecordController extends RecordPOA {
 						logger.logInfo("Transfer failed due to " + remoteCenterServerName + " server error.");
 						return "Transfer failed due to " + remoteCenterServerName + " server error.";
 					}
-				} catch (JsonProcessingException e) {
+				} catch (Exception e) {
 					logger.logInfo("Transfer failed due to JsonProcessingException");
 					return "Transfer failed due to JsonProcessingException";
 				}

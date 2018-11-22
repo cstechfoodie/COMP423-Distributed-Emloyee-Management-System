@@ -10,7 +10,7 @@ package dems.RecordApp;
 
 public interface RecordApi 
 {
-  String createMRecord (String managerID, String firstName, String lastName, int employeeID, String mailID, RecordApp.RecordPackage.Project project, String location);
+  String createMRecord (String managerID, String firstName, String lastName, int employeeID, String mailID, dems.model.Project project, String location);
   String createERecord (String managerID, String firstName, String lastName, int employeeID, String mailID, String projectID);
   String getRecordCounts (String managerID);
   String editRecord (String managerID, String recordID, String fieldName, String newValue);

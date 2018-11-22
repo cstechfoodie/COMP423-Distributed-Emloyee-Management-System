@@ -9,8 +9,6 @@ import java.net.UnknownHostException;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-import dems.api.Record;
-
 public class UDPClient {
 	
 	public synchronized static String getRecordCounts(String address, int port) {

@@ -1,4 +1,4 @@
-package RecordApp.RecordPackage;
+package dems.model;
 
 import java.io.Serializable;
 
@@ -9,7 +9,7 @@ import java.io.Serializable;
 * Saturday, October 27, 2018 4:00:10 PM EDT
 */
 
-public final class Project implements org.omg.CORBA.portable.IDLEntity, Serializable
+public final class Project implements Serializable
 {
   /**
 	 * 

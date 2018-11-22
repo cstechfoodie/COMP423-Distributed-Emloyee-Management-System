@@ -2,10 +2,11 @@ package dems.RecordApp;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import dems.api.EmployeeRecord;
-import dems.api.ManagerRecord;
-import dems.api.Record;
+
+import dems.model.EmployeeRecord;
 import dems.model.Logger;
+import dems.model.ManagerRecord;
+import dems.model.Record;
 import dems.model.UDPClient;
 import dems.repository.IRecordRepository;
 
@@ -148,7 +149,7 @@ public class CARecordController implements RecordApi {
 
 	@Override
 	public String createMRecord(String managerID, String firstName, String lastName, int employeeID, String mailID,
-			RecordApp.RecordPackage.Project project, String location) {
+			dems.model.Project project, String location) {
 		logger.setUserID(managerID);
 		ManagerRecord m = new ManagerRecord(firstName, lastName, employeeID, mailID, project, location);
 		boolean isSuccessful = repo.createMRecord(m);

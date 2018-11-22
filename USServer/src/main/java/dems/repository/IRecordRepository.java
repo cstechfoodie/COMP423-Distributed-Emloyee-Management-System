@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import dems.api.Record;
+import dems.model.Record;
 
 public interface IRecordRepository {
 	public boolean createMRecord(Record record);

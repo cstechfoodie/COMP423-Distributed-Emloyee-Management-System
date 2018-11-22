@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import RecordApp.RecordPackage.Project;
-import dems.api.EmployeeRecord;
-import dems.api.ManagerRecord;
-import dems.api.Record;
+import dems.model.EmployeeRecord;
 import dems.model.Logger;
+import dems.model.ManagerRecord;
+import dems.model.Project;
+import dems.model.Record;
 import dems.model.UDPClient;
 import dems.repository.IRecordRepository;
 

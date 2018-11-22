@@ -16,6 +16,12 @@ public class RecordRepository implements IRecordRepository {
 	private Logger logger = new Logger();
 
 	private Map<String, List<Record>> repo = new HashMap<String, List<Record>>();
+	
+	public RecordRepository() {	}
+	
+	public RecordRepository(Map<String, List<Record>> repo) {
+		this.repo = repo;
+	}
 
 	/*
 	 * (non-Javadoc)

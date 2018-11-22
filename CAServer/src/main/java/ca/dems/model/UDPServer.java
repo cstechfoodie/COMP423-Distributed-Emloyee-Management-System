@@ -14,10 +14,30 @@ public class UDPServer extends Thread {
 
 	private IRecordRepository repo;
 
+	/**
+	 * @return the repo
+	 */
+	public IRecordRepository getRepo() {
+		return repo;
+	}
+
+
+
+	/**
+	 * @param repo the repo to set
+	 */
+	public void setRepo(IRecordRepository repo) {
+		this.repo = repo;
+	}
+
+
+
 	public UDPServer(IRecordRepository repo) {
 		super();
 		this.repo = repo;
 	}
+	
+	
 
 	@SuppressWarnings({ "resource" })
 	@Override

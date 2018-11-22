@@ -38,10 +38,10 @@ public class USRecordController implements RecordApi {
 		boolean isSuccessful = repo.createMRecord(e);
 		if (isSuccessful) {
 			logger.logSuccessfullyCreated(e);
-			return "EmployeeRecord has been successfully created!";
+			return "Success";
 		} else {
 			logger.logUnsuccessfullyCreated(e);
-			return "Failed to Create EmployeeRecord!";
+			return "Fail";
 		}
 	}
 
@@ -61,7 +61,7 @@ public class USRecordController implements RecordApi {
 
 		//return result;
 		logger.logInfo("Check the counts of record in each server. The total number is: " + result);
-		return "Check the counts of record in each server. The total number is: " + result;
+		return result.trim();
 	}
 
 	@Override
@@ -70,9 +70,9 @@ public class USRecordController implements RecordApi {
 		boolean isSuccessful = this.repo.editRecord(recordID, fieldName, newValue);
 		if (isSuccessful) {
 			logger.logEdit(recordID, fieldName, newValue);
-			return "Edited Successfully!";
+			return "Success";
 		} else {
-			return "Failed to Edit!";
+			return "Fail";
 		}
 	}
 
@@ -94,44 +94,49 @@ public class USRecordController implements RecordApi {
 	@Override
 	public String transferRecord(String managerID, String recordID, String remoteCenterServerName){
 		logger.setUserID(managerID);
-		boolean isExisted;
-		if((isExisted = repo.isExisted(recordID))) {
-			String isExistedInRemote = UDPClient.checkRecordInRemoteServer("localhost", serverPortRegistry.get(remoteCenterServerName), recordID);
-			if(isExistedInRemote.equals("false")) {
-				try {
-					Record r = this.repo.getRecord(recordID);
-					String isTransferSuccessfully = UDPClient.transeferRecord("localhost", serverPortRegistry.get(remoteCenterServerName), r);
-					if(isTransferSuccessfully.equals("true")) {
-						boolean isDeleted = this.repo.deleteRecord(recordID);
-						if(isDeleted) {
-							logger.logInfo("The following record is sucessfully transfer to " + remoteCenterServerName + " server. " + r.toString());
-							return "The following record is sucessfully transfer to " + remoteCenterServerName + " server. " + r.toString();
-						} else {
-							//rollback
-							String rollback = UDPClient.rollbackTransfer("localhost", serverPortRegistry.get(remoteCenterServerName), recordID);
-							if(rollback.equals("true")) {
-								logger.logInfo("Transfer failed due to internal local server error. Rollback remote successfully");
-								return "Transfer failed due to internal local server error. Rollback remote successfully";								
+		if(!remoteCenterServerName.equals("US")) {
+			boolean isExisted;
+			if((isExisted = repo.isExisted(recordID))) {
+				String isExistedInRemote = UDPClient.checkRecordInRemoteServer("localhost", serverPortRegistry.get(remoteCenterServerName), recordID);
+				if(isExistedInRemote.equals("false")) {
+					try {
+						Record r = this.repo.getRecord(recordID);
+						String isTransferSuccessfully = UDPClient.transeferRecord("localhost", serverPortRegistry.get(remoteCenterServerName), r);
+						if(isTransferSuccessfully.equals("true")) {
+							boolean isDeleted = this.repo.deleteRecord(recordID);
+							if(isDeleted) {
+								logger.logInfo("The following record is sucessfully transfer to " + remoteCenterServerName + " server. " + r.toString());
+								return "Success";
 							} else {
-								logger.logInfo("Transfer failed due to internal local server error. Rollback remote failed");
-								return "Transfer failed due to internal local server error. Rollback remote failed";
+								//rollback
+								String rollback = UDPClient.rollbackTransfer("localhost", serverPortRegistry.get(remoteCenterServerName), recordID);
+								if(rollback.equals("true")) {
+									logger.logInfo("Transfer failed due to internal local server error. Rollback remote successfully");
+									return "Fail";							
+								} else {
+									logger.logInfo("Transfer failed due to internal local server error. Rollback remote failed");
+									return "Fail";
+								}
 							}
+						} else {
+							logger.logInfo("Transfer failed due to " + remoteCenterServerName + " server error.");
+							return "Fail";
 						}
-					} else {
-						logger.logInfo("Transfer failed due to " + remoteCenterServerName + " server error.");
-						return "Transfer failed due to " + remoteCenterServerName + " server error.";
+					} catch (Exception e) {
+						logger.logInfo("Transfer failed due to Exception");
+						return "Fail";
 					}
-				} catch (Exception e) {
-					logger.logInfo("Transfer failed due to Exception");
-					return "Transfer failed due to Exception";
+				} else {
+					logger.logInfo("Transfer failed due to conflicted recordID in "+ remoteCenterServerName + " server.");
+					return "Fail";
 				}
 			} else {
-				logger.logInfo("Transfer failed due to conflicted recordID in "+ remoteCenterServerName + " server.");
-				return "Transfer failed due to conflicted recordID in "+ remoteCenterServerName + " server.";
+				logger.logInfo("Transfer failed due to recordID not existing in local server.");
+				return "Fail";
 			}
 		} else {
-			logger.logInfo("Transfer failed due to recordID not existing in local server.");
-			return "Transfer failed due to recordID not existing in local server.";
+			logger.logInfo("Transfer failed due to transfet to itself.");
+			return "Fail";
 		}
 	}
 
@@ -143,10 +148,10 @@ public class USRecordController implements RecordApi {
 		boolean isSuccessful = repo.createMRecord(m);
 		if (isSuccessful) {
 			logger.logSuccessfullyCreated(m);
-			return "ManagerRecord has been successfully created!";
+			return "Success";
 		} else {
 			logger.logUnsuccessfullyCreated(m);
-			return "Failed to Create ManagerRecord!";
+			return "Fail";
 		}
 	}
 

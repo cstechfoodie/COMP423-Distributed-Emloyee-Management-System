@@ -28,20 +28,6 @@ public class CARecordController implements RecordApi {
 		serverPortRegistry.put("US", 9003);
 	}
 
-//	public String createMRecord(String managerID, String firstName, String lastName, Integer employeeID, String mailID, RecordApp.RecordPackage.Project project,
-//			String location) {
-//		logger.setUserID(managerID);
-//		ManagerRecord m = new ManagerRecord(firstName, lastName, employeeID, mailID, project, location);
-//		boolean isSuccessful = repo.createMRecord(m);
-//		if (isSuccessful) {
-//			logger.logSuccessfullyCreated(m);
-//			return "ManagerRecord has been successfully created!";
-//		} else {
-//			logger.logUnsuccessfullyCreated(m);
-//			return "Failed to Create ManagerRecord!";
-//		}
-//	}
-
 	@Override
 	public String createERecord(String managerID, String firstName, String lastName, int employeeID, String mailID,
 			String projectID) {
@@ -50,10 +36,10 @@ public class CARecordController implements RecordApi {
 		boolean isSuccessful = repo.createMRecord(e);
 		if (isSuccessful) {
 			logger.logSuccessfullyCreated(e);
-			return "EmployeeRecord has been successfully created!";
+			return "Success";
 		} else {
 			logger.logUnsuccessfullyCreated(e);
-			return "Failed to Create EmployeeRecord!";
+			return "Fail";
 		}
 	}
 
@@ -73,7 +59,7 @@ public class CARecordController implements RecordApi {
 
 		//return result;
 		logger.logInfo("Check the counts of record in each server. The total number is: " + result);
-		return "Check the counts of record in each server. The total number is: " + result;
+		return result.trim();
 	}
 
 	@Override
@@ -82,9 +68,9 @@ public class CARecordController implements RecordApi {
 		boolean isSuccessful = this.repo.editRecord(recordID, fieldName, newValue);
 		if (isSuccessful) {
 			logger.logEdit(recordID, fieldName, newValue);
-			return "Edited Successfully!";
+			return "Success";
 		} else {
-			return "Failed to Edit!";
+			return "Fail";
 		}
 	}
 
@@ -106,44 +92,49 @@ public class CARecordController implements RecordApi {
 	@Override
 	public String transferRecord(String managerID, String recordID, String remoteCenterServerName){
 		logger.setUserID(managerID);
-		boolean isExisted;
-		if((isExisted = repo.isExisted(recordID))) {
-			String isExistedInRemote = UDPClient.checkRecordInRemoteServer("localhost", serverPortRegistry.get(remoteCenterServerName), recordID);
-			if(isExistedInRemote.equals("false")) {
-				try {
-					Record r = this.repo.getRecord(recordID);
-					String isTransferSuccessfully = UDPClient.transeferRecord("localhost", serverPortRegistry.get(remoteCenterServerName), r);
-					if(isTransferSuccessfully.equals("true")) {
-						boolean isDeleted = this.repo.deleteRecord(recordID);
-						if(isDeleted) {
-							logger.logInfo("The following record is sucessfully transfer to " + remoteCenterServerName + " server. " + r.toString());
-							return "The following record is sucessfully transfer to " + remoteCenterServerName + " server. " + r.toString();
-						} else {
-							//rollback
-							String rollback = UDPClient.rollbackTransfer("localhost", serverPortRegistry.get(remoteCenterServerName), recordID);
-							if(rollback.equals("true")) {
-								logger.logInfo("Transfer failed due to internal local server error. Rollback remote successfully");
-								return "Transfer failed due to internal local server error. Rollback remote successfully";								
+		if(!remoteCenterServerName.equals("CA")) {
+			boolean isExisted;
+			if((isExisted = repo.isExisted(recordID))) {
+				String isExistedInRemote = UDPClient.checkRecordInRemoteServer("localhost", serverPortRegistry.get(remoteCenterServerName), recordID);
+				if(isExistedInRemote.equals("false")) {
+					try {
+						Record r = this.repo.getRecord(recordID);
+						String isTransferSuccessfully = UDPClient.transeferRecord("localhost", serverPortRegistry.get(remoteCenterServerName), r);
+						if(isTransferSuccessfully.equals("true")) {
+							boolean isDeleted = this.repo.deleteRecord(recordID);
+							if(isDeleted) {
+								logger.logInfo("The following record is sucessfully transfer to " + remoteCenterServerName + " server. " + r.toString());
+								return "Success";
 							} else {
-								logger.logInfo("Transfer failed due to internal local server error. Rollback remote failed");
-								return "Transfer failed due to internal local server error. Rollback remote failed";
+								//rollback
+								String rollback = UDPClient.rollbackTransfer("localhost", serverPortRegistry.get(remoteCenterServerName), recordID);
+								if(rollback.equals("true")) {
+									logger.logInfo("Transfer failed due to internal local server error. Rollback remote successfully");
+									return "Failed";								
+								} else {
+									logger.logInfo("Transfer failed due to internal local server error. Rollback remote failed");
+									return "Failed";
+								}
 							}
+						} else {
+							logger.logInfo("Transfer failed due to " + remoteCenterServerName + " server error.");
+							return "Failed";
 						}
-					} else {
-						logger.logInfo("Transfer failed due to " + remoteCenterServerName + " server error.");
-						return "Transfer failed due to " + remoteCenterServerName + " server error.";
+					} catch (Exception e) {
+						logger.logInfo("Transfer failed due to Exception");
+						return "Failed";
 					}
-				} catch (Exception e) {
-					logger.logInfo("Transfer failed due to Exception");
-					return "Transfer failed due to Exception";
+				} else {
+					logger.logInfo("Transfer failed due to conflicted recordID in "+ remoteCenterServerName + " server.");
+					return "Failed";
 				}
 			} else {
-				logger.logInfo("Transfer failed due to conflicted recordID in "+ remoteCenterServerName + " server.");
-				return "Transfer failed due to conflicted recordID in "+ remoteCenterServerName + " server.";
+				logger.logInfo("Transfer failed due to recordID not existing in local server.");
+				return "Failed";
 			}
 		} else {
-			logger.logInfo("Transfer failed due to recordID not existing in local server.");
-			return "Transfer failed due to recordID not existing in local server.";
+			logger.logInfo("Transfer failed due to transfer to itself");
+			return "Failed";
 		}
 	}
 
@@ -155,10 +146,10 @@ public class CARecordController implements RecordApi {
 		boolean isSuccessful = repo.createMRecord(m);
 		if (isSuccessful) {
 			logger.logSuccessfullyCreated(m);
-			return "ManagerRecord has been successfully created!";
+			return "Success";
 		} else {
 			logger.logUnsuccessfullyCreated(m);
-			return "Failed to Create ManagerRecord!";
+			return "Failed";
 		}
 	}
 }

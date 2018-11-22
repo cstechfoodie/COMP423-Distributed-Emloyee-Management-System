@@ -1,6 +1,5 @@
 package RecordApp;
 
-import java.rmi.RemoteException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +19,7 @@ public class RecordController implements RecordApi {
 	
 	private HashMap<String, Integer> serverPortRegistry;
 
-	public RecordController(IRecordRepository repo) throws RemoteException {
+	public RecordController(IRecordRepository repo) {
 		super();
 		this.repo = repo;
 		logger = new Logger();

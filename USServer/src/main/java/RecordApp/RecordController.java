@@ -1,14 +1,8 @@
 package RecordApp;
 
-import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.omg.CORBA.ORB;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
 
 import RecordApp.RecordPackage.Project;
 import dems.api.EmployeeRecord;
@@ -18,17 +12,7 @@ import us.dems.model.Logger;
 import us.dems.model.UDPClient;
 import us.dems.repository.IRecordRepository;
 
-public class RecordController extends RecordPOA {
-
-	private ORB orb;
-	
-	public void setORB(ORB orb_val) {
-		 orb = orb_val; 
-		}
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class RecordController implements RecordApi {
 
 	private IRecordRepository repo;
 
@@ -36,7 +20,7 @@ public class RecordController extends RecordPOA {
 	
 	private HashMap<String, Integer> serverPortRegistry;
 
-	public RecordController(IRecordRepository repo) throws RemoteException {
+	public RecordController(IRecordRepository repo) {
 		super();
 		this.repo = repo;
 		logger = new Logger();
@@ -137,9 +121,9 @@ public class RecordController extends RecordPOA {
 						logger.logInfo("Transfer failed due to " + remoteCenterServerName + " server error.");
 						return "Transfer failed due to " + remoteCenterServerName + " server error.";
 					}
-				} catch (JsonProcessingException e) {
-					logger.logInfo("Transfer failed due to JsonProcessingException");
-					return "Transfer failed due to JsonProcessingException";
+				} catch (Exception e) {
+					logger.logInfo("Transfer failed due to Exception");
+					return "Transfer failed due to Exception";
 				}
 			} else {
 				logger.logInfo("Transfer failed due to conflicted recordID in "+ remoteCenterServerName + " server.");

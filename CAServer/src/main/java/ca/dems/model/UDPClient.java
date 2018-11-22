@@ -80,7 +80,7 @@ public class UDPClient {
 		return replyMessage;
 	}
 	
-	public synchronized static String transeferRecord(String address, int port, Record record) throws JsonProcessingException {
+	public synchronized static String transeferRecord(String address, int port, Record record) {
 //		ObjectMapper objectMapper = new ObjectMapper();
 //		String recordJson = objectMapper.writeValueAsString(record);		
 		String msg = "3";

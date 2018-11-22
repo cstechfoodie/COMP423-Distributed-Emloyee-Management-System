@@ -17,18 +17,7 @@ import dems.api.EmployeeRecord;
 import dems.api.ManagerRecord;
 import dems.api.Record;
 
-public class RecordController extends RecordPOA {
-	
-	private ORB orb;
-
-	public void setORB(ORB orb_val) {
-	 orb = orb_val; 
-	}
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class RecordController implements RecordApi {
 
 	private IRecordRepository repo;
 
@@ -151,9 +140,9 @@ public class RecordController extends RecordPOA {
 						logger.logInfo("Transfer failed due to " + remoteCenterServerName + " server error.");
 						return "Transfer failed due to " + remoteCenterServerName + " server error.";
 					}
-				} catch (JsonProcessingException e) {
-					logger.logInfo("Transfer failed due to JsonProcessingException");
-					return "Transfer failed due to JsonProcessingException";
+				} catch (Exception e) {
+					logger.logInfo("Transfer failed due to Exception");
+					return "Transfer failed due to Exception";
 				}
 			} else {
 				logger.logInfo("Transfer failed due to conflicted recordID in "+ remoteCenterServerName + " server.");

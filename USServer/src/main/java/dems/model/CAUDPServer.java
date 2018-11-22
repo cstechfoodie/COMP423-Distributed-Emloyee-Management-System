@@ -5,12 +5,10 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import dems.RecordApp.USRecordController;
 import dems.repository.IRecordRepository;
 
-public class UDPServer extends Thread {
+
+public class CAUDPServer extends Thread {
 
 	private IRecordRepository repo;
 
@@ -21,6 +19,8 @@ public class UDPServer extends Thread {
 		return repo;
 	}
 
+
+
 	/**
 	 * @param repo the repo to set
 	 */
@@ -28,17 +28,21 @@ public class UDPServer extends Thread {
 		this.repo = repo;
 	}
 
-	public UDPServer(IRecordRepository repo) {
+
+
+	public CAUDPServer(IRecordRepository repo) {
 		super();
 		this.repo = repo;
 	}
+	
+	
 
 	@SuppressWarnings({ "resource" })
 	@Override
 	public void run() {
 		DatagramSocket aSocket = null;
 		try {
-			aSocket = new DatagramSocket(9003);
+			aSocket = new DatagramSocket(9001);
 		} catch (SocketException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -47,13 +51,13 @@ public class UDPServer extends Thread {
 
 		while (true) {
 			DatagramPacket request = new DatagramPacket(buffer, buffer.length);
-			System.out.println("US UDP Server Is Up!");
+			System.out.println("CA UDP Server Is Up!");
 			try {
 				aSocket.receive(request);
 				String requestMsg = new String(request.getData()).trim();
 				if(requestMsg.startsWith("1")) {
 					int count = this.repo.getRecordCounts();
-					String replyMessage = "US " + count;
+					String replyMessage = "CA " + count;
 					DatagramPacket response = new DatagramPacket(replyMessage.getBytes(), replyMessage.getBytes().length,
 							request.getAddress(), request.getPort());
 					aSocket.send(response);
@@ -111,9 +115,10 @@ public class UDPServer extends Thread {
 							request.getAddress(), request.getPort());
 					aSocket.send(response);
 				}
+				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
-				System.out.println("Warning: US UDP Server Problem!");
+				System.out.println("Warning: CA UDP Server Problem!");
 				e.printStackTrace();
 			}
 		}

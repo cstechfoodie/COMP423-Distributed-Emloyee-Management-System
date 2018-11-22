@@ -7,7 +7,7 @@ import org.omg.CosNaming.NamingContextExtHelper;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.POAHelper;
 
-import dems.model.UDPServer;
+import dems.model.USUDPServer;
 import dems.repository.IRecordRepository;
 import dems.repository.RecordRepository;
 

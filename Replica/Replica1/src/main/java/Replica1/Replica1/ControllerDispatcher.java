@@ -1,21 +1,28 @@
 package Replica1.Replica1;
 
-import Replica1.Replica1.Interface.IRecordRepository;
-import Replica1.Replica1.Interface.RecordApi;
+import dems.RecordApp.CARecordController;
+import dems.RecordApp.RecordApi;
+import dems.RecordApp.UKRecordController;
+import dems.RecordApp.USRecordController;
+import dems.model.CAUDPServer;
+import dems.model.UKUDPServer;
+import dems.model.USUDPServer;
+import dems.repository.IRecordRepository;
+import dems.repository.RecordRepository;
 
 public class ControllerDispatcher {
 
 	private RecordApi ca;
-	private ca.dems.model.UDPServer udpCA;
+	private CAUDPServer udpCA;
 
 	private RecordApi uk;
-	private uk.dems.model.UDPServer udpUK;
+	private UKUDPServer udpUK;
 
 	private RecordApi us;
-	private us.dems.model.UDPServer udpUS;
+	private USUDPServer udpUS;
 
-	public ControllerDispatcher(RecordApi ca, RecordApi uk, RecordApi us, ca.dems.model.UDPServer udpCA,
-			uk.dems.model.UDPServer udpUK, us.dems.model.UDPServer udpUS) {
+	public ControllerDispatcher(RecordApi ca, RecordApi uk, RecordApi us, CAUDPServer udpCA,
+			UKUDPServer udpUK, USUDPServer udpUS) {
 		this.ca = ca;
 		this.udpCA = udpCA;
 
@@ -41,25 +48,22 @@ public class ControllerDispatcher {
 
 	public ControllerDispatcher recoverReplica() {
 		//takes a map
-		IRecordRepository repoCA = (IRecordRepository) new ca.dems.repository.RecordRepository();
-		RecordApi recordControllerCA = (RecordApi) new ca.dems.RecordApp.RecordController(
-				(ca.dems.repository.IRecordRepository) repoCA);
+		IRecordRepository repoCA = new RecordRepository();
+		RecordApi recordControllerCA = new CARecordController(repoCA);
 		this.ca = recordControllerCA;
-		udpCA.setRepo((ca.dems.repository.IRecordRepository) repoCA);
+		udpCA.setRepo(repoCA);
 		System.out.println("CAServer restarts ...");
 
-		IRecordRepository repoUK = (IRecordRepository) new uk.dems.repository.RecordRepository();
-		RecordApi recordControllerUK = (RecordApi) new uk.dems.RecordApp.RecordController(
-				(uk.dems.repository.IRecordRepository) repoUK);
+		IRecordRepository repoUK = new RecordRepository();
+		RecordApi recordControllerUK = new UKRecordController(repoUK);
 		this.uk = recordControllerUK;
-		udpUK.setRepo((uk.dems.repository.IRecordRepository) repoUK);
+		udpUK.setRepo(repoUK);
 		System.out.println("UKServer restarts ...");
 
-		IRecordRepository repoUS = (IRecordRepository) new us.dems.repository.RecordRepository();
-		RecordApi recordControllerUS = (RecordApi) new us.dems.RecordApp.RecordController(
-				(us.dems.repository.IRecordRepository) repoUS);
-		this.us = recordControllerUS;
-		udpUS.setRepo((us.dems.repository.IRecordRepository) repoUS);
+		IRecordRepository repoUS = new RecordRepository();
+		RecordApi recordControllerUS = new USRecordController(repoUS);
+		this.uk = recordControllerUS;
+		udpUK.setRepo(repoUS);
 		System.out.println("USServer restarts ...");
 		return this;
 	}

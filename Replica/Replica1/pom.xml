@@ -15,30 +15,19 @@
 	</properties>
 
 	<dependencies>
-<!-- 		<dependency>
-			<groupId>UKServer</groupId>
-			<artifactId>UKServer</artifactId>
+		<dependency>
+			<groupId>CenterServer</groupId>
+			<artifactId>CenterServer</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
-		<dependency>
-			<groupId>CAServer</groupId>
-			<artifactId>CAServer</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
-			<groupId>USServer</groupId>
-			<artifactId>USServer</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 
 		<dependency>
 			<groupId>ReliableUDP</groupId>
 			<artifactId>ReliableUDP</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
- -->
+
 
 
 		<dependency>

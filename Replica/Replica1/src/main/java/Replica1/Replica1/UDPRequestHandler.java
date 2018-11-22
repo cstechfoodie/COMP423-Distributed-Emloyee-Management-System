@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 
-import RecordApp.RecordPackage.Project;
-import Replica1.Replica1.Interface.RecordApi;
+import dems.RecordApp.RecordApi;
+import dems.model.Project;
 import udp_bridge.Reliable;
 import udp_bridge.UDP;
 
@@ -63,6 +63,8 @@ public class UDPRequestHandler {
 		this.cd = cd;
 		try {
 			udp = new Reliable(7001, 10001);
+			System.out.print("The replica is listening to resquest on port 7001.");
+			System.out.println(" The replica will respond to FE on 10001");
 		} catch (SocketException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -76,6 +78,8 @@ public class UDPRequestHandler {
 		this.cd = cd;
 		try {
 			udp = new Reliable(localport, feport);
+			System.out.print("The replica is listening to resquest on " + localport);
+			System.out.println(" The replica will respond to FE on " + feport);
 		} catch (SocketException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -91,7 +95,10 @@ public class UDPRequestHandler {
 		return msg;
 	}
 	
-	
+	/**
+	 * 
+	 * @throws IOException
+	 */
 	public void listenAndHandleRequest() throws IOException {
 		String msg = listen();
 		String reply = "";

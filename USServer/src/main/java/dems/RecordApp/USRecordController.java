@@ -12,7 +12,7 @@ import dems.model.Logger;
 import dems.model.UDPClient;
 import dems.repository.IRecordRepository;
 
-public class RecordController implements RecordApi {
+public class USRecordController implements RecordApi {
 
 	private IRecordRepository repo;
 
@@ -20,7 +20,7 @@ public class RecordController implements RecordApi {
 	
 	private HashMap<String, Integer> serverPortRegistry;
 
-	public RecordController(IRecordRepository repo) {
+	public USRecordController(IRecordRepository repo) {
 		super();
 		this.repo = repo;
 		logger = new Logger();

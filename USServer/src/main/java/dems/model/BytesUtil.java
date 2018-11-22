@@ -1,4 +1,4 @@
-package us.dems.model;
+package dems.model;
 
 //package rda.util;
 

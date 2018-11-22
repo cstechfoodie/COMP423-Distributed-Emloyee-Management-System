@@ -1,4 +1,4 @@
-package us.dems.model;
+package dems.model;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -7,11 +7,11 @@ import java.net.SocketException;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import dems.RecordApp.RecordController;
 import dems.api.EmployeeRecord;
 import dems.api.ManagerRecord;
 import dems.api.Record;
-import us.dems.RecordApp.RecordController;
-import us.dems.repository.IRecordRepository;
+import dems.repository.IRecordRepository;
 
 public class UDPServer extends Thread {
 

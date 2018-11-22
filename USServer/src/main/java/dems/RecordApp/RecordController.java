@@ -1,4 +1,4 @@
-package us.dems.RecordApp;
+package dems.RecordApp;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,9 +8,9 @@ import RecordApp.RecordPackage.Project;
 import dems.api.EmployeeRecord;
 import dems.api.ManagerRecord;
 import dems.api.Record;
-import us.dems.model.Logger;
-import us.dems.model.UDPClient;
-import us.dems.repository.IRecordRepository;
+import dems.model.Logger;
+import dems.model.UDPClient;
+import dems.repository.IRecordRepository;
 
 public class RecordController implements RecordApi {
 

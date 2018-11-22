@@ -1,4 +1,4 @@
-package us.dems.model;
+package dems.model;
 
 import java.io.IOException;
 import java.net.DatagramPacket;

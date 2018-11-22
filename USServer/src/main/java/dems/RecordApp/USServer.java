@@ -1,4 +1,4 @@
-package us.dems.RecordApp;
+package dems.RecordApp;
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.Object;
 import org.omg.CosNaming.NameComponent;
@@ -6,9 +6,10 @@ import org.omg.CosNaming.NamingContextExt;
 import org.omg.CosNaming.NamingContextExtHelper;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.POAHelper;
-import us.dems.model.UDPServer;
-import us.dems.repository.IRecordRepository;
-import us.dems.repository.RecordRepository;
+
+import dems.model.UDPServer;
+import dems.repository.IRecordRepository;
+import dems.repository.RecordRepository;
 
 public class USServer {
 

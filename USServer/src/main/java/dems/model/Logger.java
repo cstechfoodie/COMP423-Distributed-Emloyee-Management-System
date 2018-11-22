@@ -1,4 +1,4 @@
-package us.dems.model;
+package dems.model;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

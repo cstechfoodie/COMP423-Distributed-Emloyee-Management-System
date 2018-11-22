@@ -1,4 +1,4 @@
-package us.dems.repository;
+package dems.repository;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,7 +9,7 @@ import java.util.Map;
 import dems.api.EmployeeRecord;
 import dems.api.ManagerRecord;
 import dems.api.Record;
-import us.dems.model.Logger;
+import dems.model.Logger;
 
 
 public class RecordRepository implements IRecordRepository {

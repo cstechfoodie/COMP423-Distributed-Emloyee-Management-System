@@ -65,7 +65,7 @@ public class AppTest {
 			u.send(method2);
 			Thread.sleep(500);
 			u.send(method3);
-			Thread.sleep(500);
+			Thread.sleep(500); // CA 2 US 0 UK 0
 			u.send(method4);
 			Thread.sleep(500);
 			u.send(method5a);
@@ -75,27 +75,27 @@ public class AppTest {
 			u.send(method3);
 			Thread.sleep(500);
 			u.send(method3a);
-			Thread.sleep(500);
+			Thread.sleep(500);// UK 2 US 0 CA 1
 			
 			u.send(method1a);
 			Thread.sleep(500);
 			u.send(method2a);
 			Thread.sleep(500);
 			u.send(method3);
-			Thread.sleep(500);
+			Thread.sleep(500); //CA 2 US 0 UK 2
 			u.send(method5c);
 			Thread.sleep(1000);
 			u.send(method5d);
 			Thread.sleep(1000);
 			u.send(method3b);
-			Thread.sleep(500);
+			Thread.sleep(500);//US 2 UK 2 CA 0
 			
 			u.send(method5e);
 			Thread.sleep(1000);
 			u.send(method5f);
 			Thread.sleep(1000);
 			u.send(method3);
-			Thread.sleep(500);
+			Thread.sleep(500);//CA 2 US 1 UK 1
 			
 		} catch (IOException e) {
 			System.out.println("Exception occurred during test");

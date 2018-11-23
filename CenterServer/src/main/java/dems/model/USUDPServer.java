@@ -54,7 +54,7 @@ public class USUDPServer extends Thread {
 							request.getAddress(), request.getPort());
 					aSocket.send(response);
 				}
-				if(requestMsg.startsWith("2")) {
+				else if(requestMsg.startsWith("2")) {
 					String recordID = requestMsg.substring(1,8);
 					boolean isExisted = this.repo.isExisted(recordID);
 					String replyMessage;
@@ -68,11 +68,25 @@ public class USUDPServer extends Thread {
 							request.getAddress(), request.getPort());
 					aSocket.send(response);
 				}
-				if(requestMsg.startsWith("3")) {
+				else if(requestMsg.startsWith("4")) {
+					String recordID = requestMsg.substring(1);
+					boolean isExisted = this.repo.isExisted(recordID);
+					String replyMessage;
+					if(isExisted) {
+						replyMessage = this.repo.deleteRecord(recordID)? "true" : "false";
+					}
+					else {
+						replyMessage = "true";
+					}
+					DatagramPacket response = new DatagramPacket(replyMessage.getBytes(), replyMessage.getBytes().length,
+							request.getAddress(), request.getPort());
+					aSocket.send(response);
+				}
+				else {
 					String record = requestMsg.substring(1);
 					Record obj = null;
 					try {
-						obj = (Record) BytesUtil.toObject(record.getBytes());
+						obj = (Record) BytesUtil.toObject(request.getData());
 					} catch (ClassNotFoundException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -88,20 +102,6 @@ public class USUDPServer extends Thread {
 						this.repo.createMRecord(er);
 					}
 					String replyMessage = "true";
-					DatagramPacket response = new DatagramPacket(replyMessage.getBytes(), replyMessage.getBytes().length,
-							request.getAddress(), request.getPort());
-					aSocket.send(response);
-				}
-				if(requestMsg.startsWith("4")) {
-					String recordID = requestMsg.substring(1);
-					boolean isExisted = this.repo.isExisted(recordID);
-					String replyMessage;
-					if(isExisted) {
-						replyMessage = this.repo.deleteRecord(recordID)? "true" : "false";
-					}
-					else {
-						replyMessage = "true";
-					}
 					DatagramPacket response = new DatagramPacket(replyMessage.getBytes(), replyMessage.getBytes().length,
 							request.getAddress(), request.getPort());
 					aSocket.send(response);

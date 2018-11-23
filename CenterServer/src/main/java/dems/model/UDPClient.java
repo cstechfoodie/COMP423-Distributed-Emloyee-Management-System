@@ -88,7 +88,13 @@ public class UDPClient {
 		String replyMessage = null;
 		
 		DatagramSocket aSocket = null;
-		byte[] requestMessage = msg.getBytes();
+		byte[] requestMessage = null;
+		try {
+			requestMessage = BytesUtil.toByteArray(record);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} //msg.getBytes();
 		
 		try {
 			aSocket = new DatagramSocket();

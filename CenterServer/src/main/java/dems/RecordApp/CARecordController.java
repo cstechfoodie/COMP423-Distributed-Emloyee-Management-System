@@ -36,9 +36,11 @@ public class CARecordController implements RecordApi {
 		boolean isSuccessful = repo.createMRecord(e);
 		if (isSuccessful) {
 			logger.logSuccessfullyCreated(e);
+			printData();
 			return "Success";
 		} else {
 			logger.logUnsuccessfullyCreated(e);
+			printData();
 			return "Fail";
 		}
 	}
@@ -68,15 +70,17 @@ public class CARecordController implements RecordApi {
 		boolean isSuccessful = this.repo.editRecord(recordID, fieldName, newValue);
 		if (isSuccessful) {
 			logger.logEdit(recordID, fieldName, newValue);
+			printData();
 			return "Success";
 		} else {
+			printData();
 			return "Fail";
 		}
 	}
 
-	@Override
-	public String printData() {
+	public void printData() {
 		Map<String, List<Record>> map = this.repo.getDataMap();
+		System.out.println("==============================New Log from CA==================================");
 		if(map.size() > 0) {
 			map.forEach((k, v) -> {
 				System.out.println("==============================Key: " + k + "==================================");
@@ -86,7 +90,6 @@ public class CARecordController implements RecordApi {
 				System.out.println("-=-=> Total records associate with this key is " + v.size());
 			});
 		}
-		return "Print to Console Successfully!";
 	}
 
 	@Override
@@ -104,6 +107,7 @@ public class CARecordController implements RecordApi {
 							boolean isDeleted = this.repo.deleteRecord(recordID);
 							if(isDeleted) {
 								logger.logInfo("The following record is sucessfully transfer to " + remoteCenterServerName + " server. " + r.toString());
+								printData();
 								return "Success";
 							} else {
 								//rollback
@@ -146,9 +150,11 @@ public class CARecordController implements RecordApi {
 		boolean isSuccessful = repo.createMRecord(m);
 		if (isSuccessful) {
 			logger.logSuccessfullyCreated(m);
+			printData();
 			return "Success";
 		} else {
 			logger.logUnsuccessfullyCreated(m);
+			printData();
 			return "Failed";
 		}
 	}

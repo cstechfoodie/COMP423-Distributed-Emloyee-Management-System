@@ -15,5 +15,4 @@ public interface RecordApi
   String getRecordCounts (String managerID);
   String editRecord (String managerID, String recordID, String fieldName, String newValue);
   String transferRecord (String managerID, String recordID, String remoteCenterServerName);
-  String printData ();
 } // interface RecordOperations

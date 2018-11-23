@@ -72,4 +72,8 @@ public void setProjectName(String projectName) {
 	this.projectName = projectName;
 }
 
+public String toString() {
+	return "Project{" + projectID + " " + clientName + " " +  projectName + "}";
+}
+
 } // class Project

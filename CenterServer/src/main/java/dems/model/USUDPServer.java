@@ -4,10 +4,6 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import dems.RecordApp.USRecordController;
 import dems.repository.IRecordRepository;
 
 public class USUDPServer extends Thread {
@@ -74,7 +70,6 @@ public class USUDPServer extends Thread {
 				}
 				if(requestMsg.startsWith("3")) {
 					String record = requestMsg.substring(1);
-//					ObjectMapper objectMapper = new ObjectMapper();
 					Record obj = null;
 					try {
 						obj = (Record) BytesUtil.toObject(record.getBytes());

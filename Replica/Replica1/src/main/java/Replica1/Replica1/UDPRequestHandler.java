@@ -20,7 +20,7 @@ public class UDPRequestHandler {
 	public UDPRequestHandler(ControllerDispatcher cd) {
 		this.cd = cd;
 		try {
-			udp = new Reliable(7001, 10001);
+			udp = new Reliable(7021, 10001);
 			System.out.print("The replica is listening to resquest on port 7001.");
 			System.out.println(" The replica will respond to FE on 10001");
 		} catch (SocketException e) {

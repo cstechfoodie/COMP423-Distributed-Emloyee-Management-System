@@ -60,6 +60,7 @@ public class CARecordController implements RecordApi {
 		result = "CA " + localServerCount + " " + countsUS + " " + countsUK;			
 
 		//return result;
+		System.out.println("Check the counts of record in each server. The total number is: " + result);
 		logger.logInfo("Check the counts of record in each server. The total number is: " + result);
 		return result.trim();
 	}

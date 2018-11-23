@@ -55,6 +55,9 @@ public class ReplicaManager {
 			FAILURE_COUNTER++;
 			System.out.println("failure report recived");
 		}
+		if(msg.contains("crashed")) {
+			FAILURE_COUNTER = 4;
+		}
 	}
 	
 	public boolean trySendRecoverRequest() {

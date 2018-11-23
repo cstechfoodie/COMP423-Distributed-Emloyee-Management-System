@@ -12,15 +12,15 @@ public class ReplicaManager {
 	
 	private static int FAILURE_COUNTER = 0;
 	
-	private int LIS_PORT = 6001;
+	private int LIS_PORT = 7011;
 	
-	private int DES_PORT = 7001;
+	private int DES_PORT = 7021;
 	
 	private UDP udp;
 	
 	public ReplicaManager() {
 		try {
-			this.udp = new Reliable(new Unicast(LIS_PORT, DES_PORT)); //listen 6001 replica1 listen on 7001
+			this.udp = new Reliable(LIS_PORT, DES_PORT); //listen 6001 replica1 listen on 7001
 			System.out.println("RM1 starts listening pn port " + LIS_PORT + "; ready to send msg to replica1 on " + DES_PORT);
 		} catch (SocketException | UnknownHostException e) {
 			// TODO Auto-generated catch block

@@ -11,6 +11,8 @@ import udp_bridge.UDP;
 
 public class UDPRequestHandler {
 	
+	private static String REPLICA_NAME = "Replica1";
+	
 	private ControllerDispatcher cd;
 	
 	private UDP udp;
@@ -95,7 +97,7 @@ public class UDPRequestHandler {
 				reply = processRequest(managerID, args, api);
 			}
 		}
-		udp.send(reply);
+		processReply(managerID, reply);
 	}
 	
 	/**
@@ -142,6 +144,21 @@ public class UDPRequestHandler {
 			reply = api.transferRecord(managerID, recordID, remoteCenterServerName);
 		}
 		return reply;
+	}
+	
+	/**
+	 * format replay message and send it through reliable UDP
+	 * @param managerID
+	 * @param reply
+	 */
+	private void processReply(String managerID, String reply) {
+		String freply = managerID + ";" + reply + ";" + REPLICA_NAME;
+		try {
+			udp.send(freply);
+		} catch (IOException e) {
+			System.out.println("error happens during reply");
+			e.printStackTrace();
+		}
 	}
 	
 	/**

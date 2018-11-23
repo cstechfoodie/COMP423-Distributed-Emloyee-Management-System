@@ -21,7 +21,7 @@ public class UDPRequestHandler {
 		this.cd = cd;
 		try {
 			udp = new Reliable(7021, 10001);
-			System.out.print("The replica is listening to resquest on port 7001.");
+			System.out.print("The replica is listening to resquest on port 7021.");
 			System.out.println(" The replica will respond to FE on 10001");
 		} catch (SocketException e) {
 			// TODO Auto-generated catch block
@@ -82,15 +82,15 @@ public class UDPRequestHandler {
 		if(needsRecover) {
 			reply = "Server recovery being processed";
 		} else {
-			if(msg.contains("CA")) {
+			if(managerID.contains("CA")) {
 				api = cd.findServer("CA");
 				reply = processRequest(managerID, args, api);
 			}
-			if(msg.contains("UK")) {
+			if(managerID.contains("UK")) {
 				api = cd.findServer("UK");
 				reply = processRequest(managerID, args, api);
 			}
-			if(msg.contains("US")) {
+			if(managerID.contains("US")) {
 				api = cd.findServer("US");
 				reply = processRequest(managerID, args, api);
 			}

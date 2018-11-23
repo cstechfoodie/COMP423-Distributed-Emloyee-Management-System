@@ -38,7 +38,7 @@ public class ReplicaLauncher
 	      
 	      ControllerDispatcher cd = new ControllerDispatcher(recordControllerCA, recordControllerUK, recordControllerUS, udpCA, udpUK, udpUS);
 
-	      UDPRequestHandler requestHandler = new UDPRequestHandler(cd);
+	      UDPRequestHandler requestHandler = new UDPRequestHandler(cd, 7021, 10001);
 
 	      
 	      while(true) {

@@ -61,6 +61,7 @@ public class CARecordController implements RecordApi {
 
 		//return result;
 		System.out.println("Check the counts of record in each server. The total number is: " + result);
+		printData();
 		logger.logInfo("Check the counts of record in each server. The total number is: " + result);
 		return result.trim();
 	}

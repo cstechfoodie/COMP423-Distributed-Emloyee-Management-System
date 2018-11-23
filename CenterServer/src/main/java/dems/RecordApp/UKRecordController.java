@@ -63,6 +63,7 @@ public class UKRecordController implements RecordApi {
 		String result = "UK " + localServerCount + " " + countsUS + " " + countsCA;
 
 		//return result;
+		System.out.println("Check the counts of record in each server. The total number is: " + result);
 		printData();
 		logger.logInfo("Check the counts of record in each server. The total number is: " + result);
 		return result.trim();

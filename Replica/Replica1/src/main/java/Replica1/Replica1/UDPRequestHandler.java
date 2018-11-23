@@ -78,6 +78,12 @@ public class UDPRequestHandler {
 		String managerID = args[1]; // get managerID first from UDP request message
 		if(msg.contains("recover")) {
 			needsRecover = true;
+			msg = listen();
+			while(!msg.contains("map")) {
+				msg = listen();
+			}
+			//form msg to get the maps
+			//cd.recoverReplica(mapCA, mapUK, mapUS)
 			cd = cd.initiateReplica();
 			needsRecover = false;
 		}

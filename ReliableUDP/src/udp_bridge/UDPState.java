@@ -73,4 +73,9 @@ private DatagramSocket aSocket;
 		return new String(this.receive());
 	}
 	
+	@Override
+	public void close() throws IOException{
+		aSocket.close();
+	}
+	
 }

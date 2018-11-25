@@ -11,5 +11,7 @@ public interface UDP {
 	public String listen() throws IOException;
 	
 	public byte[] receive() throws IOException;
+	
+	public void close() throws IOException;
 
 }

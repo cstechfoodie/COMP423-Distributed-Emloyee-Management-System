@@ -290,6 +290,13 @@ public class Reliable implements UDP{
 		}
 		
 	}
+
+
+
+	@Override
+	public void close() throws IOException {
+		this.udp.close();
+	}
 	
 
 }

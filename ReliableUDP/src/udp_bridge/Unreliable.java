@@ -68,6 +68,13 @@ public class Unreliable implements UDP {
 		}
 		return null;
 	}
+
+
+	@Override
+	public void close() throws IOException {
+		this.udp.close();
+		
+	}
 	
 	
 

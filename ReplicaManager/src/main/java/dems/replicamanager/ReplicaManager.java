@@ -10,6 +10,8 @@ import udp_bridge.Unicast;
 
 public class ReplicaManager {
 	
+	private static String REPLICA_NAME = "replica1";
+	
 	private static int FAILURE_COUNTER = 0;
 	
 	private int LIS_PORT = 7011; //the only port listening to message
@@ -36,23 +38,24 @@ public class ReplicaManager {
 			this.udp = new Reliable(LIS_PORT, REPLICA_PORT); //listen 7011 replica1 listen on 7021
 			this.requestMapFromRM = new Reliable(requestPort, rm2listeningPort);
 			this.fowardMapToRM = new Reliable(forwardPort, rm3listeningPort);
-			System.out.println("RM1 starts listening pn port " + LIS_PORT + "; ready to send msg to replica1 on " + REPLICA_PORT);
+			System.out.println("RM1 starts listening pn port " + LIS_PORT + "; ready to send msg to " + REPLICA_NAME + " on " + REPLICA_PORT);
 		} catch (SocketException | UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
-	public ReplicaManager(int LIS_PORT, int REPLICA_PORT, int rm2listeningPort, int rm3listeningPort) {
+	public ReplicaManager(int LIS_PORT, int REPLICA_PORT,int requestPort, int rm2listeningPort, int rm3listeningPort) {
 		try {
 			this.LIS_PORT = LIS_PORT;
 			this.REPLICA_PORT = REPLICA_PORT;
+			this.requestPort = requestPort;
 			this.rm2listeningPort = rm2listeningPort;
 			this.rm3listeningPort = rm3listeningPort;
 			this.udp = new Reliable(LIS_PORT, REPLICA_PORT); //listen 6001 replica1 listen on 7001
 			this.requestMapFromRM = new Reliable(requestPort, rm2listeningPort);
 			this.fowardMapToRM = new Reliable(forwardPort, rm3listeningPort);
-			System.out.println("RM1 starts listening pn port " + LIS_PORT + "; ready to send msg to replica1 on " + REPLICA_PORT);
+			System.out.println("RM1 starts listening pn port " + LIS_PORT + "; ready to send msg to " + REPLICA_NAME + " on " + REPLICA_PORT);
 		} catch (SocketException | UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -76,7 +79,8 @@ public class ReplicaManager {
 			System.out.println("failure report recived");
 		}
 		if(msg.contains("crashed")) {
-			FAILURE_COUNTER = 4;
+			FAILURE_COUNTER++;
+			System.out.println("skeptical crash report recived");
 		}
 		if(msg.contains("requestmap")) {
 			System.out.println("Getting map info from my own replica and forward it to requesting RM");

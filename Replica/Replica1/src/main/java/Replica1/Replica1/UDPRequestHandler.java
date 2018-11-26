@@ -3,11 +3,27 @@ package Replica1.Replica1;
 import java.io.IOException;
 import java.net.SocketException;
 import java.net.UnknownHostException;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
+import org.hamcrest.core.IsInstanceOf;
+
+import dems.RecordApp.CARecordController;
 import dems.RecordApp.RecordApi;
+import dems.RecordApp.UKRecordController;
+import dems.RecordApp.USRecordController;
+import dems.model.EmployeeRecord;
+import dems.model.ManagerRecord;
 import dems.model.Project;
+import dems.model.Record;
+import dems.repository.IRecordRepository;
+import dems.repository.RecordRepository;
 import udp_bridge.Reliable;
 import udp_bridge.UDP;
+import udp_bridge.Unicast;
 
 public class UDPRequestHandler {
 	
@@ -17,14 +33,17 @@ public class UDPRequestHandler {
 	
 	private UDP udp;
 	
+	private UDP replyToReplica;
+	
 	private boolean needsRecover = false;
 
 	public UDPRequestHandler(ControllerDispatcher cd) {
 		this.cd = cd;
 		try {
-			udp = new Reliable(7021, 10001);
+			udp = new Reliable(new Unicast(7021, "localhost", 10001)); // set it lenyen to 7021, and bind the with front end
+			replyToReplica = new Reliable(new Unicast("localhost", 7011)); //used to reply map to its replica
 			System.out.print("The replica is listening to resquest on port 7021.");
-			System.out.println(" The replica will respond to FE on 10001");
+			System.out.println(" The replica will respond to FE on 10001 and RM1 on 7011");
 		} catch (SocketException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -43,9 +62,11 @@ public class UDPRequestHandler {
 	public UDPRequestHandler(ControllerDispatcher cd, int localport, int feport) {
 		this.cd = cd;
 		try {
-			udp = new Reliable(localport, feport);
+			udp = new Reliable(new Unicast(localport, "localhost", feport));
+			replyToReplica = new Reliable(new Unicast("localhost", 7011)); //used to reply map to its replica
+			replyToReplica = new Reliable(8021, 7011); //used to reply map to its replica
 			System.out.print("The replica is listening to resquest on " + localport);
-			System.out.println(" The replica will respond to FE on " + feport);
+			System.out.println(" The replica will respond to FE on " + feport + " and RM1 on 7011");
 		} catch (SocketException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -79,13 +100,14 @@ public class UDPRequestHandler {
 		if(msg.contains("recover")) {
 			needsRecover = true;
 			msg = listen();
-			while(!msg.contains("map")) {
+			while(!msg.contains("@")) {
 				msg = listen();
 			}
-			//form msg to get the maps
-			//cd.recoverReplica(mapCA, mapUK, mapUS)
-			cd = cd.initiateReplica();
+			restartWithMap(msg);
 			needsRecover = false;
+		}
+		if(msg.contains("requestmap")) {
+			replyToReplica.send(retrieveMap());
 		}
 		if(needsRecover) {
 			reply = "Server recovery being processed";
@@ -166,6 +188,176 @@ public class UDPRequestHandler {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	private void restartWithMap(String map) {
+		IRecordRepository repoCA = new RecordRepository();
+		IRecordRepository repoUK = new RecordRepository();
+		IRecordRepository repoUS = new RecordRepository();
+		String[] maps = map.split("@");
+		String[] records = null;
+		String[] fields = null;
+		if(maps.length == 0) {
+			cd.initiateReplica();
+		} else {
+			for(int i = 0; i < maps.length; i++) {
+				if(i == 0) {
+					if(!maps[i].equals(" ")) {
+						if(maps[i].contains("|")) {
+							records = maps[i].split("|");
+							for(int j = 0; j < records.length; j++) {
+								fields = records[j].split(";");
+								if(fields.length == 9) {
+									Project p = new Project();
+									p.setProjectID(fields[5]);
+									p.setClientName(fields[6]);
+									p.setProjectName(fields[7]);
+									Record mr = new ManagerRecord(fields[1],fields[2],Integer.parseInt(fields[3]), fields[4], p ,fields[8]);
+									mr.setRecordID(fields[0]);
+									repoCA.createMRecord(mr);
+								} else {
+									Record er = new EmployeeRecord(fields[1],fields[2],Integer.parseInt(fields[3]), fields[4],fields[5]);
+									er.setRecordID(fields[0]);
+									repoCA.createERecord(er);
+								}
+							}
+						}
+					}
+				} else if(i == 1) {
+					if(!maps[i].equals(" ")) {
+						if(maps[i].contains("|")) {
+							records = maps[i].split("|");
+							for(int j = 0; j < records.length; j++) {
+								fields = records[j].split(";");
+								if(fields.length == 9) {
+									Project p = new Project();
+									p.setProjectID(fields[5]);
+									p.setClientName(fields[6]);
+									p.setProjectName(fields[7]);
+									Record mr = new ManagerRecord(fields[1],fields[2],Integer.parseInt(fields[3]), fields[4], p ,fields[8]);
+									mr.setRecordID(fields[0]);
+									repoUK.createMRecord(mr);
+								} else {
+									Record er = new EmployeeRecord(fields[1],fields[2],Integer.parseInt(fields[3]), fields[4],fields[5]);
+									er.setRecordID(fields[0]);
+									repoUK.createERecord(er);
+								}
+							}
+						}
+					}
+				} else {
+					if(!maps[i].equals(" ")) {
+						if(maps[i].contains("|")) {
+							records = maps[i].split("|");
+							for(int j = 0; j < records.length; j++) {
+								fields = records[j].split(";");
+								if(fields.length == 9) {
+									Project p = new Project();
+									p.setProjectID(fields[5]);
+									p.setClientName(fields[6]);
+									p.setProjectName(fields[7]);
+									Record mr = new ManagerRecord(fields[1],fields[2],Integer.parseInt(fields[3]), fields[4], p ,fields[8]);
+									mr.setRecordID(fields[0]);
+									repoUS.createMRecord(mr);
+								} else {
+									Record er = new EmployeeRecord(fields[1],fields[2],Integer.parseInt(fields[3]), fields[4],fields[5]);
+									er.setRecordID(fields[0]);
+									repoUS.createERecord(er);
+								}
+							}
+						}
+					}
+				}
+			}
+			cd.recoverReplica(repoCA, repoUK, repoUS);
+		}
+	}
+	
+	private String retrieveMap() {
+		CARecordController ca = (CARecordController) cd.findServer("CA");
+		Map<String, List<Record>> mapCA = ca.getRepo().getDataMap();
+		UKRecordController uk = (UKRecordController) cd.findServer("UK");
+		Map<String, List<Record>> mapUK = uk.getRepo().getDataMap();
+		USRecordController us = (USRecordController) cd.findServer("US");
+		Map<String, List<Record>> mapUS = us.getRepo().getDataMap();
+		String record = "";
+		StringBuilder caBuilder = new StringBuilder();
+		StringBuilder ukBuilder = new StringBuilder();
+		StringBuilder usBuilder = new StringBuilder();
+		
+		Collection<List<Record>> keys = mapCA.values();
+		Iterator<List<Record>> it = keys.iterator();
+		while(it.hasNext()) {
+			List<Record> lst = it.next();
+			Iterator<Record> records = lst.iterator();
+			while(records.hasNext()) {
+				Record r = records.next();
+				if(r instanceof ManagerRecord) {
+					ManagerRecord mr = (ManagerRecord) r;
+					record = "" + mr.getRecordID() + ";" + mr.getFirstName() + ";" +  mr.getLastName() + ";" +  mr.getEmployeeID() + ";" +  mr.getMailID() + ";" +  mr.getProject().getProjectID() + ";" +  mr.getProject().getClientName() + ";" +  mr.getProject().getProjectName()+ ";" + mr.getLocation();
+				} else {
+					EmployeeRecord er = (EmployeeRecord) r;
+					record = "" + er.getRecordID() + ";" + er.getFirstName() + ";" + er.getLastName() + ";" +  er.getEmployeeID() + ";" +  er.getMailID() + ";" +  er.getProjectID();
+				}
+				caBuilder.append(record + "|");
+			}
+		}
+		
+		keys = mapUK.values();
+		it = keys.iterator();
+		while(it.hasNext()) {
+			List<Record> lst = it.next();
+			Iterator<Record> records = lst.iterator();
+			while(records.hasNext()) {
+				Record r = records.next();
+				if(r instanceof ManagerRecord) {
+					ManagerRecord mr = (ManagerRecord) r;
+					record = "" + mr.getRecordID() + ";" + mr.getFirstName() + ";" +  mr.getLastName() + ";" +  mr.getEmployeeID() + ";" +  mr.getMailID() + ";" +  mr.getProject().getProjectID() + ";" +  mr.getProject().getClientName() + ";" +  mr.getProject().getProjectName()+ ";" + mr.getLocation();
+				} else {
+					EmployeeRecord er = (EmployeeRecord) r;
+					record = "" + er.getRecordID() + ";" + er.getFirstName() + ";" + er.getLastName() + ";" +  er.getEmployeeID() + ";" +  er.getMailID() + ";" +  er.getProjectID();
+				}
+				ukBuilder.append(record + "|");
+			}
+		}
+		
+		keys = mapUS.values();
+		it = keys.iterator();
+		while(it.hasNext()) {
+			List<Record> lst = it.next();
+			Iterator<Record> records = lst.iterator();
+			while(records.hasNext()) {
+				Record r = records.next();
+				if(r instanceof ManagerRecord) {
+					ManagerRecord mr = (ManagerRecord) r;
+					record = "" + mr.getRecordID() + ";" + mr.getFirstName() + ";" +  mr.getLastName() + ";" +  mr.getEmployeeID() + ";" +  mr.getMailID() + ";" +  mr.getProject().getProjectID() + ";" +  mr.getProject().getClientName() + ";" +  mr.getProject().getProjectName()+ ";" + mr.getLocation();
+				} else {
+					EmployeeRecord er = (EmployeeRecord) r;
+					record = "" + er.getRecordID() + ";" + er.getFirstName() + ";" + er.getLastName() + ";" +  er.getEmployeeID() + ";" +  er.getMailID() + ";" +  er.getProjectID();
+				}
+				usBuilder.append(record + "|");
+			}
+		}
+		
+		String castr = " ";
+		if(caBuilder.length() > 0) {
+			castr = caBuilder.toString();
+		}
+		
+		String ukstr = " ";
+		if(caBuilder.length() > 0) {
+			ukstr = caBuilder.toString();
+		}
+		
+		String usstr = " ";
+		if(caBuilder.length() > 0) {
+			usstr = caBuilder.toString();
+		}
+
+		return castr + "@" + ukstr + "@" + usstr;
+	}
+	
+	
 	
 	/**
 	 * @return the cd

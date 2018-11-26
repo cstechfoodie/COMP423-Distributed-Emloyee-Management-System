@@ -160,4 +160,18 @@ public class CARecordController implements RecordApi {
 			return "Failed";
 		}
 	}
+
+	/**
+	 * @return the repo
+	 */
+	public IRecordRepository getRepo() {
+		return repo;
+	}
+
+	/**
+	 * @param repo the repo to set
+	 */
+	public void setRepo(IRecordRepository repo) {
+		this.repo = repo;
+	}
 }

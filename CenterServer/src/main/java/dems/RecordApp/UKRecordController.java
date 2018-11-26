@@ -165,5 +165,21 @@ public class UKRecordController implements RecordApi {
 	}
 
 
+	/**
+	 * @return the repo
+	 */
+	public IRecordRepository getRepo() {
+		return repo;
+	}
+
+
+	/**
+	 * @param repo the repo to set
+	 */
+	public void setRepo(IRecordRepository repo) {
+		this.repo = repo;
+	}
+
+
 
 }

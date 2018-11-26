@@ -15,14 +15,15 @@ public class ReplicaManager {
 	private int LIS_PORT = 7011; //the only port listening to message
 	
 	private int requestPort = 30011; // port used to established reliable connection with next RM
+										//useful to listen to the reply from RM only(NECESSARY)
 	
-	private int forwardPort = 40011;  // port used to established reliable connection with next before
+	private int forwardPort = 40011;  // port used to established reliable connection with next before(NOT NECESSARY)
 	
 	private int rm2listeningPort = 7012; //request map info from next RM
 	
 	private int rm3listeningPort = 7013; //return map info to RM before
 	
-	private int DES_PORT = 7021;
+	private int REPLICA_PORT = 7021;
 	
 	private UDP udp;
 	
@@ -32,26 +33,26 @@ public class ReplicaManager {
 	
 	public ReplicaManager() {
 		try {
-			this.udp = new Reliable(LIS_PORT, DES_PORT); //listen 7011 replica1 listen on 7021
+			this.udp = new Reliable(LIS_PORT, REPLICA_PORT); //listen 7011 replica1 listen on 7021
 			this.requestMapFromRM = new Reliable(requestPort, rm2listeningPort);
 			this.fowardMapToRM = new Reliable(forwardPort, rm3listeningPort);
-			System.out.println("RM1 starts listening pn port " + LIS_PORT + "; ready to send msg to replica1 on " + DES_PORT);
+			System.out.println("RM1 starts listening pn port " + LIS_PORT + "; ready to send msg to replica1 on " + REPLICA_PORT);
 		} catch (SocketException | UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
-	public ReplicaManager(int LIS_PORT, int DES_PORT, int rm2listeningPort, int rm3listeningPort) {
+	public ReplicaManager(int LIS_PORT, int REPLICA_PORT, int rm2listeningPort, int rm3listeningPort) {
 		try {
 			this.LIS_PORT = LIS_PORT;
-			this.DES_PORT = DES_PORT;
+			this.REPLICA_PORT = REPLICA_PORT;
 			this.rm2listeningPort = rm2listeningPort;
 			this.rm3listeningPort = rm3listeningPort;
-			this.udp = new Reliable(LIS_PORT, DES_PORT); //listen 6001 replica1 listen on 7001
-			this.requestMapFromRM = new Reliable(new Unicast(rm2listeningPort));
-			this.fowardMapToRM = new Reliable(new Unicast(rm3listeningPort));
-			System.out.println("RM1 starts listening pn port " + LIS_PORT + "; ready to send msg to replica1 on " + DES_PORT);
+			this.udp = new Reliable(LIS_PORT, REPLICA_PORT); //listen 6001 replica1 listen on 7001
+			this.requestMapFromRM = new Reliable(requestPort, rm2listeningPort);
+			this.fowardMapToRM = new Reliable(forwardPort, rm3listeningPort);
+			System.out.println("RM1 starts listening pn port " + LIS_PORT + "; ready to send msg to replica1 on " + REPLICA_PORT);
 		} catch (SocketException | UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

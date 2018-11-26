@@ -1,0 +1,38 @@
+CA1001---2018-11-26:09-39-25: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10000 EmployeeId: 44944. First name: Shunyu, Last Name: Wang Located at: CA, Mail is a@google.com. The project info is: Project{P234 Joshua LearnJava}
+CA1001---2018-11-26:09-39-25: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10000 EmployeeId: 88787. First name: Jack, Last Name: Smith, Mail is jack@google.com. The project Id is: P234
+CA1001---2018-11-26:09-39-26: Check the count of the local server. The total number is: 2
+CA1001---2018-11-26:09-39-26: Check the counts of record in each server. The total number is: CA 2 US 0 UK 0
+CA1001---2018-11-26:09-39-27: Transfer failed due to recordID not existing in local server.
+CA1001---2018-11-26:09-39-28: Transfer failed due to recordID not existing in local server.
+CA1001---2018-11-26:09-39-29: Check the count of the local server. The total number is: 2
+CA1001---2018-11-26:09-39-29: Check the counts of record in each server. The total number is: CA 2 US 0 UK 0
+UK1001---2018-11-26:09-39-29: Check the count of the local server. The total number is: 0
+UK1001---2018-11-26:09-39-29: Check the counts of record in each server. The total number is: UK 0 US 0 CA 2
+CA1001---2018-11-26:09-39-30: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10001 EmployeeId: 12345. First name: aaa, Last Name: ddd Located at: US, Mail is aaa@google.com. The project info is: Project{Pjkl Joshua LearnC++}
+CA1001---2018-11-26:09-39-30: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10001 EmployeeId: 67890. First name: ccc, Last Name: zzz, Mail is ccc@google.com. The project Id is: Pjkl
+CA1001---2018-11-26:09-39-31: Check the count of the local server. The total number is: 4
+CA1001---2018-11-26:09-39-31: Check the counts of record in each server. The total number is: CA 4 US 0 UK 0
+CA1001---2018-11-26:09-39-31: Transfer failed due to recordID not existing in local server.
+CA1001---2018-11-26:09-39-32: Transfer failed due to recordID not existing in local server.
+US1001---2018-11-26:09-39-33: Check the count of the local server. The total number is: 0
+US1001---2018-11-26:09-39-33: Check the counts of record in each server. The total number is: US 0 UK 0 CA 4
+UK1001---2018-11-26:09-39-34: Transfer failed due to recordID not existing in local server.
+US1001---2018-11-26:09-39-35: Transfer failed due to recordID not existing in local server.
+CA1001---2018-11-26:09-39-36: Check the count of the local server. The total number is: 4
+CA1001---2018-11-26:09-39-36: Check the counts of record in each server. The total number is: CA 4 US 0 UK 0
+CA1001---2018-11-26:09-50-20: Check the count of the local server. The total number is: 0
+CA1001---2018-11-26:09-50-20: Check the counts of record in each server. The total number is: CA 0 US 0 UK 0
+UK1001---2018-11-26:09-50-21: Check the count of the local server. The total number is: 0
+UK1001---2018-11-26:09-50-21: Check the counts of record in each server. The total number is: UK 0 US 0 CA 0
+US1001---2018-11-26:09-50-21: Check the count of the local server. The total number is: 0
+US1001---2018-11-26:09-50-21: Check the counts of record in each server. The total number is: US 0 UK 0 CA 0
+CA1001---2018-11-26:09-51-44: Check the count of the local server. The total number is: 2
+CA1001---2018-11-26:09-51-44: Check the counts of record in each server. The total number is: CA 2 US 1 UK 1
+UK1001---2018-11-26:09-51-44: Check the count of the local server. The total number is: 1
+UK1001---2018-11-26:09-51-44: Check the counts of record in each server. The total number is: UK 1 US 1 CA 2
+US1001---2018-11-26:09-51-45: Check the count of the local server. The total number is: 1
+US1001---2018-11-26:09-51-45: Check the counts of record in each server. The total number is: US 1 UK 1 CA 2

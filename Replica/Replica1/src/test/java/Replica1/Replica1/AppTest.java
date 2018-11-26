@@ -108,7 +108,7 @@ public class AppTest {
 	}
 	
 	@Test
-	public void replicaRecoveryTest() throws SocketException, UnknownHostException {
+	public void viewMapTest() throws SocketException, UnknownHostException {
 		u = new Reliable(new Unicast(7021));
 		String method1 = "1;CA1001;Shunyu;Wang;44944;a@google.com;P234;Joshua;LearnJava;CA;";
 		String method2 = "2;CA1001;Jack;Smith;88787;jack@google.com;P234;";

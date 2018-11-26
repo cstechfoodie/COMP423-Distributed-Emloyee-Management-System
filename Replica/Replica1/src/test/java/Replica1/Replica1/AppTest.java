@@ -26,7 +26,7 @@ public class AppTest {
 	@BeforeClass
 	public static void setup() {
 		 try {
-			u = new Reliable(new Unicast(8888, 7021));
+			u = new Reliable(new Unicast(7021));
 		} catch (SocketException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -96,6 +96,46 @@ public class AppTest {
 			Thread.sleep(1000);
 			u.send(method3);
 			Thread.sleep(500);//CA 2 US 1 UK 1
+			
+		} catch (IOException e) {
+			System.out.println("Exception occurred during test");
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void replicaRecoveryTest() {
+		String method1 = "1;CA1001;Shunyu;Wang;44944;a@google.com;P234;Joshua;LearnJava;CA;";
+		String method2 = "2;CA1001;Jack;Smith;88787;jack@google.com;P234;";
+		String method3 = "3;CA1001;";
+		String method4 = "4;CA1001;ER30000;mailID;new@concordia.ca";
+		String method5a = "5;CA1001;ER30000;UK";
+		String method5b = "5;CA1001;MR30000;UK";
+		String method3a = "3;UK1001;";
+		String method3b = "3;US1001;";
+		
+		String method1a = "1;CA1001;aaa;ddd;12345;aaa@google.com;Pjkl;Joshua;LearnC++;US;";
+		String method2a = "2;CA1001;ccc;zzz;67890;ccc@google.com;Pjkl;";
+		String method5c = "5;CA1001;ER30001;US";
+		String method5d = "5;CA1001;MR30001;US";
+		
+		String method5e = "5;UK1001;ER30000;CA";
+		String method5f = "5;US1001;MR30001;CA";
+		
+		
+		try {
+			u.send(method3);
+			Thread.sleep(500); // CA 2 US 0 UK 0
+
+			u.send(method3a);
+			Thread.sleep(500);// UK 2 US 0 CA 1
+			
+			u.send(method3b);
+			Thread.sleep(500);//US 2 UK 2 CA 0
+
 			
 		} catch (IOException e) {
 			System.out.println("Exception occurred during test");

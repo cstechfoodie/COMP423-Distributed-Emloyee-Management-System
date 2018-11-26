@@ -24,7 +24,7 @@ public class CAUDPServer extends Thread {
 	/**
 	 * @param repo the repo to set
 	 */
-	public void setRepo(IRecordRepository repo) {
+	public synchronized void setRepo(IRecordRepository repo) {
 		this.repo = repo;
 	}
 

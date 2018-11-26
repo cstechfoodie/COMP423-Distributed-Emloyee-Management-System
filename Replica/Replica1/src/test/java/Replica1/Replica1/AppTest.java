@@ -23,24 +23,25 @@ public class AppTest {
 	
 	private static UDP u;
 	
-	@BeforeClass
-	public static void setup() {
-		 try {
-			u = new Reliable(new Unicast(7021));
-		} catch (SocketException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+//	@BeforeClass
+//	public static void setup() {
+//		 try {
+//			u = new Reliable(new Unicast(7021));
+//		} catch (SocketException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (UnknownHostException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
 
 	
 	
 	
 	@Test
-	public void listenAndHandleRequestTest() {
+	public void listenAndHandleRequestTest() throws SocketException, UnknownHostException {
+		u = new Reliable(new Unicast(7021));
 		String method1 = "1;CA1001;Shunyu;Wang;44944;a@google.com;P234;Joshua;LearnJava;CA;";
 		String method2 = "2;CA1001;Jack;Smith;88787;jack@google.com;P234;";
 		String method3 = "3;CA1001;";
@@ -107,7 +108,8 @@ public class AppTest {
 	}
 	
 	@Test
-	public void replicaRecoveryTest() {
+	public void replicaRecoveryTest() throws SocketException, UnknownHostException {
+		u = new Reliable(new Unicast(7021));
 		String method1 = "1;CA1001;Shunyu;Wang;44944;a@google.com;P234;Joshua;LearnJava;CA;";
 		String method2 = "2;CA1001;Jack;Smith;88787;jack@google.com;P234;";
 		String method3 = "3;CA1001;";

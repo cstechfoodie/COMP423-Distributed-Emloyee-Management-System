@@ -42,13 +42,15 @@ public class ReplicaManager {
 		}
 	}
 	
-	public ReplicaManager(int LIS_PORT, int DES_PORT) {
+	public ReplicaManager(int LIS_PORT, int DES_PORT, int rm2listeningPort, int rm3listeningPort) {
 		try {
 			this.LIS_PORT = LIS_PORT;
 			this.DES_PORT = DES_PORT;
+			this.rm2listeningPort = rm2listeningPort;
+			this.rm3listeningPort = rm3listeningPort;
 			this.udp = new Reliable(LIS_PORT, DES_PORT); //listen 6001 replica1 listen on 7001
-			this.requestMapFromRM = new Reliable(requestPort, rm2listeningPort);
-			this.fowardMapToRM = new Reliable(forwardPort, rm3listeningPort);
+			this.requestMapFromRM = new Reliable(new Unicast(rm2listeningPort));
+			this.fowardMapToRM = new Reliable(new Unicast(rm3listeningPort));
 			System.out.println("RM1 starts listening pn port " + LIS_PORT + "; ready to send msg to replica1 on " + DES_PORT);
 		} catch (SocketException | UnknownHostException e) {
 			// TODO Auto-generated catch block
@@ -78,6 +80,8 @@ public class ReplicaManager {
 		if(msg.contains("requestmap")) {
 			System.out.println("Getting map info from my own replica and forward it to requesting RM");
 			forwardMapInfoToRM(requestMapInfoFromReplica());
+		} else {
+			testingMethod(msg);
 		}
 	}
 	
@@ -88,6 +92,7 @@ public class ReplicaManager {
 			if(FAILURE_COUNTER >= 3) {
 				udp.send("recover");
 				System.out.println("Recieving map info from other RM and forward it to my own replica");
+				//forwardMapInfoToReplica(requestMapInfoFromRM());
 				forwardMapInfoToReplica(requestMapInfoFromRM());
 				recovered = true;
 			}
@@ -115,6 +120,7 @@ public class ReplicaManager {
 	public String requestMapInfoFromRM() {
 		try {
 			this.requestMapFromRM.send("requestmap");
+			System.out.println("sending requestmap to other RM");
 			String map = requestMapFromRM.listen(); // waiting for reply
 			return map;
 		} catch (SocketException e) {
@@ -127,24 +133,61 @@ public class ReplicaManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return " @ @ ";
+		return " ! ! ";
 	}
 	
 	public String requestMapInfoFromReplica() {
 		try {
 			udp.send("requestmap");
+			System.out.println("sending requestmap to replica");
 			String map = udp.listen();
 			return map;
 		} catch (SocketException e) {
 			// TODO Auto-generated catch block
+			System.out.println("--------------1-----------------");
 			e.printStackTrace();
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
+			System.out.println("--------------2-----------------");
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			System.out.println("--------------3-----------------");
 			e.printStackTrace();
 		}
-		return " @ @ ";
+		return " ! ! ";
+	}
+	
+	
+	//for unit test purpose only 
+	private void testingMethod(String request) {
+		if(request.contains("requestMapInfoFromReplica")) {
+			System.out.println(requestMapInfoFromReplica());
+		}
+		if(request.contains("forwardMapInfoToReplica")) {
+			String test1 = "MR1124;Shunyu;Wang;35345;shunyu@gmail.com;P2354;Jack;killJava;CA,ER5555;Jill;Dong;234234;jill2yahoo.com;P9935! ! ";
+			String test2 = "ER30000;Jack;Smith;88787;new@concordia.ca;P234,MR30001;aaa;ddd;12345;aaa@google.com;Pjkl;Joshua;LearnC++;US,!ER30000;Jack;Smith;88787;new@concordia.ca;P234,MR30001;aaa;ddd;12345;aaa@google.com;Pjkl;Joshua;LearnC++;US,!ER30000;Jack;Smith;88787;new@concordia.ca;P234,MR30001;aaa;ddd;12345;aaa@google.com;Pjkl;Joshua;LearnC++;US,";
+			String test3 = "ER30000;Jack;Smith;88787;new@concordia.ca;P234,MR30001;aaa;ddd;12345;aaa@google.com;Pjkl;Joshua;LearnC++;US,!MR30000;Shunyu;Wang;44944;a@google.com;P234;Joshua;LearnJava;CA,!ER30001;ccc;zzz;67890;ccc@google.com;Pjkl,";
+			try {
+				udp.send("recover");
+				System.out.println("TEST, RM sends 'revover' to replica");
+				forwardMapInfoToReplica(test3);
+				System.out.println("replica is recoverd");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		if(request.contains("initializeReplica")) {
+			try {
+				udp.send("recover");
+				System.out.println("TEST, RM sends 'revover' to replica with empty maps");
+				forwardMapInfoToReplica(" ! ! ");
+				System.out.println("replica is initialized");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 }

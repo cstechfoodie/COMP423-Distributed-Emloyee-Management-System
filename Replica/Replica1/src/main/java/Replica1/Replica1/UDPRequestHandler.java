@@ -41,7 +41,7 @@ public class UDPRequestHandler {
 		this.cd = cd;
 		try {
 			udp = new Reliable(new Unicast(7021, "localhost", 10001)); // set it lenyen to 7021, and bind the with front end
-			replyToReplica = new Reliable(new Unicast("localhost", 7011)); //used to reply map to its replica
+			replyToReplica = new Reliable(new Unicast(8021, "localhost", 7011)); //used to reply map to its replica
 			System.out.print("The replica is listening to resquest on port 7021.");
 			System.out.println(" The replica will respond to FE on 10001 and RM1 on 7011");
 		} catch (SocketException e) {
@@ -64,7 +64,6 @@ public class UDPRequestHandler {
 		try {
 			udp = new Reliable(new Unicast(localport, "localhost", feport));
 			replyToReplica = new Reliable(new Unicast("localhost", 7011)); //used to reply map to its replica
-			replyToReplica = new Reliable(8021, 7011); //used to reply map to its replica
 			System.out.print("The replica is listening to resquest on " + localport);
 			System.out.println(" The replica will respond to FE on " + feport + " and RM1 on 7011");
 		} catch (SocketException e) {
@@ -91,41 +90,43 @@ public class UDPRequestHandler {
 		String reply = "";
 		RecordApi api = null;
 		
-		String[] args = msg.split(";");
-		for(int i = 0; i < args.length; i++) {
-			args[i] = args[i].trim();
-		}
-		
-		String managerID = args[1]; // get managerID first from UDP request message
 		if(msg.contains("recover")) {
 			needsRecover = true;
 			msg = listen();
-			while(!msg.contains("@")) {
+			while(!msg.contains("!")) {
 				msg = listen();
 			}
 			restartWithMap(msg);
 			needsRecover = false;
 		}
-		if(msg.contains("requestmap")) {
+		else if(msg.contains("requestmap")) {
 			replyToReplica.send(retrieveMap());
-		}
-		if(needsRecover) {
-			reply = "Server recovery being processed";
 		} else {
-			if(managerID.contains("CA")) {
-				api = cd.findServer("CA");
-				reply = processRequest(managerID, args, api);
+			String[] args = msg.split(";");
+			for(int i = 0; i < args.length; i++) {
+				args[i] = args[i].trim();
 			}
-			if(managerID.contains("UK")) {
-				api = cd.findServer("UK");
-				reply = processRequest(managerID, args, api);
+			
+			String managerID = args[1]; // get managerID first from UDP request message
+			if(needsRecover) {
+				reply = "Server recovery being processed";
+			} else {
+				if(managerID.contains("CA")) {
+					api = cd.findServer("CA");
+					reply = processRequest(managerID, args, api);
+				}
+				if(managerID.contains("UK")) {
+					api = cd.findServer("UK");
+					reply = processRequest(managerID, args, api);
+				}
+				if(managerID.contains("US")) {
+					api = cd.findServer("US");
+					reply = processRequest(managerID, args, api);
+				}
 			}
-			if(managerID.contains("US")) {
-				api = cd.findServer("US");
-				reply = processRequest(managerID, args, api);
-			}
+			processReply(managerID, reply);
 		}
-		processReply(managerID, reply);
+		
 	}
 	
 	/**
@@ -194,7 +195,7 @@ public class UDPRequestHandler {
 		IRecordRepository repoCA = new RecordRepository();
 		IRecordRepository repoUK = new RecordRepository();
 		IRecordRepository repoUS = new RecordRepository();
-		String[] maps = map.split("@");
+		String[] maps = map.split("!");
 		String[] records = null;
 		String[] fields = null;
 		if(maps.length == 0) {
@@ -203,8 +204,8 @@ public class UDPRequestHandler {
 			for(int i = 0; i < maps.length; i++) {
 				if(i == 0) {
 					if(!maps[i].equals(" ")) {
-						if(maps[i].contains("|")) {
-							records = maps[i].split("|");
+						if(maps[i].contains(",")) {
+							records = maps[i].split(",");
 							for(int j = 0; j < records.length; j++) {
 								fields = records[j].split(";");
 								if(fields.length == 9) {
@@ -225,8 +226,8 @@ public class UDPRequestHandler {
 					}
 				} else if(i == 1) {
 					if(!maps[i].equals(" ")) {
-						if(maps[i].contains("|")) {
-							records = maps[i].split("|");
+						if(maps[i].contains(",")) {
+							records = maps[i].split(",");
 							for(int j = 0; j < records.length; j++) {
 								fields = records[j].split(";");
 								if(fields.length == 9) {
@@ -247,8 +248,8 @@ public class UDPRequestHandler {
 					}
 				} else {
 					if(!maps[i].equals(" ")) {
-						if(maps[i].contains("|")) {
-							records = maps[i].split("|");
+						if(maps[i].contains(",")) {
+							records = maps[i].split(",");
 							for(int j = 0; j < records.length; j++) {
 								fields = records[j].split(";");
 								if(fields.length == 9) {
@@ -299,7 +300,7 @@ public class UDPRequestHandler {
 					EmployeeRecord er = (EmployeeRecord) r;
 					record = "" + er.getRecordID() + ";" + er.getFirstName() + ";" + er.getLastName() + ";" +  er.getEmployeeID() + ";" +  er.getMailID() + ";" +  er.getProjectID();
 				}
-				caBuilder.append(record + "|");
+				caBuilder.append(record + ",");
 			}
 		}
 		
@@ -317,7 +318,7 @@ public class UDPRequestHandler {
 					EmployeeRecord er = (EmployeeRecord) r;
 					record = "" + er.getRecordID() + ";" + er.getFirstName() + ";" + er.getLastName() + ";" +  er.getEmployeeID() + ";" +  er.getMailID() + ";" +  er.getProjectID();
 				}
-				ukBuilder.append(record + "|");
+				ukBuilder.append(record + ",");
 			}
 		}
 		
@@ -335,7 +336,7 @@ public class UDPRequestHandler {
 					EmployeeRecord er = (EmployeeRecord) r;
 					record = "" + er.getRecordID() + ";" + er.getFirstName() + ";" + er.getLastName() + ";" +  er.getEmployeeID() + ";" +  er.getMailID() + ";" +  er.getProjectID();
 				}
-				usBuilder.append(record + "|");
+				usBuilder.append(record + ",");
 			}
 		}
 		
@@ -346,15 +347,15 @@ public class UDPRequestHandler {
 		
 		String ukstr = " ";
 		if(caBuilder.length() > 0) {
-			ukstr = caBuilder.toString();
+			ukstr = ukBuilder.toString();
 		}
 		
 		String usstr = " ";
 		if(caBuilder.length() > 0) {
-			usstr = caBuilder.toString();
+			usstr = usBuilder.toString();
 		}
 
-		return castr + "@" + ukstr + "@" + usstr;
+		return castr + "!" + ukstr + "!" + usstr;
 	}
 	
 	

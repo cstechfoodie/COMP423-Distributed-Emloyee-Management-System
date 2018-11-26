@@ -67,4 +67,10 @@ public class Unicast extends UDPState {
 		this.socketSend(reply);
 	}
 
+	@Override
+	public void changeRemote(Process... processes) {
+		this.remote = processes[0];
+		
+	}
+
 }

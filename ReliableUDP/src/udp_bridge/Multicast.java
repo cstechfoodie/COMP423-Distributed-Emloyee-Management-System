@@ -54,6 +54,15 @@ public class Multicast extends UDPState {
 		}
 	}
 	
+	@Override
+	public void changeRemote(Process...processes) {
+		this.remotes = processes;
+	}
+	
+	public void setRemotes(int...ports) {
+		this.initAddresses(ports);
+	}
+	
 	
 	@Override
 	public void send(byte[] message) throws IOException {

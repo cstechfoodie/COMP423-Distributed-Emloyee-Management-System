@@ -1,6 +1,7 @@
 package udp_bridge;
 
 import java.io.IOException;
+import udp_bridge.Process;
 
 public interface UDP {
 	
@@ -12,6 +13,6 @@ public interface UDP {
 	
 	public byte[] receive() throws IOException;
 	
-	public void close() throws IOException;
+	public void changeRemote(Process ...processes);
 
 }

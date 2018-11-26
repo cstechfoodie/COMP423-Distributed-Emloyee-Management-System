@@ -27,6 +27,14 @@ public class Process implements Serializable{
 		this("localhost", port);
 	}
 	
+	public Process(String name, byte[] address, int port) throws UnknownHostException {
+		this(InetAddress.getByAddress(name,address), port);
+	}
+	
+	public Process(byte[] address, int port) throws UnknownHostException {
+		this(InetAddress.getByAddress(address), port);
+	}
+	
 	@Override
 	public boolean equals(Object ob1) {
 		if(ob1 instanceof Process) {

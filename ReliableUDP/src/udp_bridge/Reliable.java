@@ -95,6 +95,10 @@ public class Reliable implements UDP{
 		}
 	}
 	
+	public int getSequenceNumber() {
+		return s;
+	}
+	
 	@Override
 	public void send(String message) throws IOException {
 		this.send(message.getBytes());
@@ -195,6 +199,7 @@ public class Reliable implements UDP{
 						if(missed) {//successfully retrieved;
 							holdback.addFirst(m);
 							missed = false;
+							((UDPState)udp).deltaLatestPort((-1)*NegativeAckServer.DELTA);
 						}else {
 							holdback.add(m);
 						}
@@ -222,7 +227,17 @@ public class Reliable implements UDP{
 		return holdback.remove();
 	}
 	
+	public void changeRemote(UDPState udp) {
+		this.udp = udp;
+	}
 	
+	public void changeRemote(Process ...processes) {
+		this.udp.changeRemote(processes);
+	}
+	
+	public Process getLastSender() {
+		return ((UDPState)udp).getLatestSender();
+	}
 	
 	/**
 	 * NegativeAckServer is used to send out and listen for negative acknowledgements
@@ -231,7 +246,7 @@ public class Reliable implements UDP{
 	 *
 	 */
 	private class NegativeAckServer extends Thread{
-		private static final int DELTA = 1000;
+		private static final int DELTA = 100;
 		
 		private Unicast acknowledge;
 		
@@ -250,14 +265,12 @@ public class Reliable implements UDP{
 		private void retrieve() throws IOException {
 			
 			Message m = Message.fromBytes(this.acknowledge.receive());
-			//System.out.println((new Process("localhost", m.process.port)).address.getHostAddress());
-	
-			
+
 			//is sender
-			
-				byte[] message = history.get(m.s).getBytes();
-				this.acknowledge.setRemote(m.process);
-				this.acknowledge.send(message);
+			byte[] message = history.get(m.s).getBytes();
+			Process sender = new Process(acknowledge.getLatestSender().address, m.process.port);
+			this.acknowledge.setRemote(sender);
+			this.acknowledge.send(message);
 			
 		}
 		
@@ -289,13 +302,6 @@ public class Reliable implements UDP{
 			
 		}
 		
-	}
-
-
-
-	@Override
-	public void close() throws IOException {
-		this.udp.close();
 	}
 	
 

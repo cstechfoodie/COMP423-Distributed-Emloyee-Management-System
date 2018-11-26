@@ -1,6 +1,8 @@
 package Replica1.Replica1;
 
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.InterfaceAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.Collection;
@@ -21,6 +23,8 @@ import dems.model.Project;
 import dems.model.Record;
 import dems.repository.IRecordRepository;
 import dems.repository.RecordRepository;
+import udp_bridge.Message;
+import udp_bridge.Process;
 import udp_bridge.Reliable;
 import udp_bridge.UDP;
 import udp_bridge.Unicast;
@@ -36,6 +40,8 @@ public class UDPRequestHandler {
 	private UDP replyToReplica;
 	
 	private boolean needsRecover = false;
+	
+	private boolean rebindFrontEnd = false;
 
 	public UDPRequestHandler(ControllerDispatcher cd) {
 		this.cd = cd;
@@ -54,7 +60,7 @@ public class UDPRequestHandler {
 	}
 	
 	/**
-	 * 
+	 * Used when there is a local feport or the front end will be changed later upon first frond end call
 	 * @param cd ControllerDispatcher
 	 * @param localport udp local port listening udp request from front end
 	 * @param feport FE port
@@ -63,7 +69,7 @@ public class UDPRequestHandler {
 		this.cd = cd;
 		try {
 			udp = new Reliable(new Unicast(localport, "localhost", feport));
-			replyToReplica = new Reliable(new Unicast("localhost", 7011)); //used to reply map to its replica
+			replyToReplica = new Reliable(new Unicast(8021, "localhost", 7011)); //used to reply map to its replica
 			System.out.print("The replica is listening to resquest on " + localport);
 			System.out.println(" The replica will respond to FE on " + feport + " and RM1 on 7011");
 		} catch (SocketException e) {
@@ -75,8 +81,47 @@ public class UDPRequestHandler {
 		}
 	}
 	
+	/**
+	 * Used when initialized with appropriate 
+	 * @param cd
+	 * @param localport
+	 * @param address
+	 * @param feport
+	 */
+	
+	public UDPRequestHandler(ControllerDispatcher cd, int localport, String address, int feport) {
+		this.cd = cd;
+		try {
+			udp = new Reliable(new Unicast(localport, address, feport));
+			rebindFrontEnd = true;
+			replyToReplica = new Reliable(new Unicast(8021, "localhost", 7011)); //used to reply map to its replica
+			System.out.print("The replica is listening to resquest on " + localport);
+			System.out.println(" The replica will respond to FE on " + feport + " and RM1 on 7011");
+		} catch (SocketException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@SuppressWarnings("unused")
 	private String listen() throws IOException {
-		String msg = udp.listen();
+		byte[] reception = udp.receive();
+		Message data = Message.fromBytes(reception);
+		String msg = new String(data.message);
+		if(msg == null) {
+			msg = new String(reception);
+		} else {
+			Process p = data.process;
+			int port = p.port;
+			InetAddress addr = p.address;
+			if(!rebindFrontEnd) {
+				udp.changeRemote(new Process(addr, port));
+				rebindFrontEnd = true;
+			}
+		}
 		System.out.println(msg);
 		return msg;
 	}

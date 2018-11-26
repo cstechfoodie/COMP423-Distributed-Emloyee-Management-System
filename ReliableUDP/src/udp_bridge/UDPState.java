@@ -10,6 +10,7 @@ import java.net.UnknownHostException;
 public abstract class UDPState implements UDP{
 
 private DatagramSocket aSocket;
+private Process latestSender;
 	
 	protected UDPState(DatagramSocket aSocket) {
 		this.aSocket = aSocket;
@@ -54,6 +55,10 @@ private DatagramSocket aSocket;
 		return new Process(getLocalAddress(), getLocalPort());
 	}
 	
+	public Process getLatestSender() {
+		return latestSender;
+	}
+	
 	@Override
 	public void send(String message) throws IOException {
 		this.send(message.getBytes());
@@ -63,19 +68,20 @@ private DatagramSocket aSocket;
 	public byte[] receive() throws IOException{
 		byte[] buffer = new byte[1000];
 		DatagramPacket request = new DatagramPacket(buffer,buffer.length);
-		
 		this.socketReceive(request);
+		this.latestSender = new Process(request.getAddress(), request.getPort());
 		return request.getData();
 	}
 	
 	@Override
 	public String listen() throws IOException{
-		return new String(this.receive());
+		
+		return new String(this.receive()).trim();
 	}
-	
-	@Override
-	public void close() throws IOException{
-		aSocket.close();
+
+	public void deltaLatestPort(int i) {
+		this.latestSender = new Process(this.latestSender.address, this.latestSender.port + i);
+		
 	}
 	
 }

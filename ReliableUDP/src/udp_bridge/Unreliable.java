@@ -42,16 +42,18 @@ public class Unreliable implements UDP {
 	int count = 0;
 	@Override
 	public void send(byte[] message) throws IOException {
-		/*if(Math.random()*100 > transmission) {
+		if(Math.random()*100 > transmission) {
 			this.udp.send(message);
 		}
 		if(Math.random()*100 > transmission) {
 			this.udp.send(message);
-		}*/
+		}
+		/*System.out.println(count);
 		if(count != 0) {
+			System.out.println(count);
 			this.udp.send(message);
 		}
-		count ++;
+		count ++;*/
 		
 	}
 
@@ -71,8 +73,8 @@ public class Unreliable implements UDP {
 
 
 	@Override
-	public void close() throws IOException {
-		this.udp.close();
+	public void changeRemote(Process... processes) {
+		// TODO Auto-generated method stub
 		
 	}
 	

@@ -7,7 +7,7 @@ public class RMLauncher {
 		
 		boolean msgSent = false;
 		while(true) {
-			msgSent = rm.trySendRecoverRequest();
+			msgSent = rm.handleUDPRequests();
 			if(msgSent) {
 				System.out.println("'recover' msg sent to replica1");
 			} else {

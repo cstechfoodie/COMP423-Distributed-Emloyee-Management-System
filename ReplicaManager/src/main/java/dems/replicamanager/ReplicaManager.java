@@ -14,13 +14,13 @@ public class ReplicaManager {
 	
 	private int LIS_PORT = 7011; //the only port listening to message
 	
-	private int requestPort; // port used to established reliable connection with next RM
+	private int requestPort = 30011; // port used to established reliable connection with next RM
 	
-	private int forwardPort;  // port used to established reliable connection with next before
+	private int forwardPort = 40011;  // port used to established reliable connection with next before
 	
-	private int rm2listeningPort; //request map info from next RM
+	private int rm2listeningPort = 7012; //request map info from next RM
 	
-	private int rm3listeningPort; //return map info to RM before
+	private int rm3listeningPort = 7013; //return map info to RM before
 	
 	private int DES_PORT = 7021;
 	
@@ -47,6 +47,8 @@ public class ReplicaManager {
 			this.LIS_PORT = LIS_PORT;
 			this.DES_PORT = DES_PORT;
 			this.udp = new Reliable(LIS_PORT, DES_PORT); //listen 6001 replica1 listen on 7001
+			this.requestMapFromRM = new Reliable(requestPort, rm2listeningPort);
+			this.fowardMapToRM = new Reliable(forwardPort, rm3listeningPort);
 			System.out.println("RM1 starts listening pn port " + LIS_PORT + "; ready to send msg to replica1 on " + DES_PORT);
 		} catch (SocketException | UnknownHostException e) {
 			// TODO Auto-generated catch block
@@ -74,16 +76,18 @@ public class ReplicaManager {
 			FAILURE_COUNTER = 4;
 		}
 		if(msg.contains("requestmap")) {
+			System.out.println("Getting map info from my own replica and forward it to requesting RM");
 			forwardMapInfoToRM(requestMapInfoFromReplica());
 		}
 	}
 	
-	public boolean trySendRecoverRequest() {
+	public boolean handleUDPRequests() {
 		boolean recovered = false;
 		try {
 			parseMsg(listen());
 			if(FAILURE_COUNTER >= 3) {
 				udp.send("recover");
+				System.out.println("Recieving map info from other RM and forward it to my own replica");
 				forwardMapInfoToReplica(requestMapInfoFromRM());
 				recovered = true;
 			}
@@ -128,7 +132,7 @@ public class ReplicaManager {
 	
 	public String requestMapInfoFromReplica() {
 		try {
-			udp.send("map");
+			udp.send("requestmap");
 			String map = udp.listen();
 			return map;
 		} catch (SocketException e) {

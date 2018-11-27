@@ -5,89 +5,85 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 
 import udp_bridge.Reliable;
-import udp_bridge.UDP;
-import udp_bridge.Unicast;
+import udp_bridge.*;
+import udp_bridge.Process;
 
 public class ReplicaManager {
 	
-	private static String REPLICA_NAME = "replica1";
 	
-	private static int FAILURE_COUNTER = 0;
+	/**
+	 * 		
+			Process replica3 = new Process(port of your replica that listens to RM);
+			Process replica2 = new Process(port of your replica that listens to RM);
+			Process replica1 = new Process(port of your replica that listens to RM);
+			Process rm1 = new Process(3010); //listening for FE and previous RM
+			Process rm11 = new Process(3011);//listening for the requested map (next rm replies to that)
+			Process rm2 = new Process(4010);
+			Process rm22 = new Process(4011);
+			Process rm3 = new Process(5010);
+			Process rm33 = new Process(5011);
+			
+			Process rmX = new Process(address, port);
+			Process rmXX = new Process(address, port);
+			
+			
+ 			ReplicaManager rmanagerX = new ReplicaManager("ReplicaX", rmX.port,rmXX.port, replicaX, rm(X+1), rm(X - 1));
+			ReplicaManager rmanager3 = new ReplicaManager("Replica3", rm3.port,rm33.port, replica3, rm1, rm22);
+			ReplicaManager rmanager2 = new ReplicaManager("Replica2", rm2.port,rm22.port, replica2, rm3, rm11);
+			ReplicaManager rmanager1 = new ReplicaManager("Replica1", rm1.port,rm11.port, replica1, rm2, rm33);
+			
+	 */
 	
-	private int LIS_PORT = 7011; //the only port listening to message
 	
-	private int requestPort = 30011; // port used to established reliable connection with next RM
-										//useful to listen to the reply from RM only(NECESSARY)
 	
-	private int forwardPort = 40011;  // port used to established reliable connection with next before(NOT NECESSARY)
 	
-	private int rm2listeningPort = 7012; //request map info from next RM
+	private String REPLICA_NAME;
+	private int FAILURE_COUNTER = 0;
+	private Reliable forward;
+	private Reliable request;
+	private Process nextRM;
+	private Process prevRM;
+	private Process replica;
 	
-	private int rm3listeningPort = 7013; //return map info to RM before
 	
-	private int REPLICA_PORT = 7021;
-	
-	private UDP udp;
-	
-	private UDP requestMapFromRM;
-	
-	private UDP fowardMapToRM;
-	
-	public ReplicaManager() {
-		try {
-			this.udp = new Reliable(LIS_PORT, REPLICA_PORT); //listen 7011 replica1 listen on 7021
-			this.requestMapFromRM = new Reliable(requestPort, rm2listeningPort);
-			this.fowardMapToRM = new Reliable(forwardPort, rm3listeningPort);
-			System.out.println("RM1 starts listening pn port " + LIS_PORT + "; ready to send msg to " + REPLICA_NAME + " on " + REPLICA_PORT);
-		} catch (SocketException | UnknownHostException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public ReplicaManager(String name, int local1, int local2, Process replica, Process nextRM, Process prevRM) throws SocketException {
+		this.REPLICA_NAME = name;
+		this.nextRM = nextRM;
+		this.prevRM = prevRM;
+		this.replica = replica;
+		
+		this.forward = new Reliable(new Unicast(local1, replica));
+		this.request = new Reliable(new Unicast(local2, nextRM));
+		
 	}
 	
-	public ReplicaManager(int LIS_PORT, int REPLICA_PORT,int requestPort, int rm2listeningPort, int rm3listeningPort) {
-		try {
-			this.LIS_PORT = LIS_PORT;
-			this.REPLICA_PORT = REPLICA_PORT;
-			this.requestPort = requestPort;
-			this.rm2listeningPort = rm2listeningPort;
-			this.rm3listeningPort = rm3listeningPort;
-			this.udp = new Reliable(LIS_PORT, REPLICA_PORT); //listen 6001 replica1 listen on 7001
-			this.requestMapFromRM = new Reliable(requestPort, rm2listeningPort);
-			this.fowardMapToRM = new Reliable(forwardPort, rm3listeningPort);
-			System.out.println("RM1 starts listening pn port " + LIS_PORT + "; ready to send msg to " + REPLICA_NAME + " on " + REPLICA_PORT);
-		} catch (SocketException | UnknownHostException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	
 	/**
 	 * listen on local port for receive the message from FE
 	 * 
 	 */
 	private String listen() throws IOException {
-		String msg = udp.listen();
+		String msg = this.forward.listen();
 		System.out.println(msg);
 		return msg;
 	}
 	
 	
 	private void parseMsg(String msg) throws IOException {
-		if(msg.contains("1") && msg.contains("failed")) {
+		if(msg.contains(REPLICA_NAME) && msg.contains("failed")) {
 			FAILURE_COUNTER++;
-			System.out.println("failure report recived");
+			System.out.println("failure report received");
 		}
-		if(msg.contains("crashed")) {
+		else if(msg.contains("crashed")) {
 			FAILURE_COUNTER++;
-			System.out.println("skeptical crash report recived");
+			System.out.println("skeptical crash report received");
 		}
-		if(msg.contains("requestmap")) {
+		else if(msg.contains("requestmap")) {
 			System.out.println("Getting map info from my own replica and forward it to requesting RM");
 			forwardMapInfoToRM(requestMapInfoFromReplica());
-		} else {
+		}/* else {
 			testingMethod(msg);
-		}
+		}*/
 	}
 	
 	public boolean handleUDPRequests() {
@@ -95,8 +91,9 @@ public class ReplicaManager {
 		try {
 			parseMsg(listen());
 			if(FAILURE_COUNTER >= 3) {
-				udp.send("recover");
-				System.out.println("Recieving map info from other RM and forward it to my own replica");
+				forward.changeRemote(replica);
+				forward.send("recover");
+				System.out.println("Receiving map info from other RM and forward it to my own replica");
 				//forwardMapInfoToReplica(requestMapInfoFromRM());
 				forwardMapInfoToReplica(requestMapInfoFromRM());
 				recovered = true;
@@ -115,18 +112,22 @@ public class ReplicaManager {
 	}
 	
 	public void forwardMapInfoToReplica(String map) throws IOException {
-		udp.send(map);
+		this.forward.changeRemote(replica);
+		this.forward.send(map);
 	}
 	
 	public void forwardMapInfoToRM(String map) throws IOException {
-		this.fowardMapToRM.send(map);
+		this.request.changeRemote(prevRM);
+		
+		this.request.send(map);
 	}
 	
 	public String requestMapInfoFromRM() {
 		try {
-			this.requestMapFromRM.send("requestmap");
+			this.request.changeRemote(nextRM);
+			this.request.send("requestmap");
 			System.out.println("sending requestmap to other RM");
-			String map = requestMapFromRM.listen(); // waiting for reply
+			String map = request.listen(); // waiting for reply
 			return map;
 		} catch (SocketException e) {
 			// TODO Auto-generated catch block
@@ -143,9 +144,10 @@ public class ReplicaManager {
 	
 	public String requestMapInfoFromReplica() {
 		try {
-			udp.send("requestmap");
+			forward.changeRemote(replica);
+			forward.send("requestmap");
 			System.out.println("sending requestmap to replica");
-			String map = udp.listen();
+			String map = forward.listen();
 			return map;
 		} catch (SocketException e) {
 			// TODO Auto-generated catch block
@@ -165,7 +167,7 @@ public class ReplicaManager {
 	
 	
 	//for unit test purpose only 
-	private void testingMethod(String request) {
+	/*private void testingMethod(String request) {
 		if(request.contains("requestMapInfoFromReplica")) {
 			System.out.println(requestMapInfoFromReplica());
 		}
@@ -175,7 +177,7 @@ public class ReplicaManager {
 			String test3 = "ER30000;Jack;Smith;88787;new@concordia.ca;P234,MR30001;aaa;ddd;12345;aaa@google.com;Pjkl;Joshua;LearnC++;US,!MR30000;Shunyu;Wang;44944;a@google.com;P234;Joshua;LearnJava;CA,!ER30001;ccc;zzz;67890;ccc@google.com;Pjkl,";
 			try {
 				udp.send("recover");
-				System.out.println("TEST, RM sends 'revover' to replica");
+				System.out.println("TEST, RM sends 'recover' to replica");
 				forwardMapInfoToReplica(test3);
 				System.out.println("replica is recoverd");
 			} catch (IOException e) {
@@ -194,5 +196,5 @@ public class ReplicaManager {
 				e.printStackTrace();
 			}
 		}
-	}
+	}*/
 }

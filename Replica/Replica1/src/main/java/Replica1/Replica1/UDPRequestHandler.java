@@ -2,16 +2,12 @@ package Replica1.Replica1;
 
 import java.io.IOException;
 import java.net.InetAddress;
-import java.net.InterfaceAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
-import org.hamcrest.core.IsInstanceOf;
 
 import dems.RecordApp.CARecordController;
 import dems.RecordApp.RecordApi;
@@ -106,22 +102,27 @@ public class UDPRequestHandler {
 		}
 	}
 	
-	@SuppressWarnings("unused")
 	private String listen() throws IOException {
 		byte[] reception = udp.receive();
-		Message data = Message.fromBytes(reception);
-		String msg = new String(data.message);
-		if(msg == null) {
-			msg = new String(reception);
-		} else {
-			Process p = data.process;
-			int port = p.port;
-			InetAddress addr = p.address;
-			if(!rebindFrontEnd) {
-				udp.changeRemote(new Process(addr, port));
-				rebindFrontEnd = true;
-			}
-		}
+		String msg = new String(reception);
+//		String msg = null;
+//		Message data = null;
+//		try {
+//			data = Message.fromBytes(reception);
+//			msg = new String(data.message);
+//		} catch (Exception e){
+//			if(msg == null) {
+//				msg = new String(reception);
+//			} else {
+//				Process p = data.process;
+//				int port = p.port;
+//				InetAddress addr = p.address;
+//				if(!rebindFrontEnd) {
+//					udp.changeRemote(new Process(addr, port));
+//					rebindFrontEnd = true;
+//				}
+//			}
+//		}
 		System.out.println(msg);
 		return msg;
 	}

@@ -50,13 +50,13 @@ public class Message implements Serializable{
 	}
 	
 	public static Message fromBytes(byte[] m) throws IOException{
-		ByteArrayInputStream input = new ByteArrayInputStream(m);
-		ObjectInputStream oi = new ObjectInputStream(input);
 		try {
+			ByteArrayInputStream input = new ByteArrayInputStream(m);
+			ObjectInputStream oi = new ObjectInputStream(input);
 			return(Message)oi.readObject();
 		} catch (ClassNotFoundException e) {
 			
-			e.printStackTrace();
+			//e.printStackTrace();
 			return null;
 		}
 	}

@@ -154,3 +154,57 @@ UK1001---2018-11-26:06-54-50: The following record is sucessfully transfer to CA
 US1001---2018-11-26:06-54-51: The following record is sucessfully transfer to CA server. This is a Manager Record with ID: MR10001 EmployeeId: 12345. First name: aaa, Last Name: ddd Located at: US, Mail is aaa@google.com. The project info is: Project{Pjkl Joshua LearnC++}
 CA1001---2018-11-26:06-54-52: Check the count of the local server. The total number is: 2
 CA1001---2018-11-26:06-54-52: Check the counts of record in each server. The total number is: CA 2 US 1 UK 1
+CA1001---2018-11-26:08-41-53: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10000 EmployeeId: 44944. First name: Shunyu, Last Name: Wang Located at: CA, Mail is a@google.com. The project info is: Project{P234 Joshua LearnJava}
+CA1001---2018-11-26:08-41-54: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10000 EmployeeId: 88787. First name: Jack, Last Name: Smith, Mail is jack@google.com. The project Id is: P234
+CA1001---2018-11-26:08-41-54: Check the count of the local server. The total number is: 2
+CA1001---2018-11-26:08-41-54: Check the counts of record in each server. The total number is: CA 2 US 0 UK 0
+CA1001---2018-11-26:08-41-55: In Record ER10000, fieldName {mailID} was changed to new@concordia.ca.
+CA1001---2018-11-26:08-41-55: The following record is sucessfully transfer to UK server. This is a Manager Record with ID: ER10000 EmployeeId: 88787. First name: Jack, Last Name: Smith, Mail is new@concordia.ca. The project Id is: P234
+CA1001---2018-11-26:08-41-56: The following record is sucessfully transfer to UK server. This is a Manager Record with ID: MR10000 EmployeeId: 44944. First name: Shunyu, Last Name: Wang Located at: CA, Mail is a@google.com. The project info is: Project{P234 Joshua LearnJava}
+CA1001---2018-11-26:08-41-57: Check the count of the local server. The total number is: 0
+CA1001---2018-11-26:08-41-57: Check the counts of record in each server. The total number is: CA 0 US 0 UK 2
+UK1001---2018-11-26:08-41-58: Check the count of the local server. The total number is: 2
+UK1001---2018-11-26:08-41-58: Check the counts of record in each server. The total number is: UK 2 US 0 CA 0
+CA1001---2018-11-26:08-41-58: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10001 EmployeeId: 12345. First name: aaa, Last Name: ddd Located at: US, Mail is aaa@google.com. The project info is: Project{Pjkl Joshua LearnC++}
+CA1001---2018-11-26:08-41-59: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10001 EmployeeId: 67890. First name: ccc, Last Name: zzz, Mail is ccc@google.com. The project Id is: Pjkl
+CA1001---2018-11-26:08-41-59: Check the count of the local server. The total number is: 2
+CA1001---2018-11-26:08-41-59: Check the counts of record in each server. The total number is: CA 2 US 0 UK 2
+CA1001---2018-11-26:08-42-00: The following record is sucessfully transfer to US server. This is a Manager Record with ID: ER10001 EmployeeId: 67890. First name: ccc, Last Name: zzz, Mail is ccc@google.com. The project Id is: Pjkl
+CA1001---2018-11-26:08-42-01: The following record is sucessfully transfer to US server. This is a Manager Record with ID: MR10001 EmployeeId: 12345. First name: aaa, Last Name: ddd Located at: US, Mail is aaa@google.com. The project info is: Project{Pjkl Joshua LearnC++}
+US1001---2018-11-26:08-42-02: Check the count of the local server. The total number is: 2
+US1001---2018-11-26:08-42-02: Check the counts of record in each server. The total number is: US 2 UK 2 CA 0
+UK1001---2018-11-26:08-42-02: The following record is sucessfully transfer to CA server. This is a Manager Record with ID: ER10000 EmployeeId: 88787. First name: Jack, Last Name: Smith, Mail is new@concordia.ca. The project Id is: P234
+US1001---2018-11-26:08-42-03: The following record is sucessfully transfer to CA server. This is a Manager Record with ID: MR10001 EmployeeId: 12345. First name: aaa, Last Name: ddd Located at: US, Mail is aaa@google.com. The project info is: Project{Pjkl Joshua LearnC++}
+CA1001---2018-11-26:08-42-04: Check the count of the local server. The total number is: 2
+CA1001---2018-11-26:08-42-04: Check the counts of record in each server. The total number is: CA 2 US 1 UK 1
+CA1001---2018-11-27:01-03-51: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10000 EmployeeId: 44944. First name: Shunyu, Last Name: Wang Located at: CA, Mail is a@google.com. The project info is: Project{P234 Joshua LearnJava}
+CA1001---2018-11-27:01-03-52: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10000 EmployeeId: 88787. First name: Jack, Last Name: Smith, Mail is jack@google.com. The project Id is: P234
+CA1001---2018-11-27:01-03-52: Check the count of the local server. The total number is: 2
+CA1001---2018-11-27:01-03-52: Check the counts of record in each server. The total number is: CA 2 US 0 UK 0
+CA1001---2018-11-27:01-03-53: In Record ER10000, fieldName {mailID} was changed to new@concordia.ca.
+CA1001---2018-11-27:01-03-53: The following record is sucessfully transfer to UK server. This is a Manager Record with ID: ER10000 EmployeeId: 88787. First name: Jack, Last Name: Smith, Mail is new@concordia.ca. The project Id is: P234
+CA1001---2018-11-27:01-03-54: The following record is sucessfully transfer to UK server. This is a Manager Record with ID: MR10000 EmployeeId: 44944. First name: Shunyu, Last Name: Wang Located at: CA, Mail is a@google.com. The project info is: Project{P234 Joshua LearnJava}
+CA1001---2018-11-27:01-03-55: Check the count of the local server. The total number is: 0
+CA1001---2018-11-27:01-03-55: Check the counts of record in each server. The total number is: CA 0 US 0 UK 2
+UK1001---2018-11-27:01-03-56: Check the count of the local server. The total number is: 2
+UK1001---2018-11-27:01-03-56: Check the counts of record in each server. The total number is: UK 2 US 0 CA 0
+CA1001---2018-11-27:01-03-56: The following record has been successfully created!
+------>This is a Manager Record with ID: MR10001 EmployeeId: 12345. First name: aaa, Last Name: ddd Located at: US, Mail is aaa@google.com. The project info is: Project{Pjkl Joshua LearnC++}
+CA1001---2018-11-27:01-03-57: The following record has been successfully created!
+------>This is a Manager Record with ID: ER10001 EmployeeId: 67890. First name: ccc, Last Name: zzz, Mail is ccc@google.com. The project Id is: Pjkl
+CA1001---2018-11-27:01-03-57: Check the count of the local server. The total number is: 2
+CA1001---2018-11-27:01-03-57: Check the counts of record in each server. The total number is: CA 2 US 0 UK 2
+CA1001---2018-11-27:01-03-58: The following record is sucessfully transfer to US server. This is a Manager Record with ID: ER10001 EmployeeId: 67890. First name: ccc, Last Name: zzz, Mail is ccc@google.com. The project Id is: Pjkl
+CA1001---2018-11-27:01-03-59: The following record is sucessfully transfer to US server. This is a Manager Record with ID: MR10001 EmployeeId: 12345. First name: aaa, Last Name: ddd Located at: US, Mail is aaa@google.com. The project info is: Project{Pjkl Joshua LearnC++}
+US1001---2018-11-27:01-04-00: Check the count of the local server. The total number is: 2
+US1001---2018-11-27:01-04-00: Check the counts of record in each server. The total number is: US 2 UK 2 CA 0
+UK1001---2018-11-27:01-04-00: The following record is sucessfully transfer to CA server. This is a Manager Record with ID: ER10000 EmployeeId: 88787. First name: Jack, Last Name: Smith, Mail is new@concordia.ca. The project Id is: P234
+US1001---2018-11-27:01-04-01: The following record is sucessfully transfer to CA server. This is a Manager Record with ID: MR10001 EmployeeId: 12345. First name: aaa, Last Name: ddd Located at: US, Mail is aaa@google.com. The project info is: Project{Pjkl Joshua LearnC++}
+CA1001---2018-11-27:01-04-02: Check the count of the local server. The total number is: 2
+CA1001---2018-11-27:01-04-02: Check the counts of record in each server. The total number is: CA 2 US 1 UK 1

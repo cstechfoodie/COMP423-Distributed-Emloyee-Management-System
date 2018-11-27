@@ -104,25 +104,17 @@ public class UDPRequestHandler {
 	
 	private String listen() throws IOException {
 		byte[] reception = udp.receive();
-		String msg = new String(reception);
-//		String msg = null;
-//		Message data = null;
-//		try {
-//			data = Message.fromBytes(reception);
-//			msg = new String(data.message);
-//		} catch (Exception e){
-//			if(msg == null) {
-//				msg = new String(reception);
-//			} else {
-//				Process p = data.process;
-//				int port = p.port;
-//				InetAddress addr = p.address;
-//				if(!rebindFrontEnd) {
-//					udp.changeRemote(new Process(addr, port));
-//					rebindFrontEnd = true;
-//				}
-//			}
-//		}
+		String msg = null;
+		Message data = null;
+		try {
+			data = Message.fromBytes(reception);
+			msg = new String(data.message);
+			Process p = data.process;
+		} catch (Exception e){
+			if(msg == null) {
+				msg = new String(reception);
+			} 
+		}
 		System.out.println(msg);
 		return msg;
 	}
@@ -392,12 +384,12 @@ public class UDPRequestHandler {
 		}
 		
 		String ukstr = " ";
-		if(caBuilder.length() > 0) {
+		if(ukBuilder.length() > 0) {
 			ukstr = ukBuilder.toString();
 		}
 		
 		String usstr = " ";
-		if(caBuilder.length() > 0) {
+		if(usBuilder.length() > 0) {
 			usstr = usBuilder.toString();
 		}
 
